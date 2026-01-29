@@ -10,7 +10,7 @@ import {
 
 const Home: React.FC = () => {
   return (
-    <div className="pt-20">
+    <div className="pt-20 overflow-x-hidden">
       <HeroSlider />
 
       {/* Modern Referans Marquee - Updated with Trendmax context */}
@@ -46,13 +46,13 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative flex">
-          <div className="animate-marquee flex items-center space-x-16 whitespace-nowrap py-4">
+          <div className="animate-marquee flex items-center space-x-10 whitespace-nowrap py-8">
             {CLIENT_LOGOS.map((logo, i) => (
-              <img key={`logo-1-${i}`} src={logo} alt="Referans" className="h-10 w-auto opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-pointer" />
+              <img key={`logo-1-${i}`} src={logo} alt="Referans" className="h-20 w-auto rounded-lg opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110 shadow-md hover:shadow-xl" />
             ))}
             {/* Double the logos for seamless scroll */}
             {CLIENT_LOGOS.map((logo, i) => (
-              <img key={`logo-2-${i}`} src={logo} alt="Referans" className="h-10 w-auto opacity-40 hover:opacity-100 grayscale hover:grayscale-0 transition-all cursor-pointer" />
+              <img key={`logo-2-${i}`} src={logo} alt="Referans" className="h-20 w-auto rounded-lg opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110 shadow-md hover:shadow-xl" />
             ))}
           </div>
         </div>

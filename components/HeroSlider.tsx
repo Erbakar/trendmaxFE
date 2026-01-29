@@ -40,7 +40,7 @@ const HeroSlider: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[600px] overflow-hidden">
+    <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] overflow-hidden">
       {SLIDES.map((slide, index) => (
         <div
           key={index}
@@ -53,20 +53,20 @@ const HeroSlider: React.FC = () => {
           </div>
 
           {/* Content */}
-          <div className="relative h-full max-w-7xl mx-auto px-4 flex items-center">
+          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center pb-16">
             <div className="max-w-2xl text-white">
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight animate-in slide-in-from-left duration-700">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 md:mb-6 leading-tight">
                 {slide.title}
               </h1>
-              <p className="text-lg md:text-xl text-orange-50 mb-8 opacity-90">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-orange-50 mb-6 md:mb-8 opacity-90 leading-relaxed">
                 {slide.subtitle}
               </p>
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-white text-orange-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition-all flex items-center group">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+                <button className="bg-white text-orange-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-gray-100 transition-all flex items-center justify-center group">
                   {slide.cta1}
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                <button className="bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/10 transition-all">
                   {slide.cta2}
                 </button>
               </div>
@@ -76,12 +76,12 @@ const HeroSlider: React.FC = () => {
       ))}
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
+      <div className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
         {SLIDES.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`h-2 transition-all duration-300 rounded-full ${index === current ? 'w-8 bg-white' : 'w-2 bg-white/50'}`}
+            className={`h-1.5 sm:h-2 transition-all duration-300 rounded-full ${index === current ? 'w-6 sm:w-8 bg-white' : 'w-1.5 sm:w-2 bg-white/50'}`}
           />
         ))}
       </div>
