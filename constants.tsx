@@ -1,0 +1,84 @@
+
+import React from 'react';
+import { 
+  ShoppingBag, 
+  Globe, 
+  Crown, 
+  Zap, 
+  Smartphone, 
+  Truck, 
+  Settings, 
+  Search, 
+  Palette, 
+  BarChart, 
+  HelpCircle, 
+  BookOpen, 
+  Video, 
+  Database 
+} from 'lucide-react';
+import { NavItem } from './types';
+
+export const NAVIGATION_MENU: NavItem[] = [
+  {
+    title: "E-Ticaret Çözümleri",
+    path: "/cozumler",
+    items: [
+      { title: "E-Ticaret Paketleri", path: "/cozumler/paketler", description: "Her ölçekteki işletme için uygun e-ticaret altyapısı.", icon: <ShoppingBag className="w-6 h-6 text-orange-600" /> },
+      { title: "Premium E-Ticaret Paketleri", path: "/cozumler/premium", description: "Büyük ölçekli işletmeler için yüksek performans.", icon: <Crown className="w-6 h-6 text-yellow-600" /> },
+      { title: "Özel E-Ticaret Çözümleri", path: "/cozumler/ozel", description: "İşletmenize özel butik geliştirme süreçleri.", icon: <Settings className="w-6 h-6 text-purple-600" /> },
+      { title: "E-İhracat Paketleri", path: "/cozumler/e-ihracat", description: "Sınırları aşın, dünyaya satış yapın.", icon: <Globe className="w-6 h-6 text-green-600" /> },
+    ]
+  },
+  {
+    title: "Fiyatlar",
+    path: "/fiyatlar",
+    items: [
+      { title: "Paket Karşılaştırma", path: "/fiyatlar/karsilastir", description: "Sizin için en doğru paketi seçin.", icon: <BarChart className="w-6 h-6 text-orange-500" /> },
+      { title: "Fiyat Detayları", path: "/fiyatlar/detaylar", description: "Şeffaf ve net fiyatlandırma politikası.", icon: <Zap className="w-6 h-6 text-orange-500" /> },
+      { title: "Teklif Al", path: "/fiyatlar/teklif", description: "Size özel projelendirme ve teklif süreci.", icon: <ShoppingBag className="w-6 h-6 text-orange-500" /> },
+    ]
+  },
+  {
+    title: "Premium Çözümler",
+    path: "/premium",
+    items: [
+      { title: "Native Mobil Uygulama", path: "/premium/mobil", description: "iOS & Android için yüksek performanslı uygulamalar.", icon: <Smartphone className="w-6 h-6 text-orange-600" /> },
+      { title: "Entegrasyon Çözümleri", path: "/premium/entegrasyon", description: "ERP, Kargo ve Ödeme sistemleri ile tam uyum.", icon: <Truck className="w-6 h-6 text-red-500" /> },
+      { title: "SEO Yönetim Araçları", path: "/premium/seo", description: "Arama motorlarında zirveye yerleşin.", icon: <Search className="w-6 h-6 text-cyan-500" /> },
+      { title: "Özel Temalar", path: "/premium/temalar", description: "Modern ve dönüşüm odaklı tasarım seçenekleri.", icon: <Palette className="w-6 h-6 text-pink-500" /> },
+    ]
+  },
+  {
+    title: "Referanslar",
+    path: "/referanslar",
+    items: [
+      { title: "Müşteri Logoları", path: "/referanslar/logolar", description: "Bize güvenen binlerce marka.", icon: <ShoppingBag className="w-6 h-6 text-gray-600" /> },
+      { title: "Vaka Çalışmaları", path: "/referanslar/vaka", description: "Başarıya giden yolda gerçek hikayeler.", icon: <BarChart className="w-6 h-6 text-orange-600" /> },
+      { title: "Başarı Hikayeleri", path: "/referanslar/hikayeler", description: "Müşterilerimizin büyüme serüvenleri.", icon: <Crown className="w-6 h-6 text-yellow-500" /> },
+    ]
+  },
+  {
+    title: "Kampüs",
+    path: "/kampus",
+    items: [
+      { title: "Blog", path: "/kampus/blog", description: "E-ticaret dünyasından en güncel haberler.", icon: <BookOpen className="w-6 h-6 text-orange-600" /> },
+      { title: "Video Eğitimler", path: "/kampus/video", description: "Adım adım e-ticaret öğrenin.", icon: <Video className="w-6 h-6 text-red-600" /> },
+      { title: "Bilgi Bankası", path: "/kampus/bilgi", description: "Teknik dökümanlar ve yardım merkezi.", icon: <Database className="w-6 h-6 text-gray-700" /> },
+    ]
+  }
+];
+
+export const CLIENT_LOGOS = [
+  "https://www.ticimax.com/Uploads/Referanslar/kigili-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/mavi-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/bebek-com-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/English-Home-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/Madame-Coco-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/Tudors-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/kigili-logo.png", // Duplicate for marquee
+  "https://www.ticimax.com/Uploads/Referanslar/mavi-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/bebek-com-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/English-Home-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/Madame-Coco-logo.png",
+  "https://www.ticimax.com/Uploads/Referanslar/Tudors-logo.png",
+];
