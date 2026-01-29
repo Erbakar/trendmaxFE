@@ -1,20 +1,31 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Trendmax E-Ticaret Çözümleri
 
-# Run and deploy your AI Studio app
+Yeni nesil e-ticaret altyapısı için modern web uygulaması.
 
-This contains everything you need to run your app locally.
+## Projeyi Çalıştırma
 
-View your app in AI Studio: https://ai.studio/apps/drive/1XC-B7coASTIPZSP5YPE4mqlePNwqfYot
+**Gereksinimler:** Node.js
 
-## Run Locally
+1. Bağımlılıkları yükleyin:
+   ```bash
+   npm install
+   ```
 
-**Prerequisites:**  Node.js
+2. Geliştirme sunucusunu başlatın:
+   ```bash
+   npm run dev
+   ```
 
+3. Tarayıcınızda `http://localhost:3000` adresini açın
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Build
+
+Production build oluşturmak için:
+```bash
+npm run build
+```
+
+Preview için:
+```bash
+npm run preview
+```
