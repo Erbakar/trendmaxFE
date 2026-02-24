@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Zap, Shield, BarChart3, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const EticaretPaketleri: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -17,6 +18,7 @@ const EticaretPaketleri: React.FC = () => {
         ]}
         icon={ShoppingBag}
         badge="E-Ticaret Çözümü"
+        image={HERO_IMAGES.ecommerce}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">

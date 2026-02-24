@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Palette, Layout, Sparkles, Smartphone, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const Temalar: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -24,6 +25,7 @@ const Temalar: React.FC = () => {
           { label: 'Özel Temalar' },
         ]}
         icon={Palette}
+        image={HERO_IMAGES.design}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">

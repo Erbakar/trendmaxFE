@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, TrendingUp, BarChart3, FileText, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const SEO: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -16,6 +17,7 @@ const SEO: React.FC = () => {
           { label: 'SEO Yönetim Araçları' },
         ]}
         icon={Search}
+        image={HERO_IMAGES.seo}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">

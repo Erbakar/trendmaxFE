@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Crown, Settings, Globe, ArrowRight, Zap } from 'lucide-react';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const cozumlerItems = [
   { title: 'E-Ticaret Paketleri', path: '/cozumler/paketler', desc: 'Her ölçekteki işletme için uygun e-ticaret altyapısı.', icon: ShoppingBag },
@@ -12,9 +13,13 @@ const cozumlerItems = [
 const CozumlerLanding: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/20 via-transparent to-transparent" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-[400px] flex items-center">
+        <div className="absolute inset-0 z-0">
+          <img src={HERO_IMAGES.ecommerce} alt="" className="w-full h-full object-cover opacity-40" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/70 z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/20 via-transparent to-transparent z-[1]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
           <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-8 uppercase tracking-widest">
             <Link to="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
             <span>/</span>

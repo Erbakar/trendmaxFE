@@ -42,11 +42,7 @@ export const NAVIGATION_MENU: NavItem[] = [
   {
     title: "Referanslar",
     path: "/referanslar",
-    items: [
-      { title: "Müşteri Logoları", path: "/referanslar/logolar", description: "Bize güvenen binlerce marka.", icon: <ShoppingBag className="w-6 h-6 text-gray-600" /> },
-      { title: "Vaka Çalışmaları", path: "/referanslar/vaka", description: "Başarıya giden yolda gerçek hikayeler.", icon: <BarChart className="w-6 h-6 text-orange-600" /> },
-      { title: "Başarı Hikayeleri", path: "/referanslar/hikayeler", description: "Müşterilerimizin büyüme serüvenleri.", icon: <Crown className="w-6 h-6 text-yellow-500" /> },
-    ]
+
   },
   {
     title: "Kampüs",

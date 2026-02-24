@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Globe, Truck, CreditCard, Languages, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const EIhracat: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -17,6 +18,7 @@ const EIhracat: React.FC = () => {
         ]}
         icon={Globe}
         badge="E-Ticaret Çözümü"
+        image={HERO_IMAGES.export}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Smartphone, Zap, Shield, Bell, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const MobilUygulama: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -16,6 +17,7 @@ const MobilUygulama: React.FC = () => {
           { label: 'Native Mobil Uygulama' },
         ]}
         icon={Smartphone}
+        image={HERO_IMAGES.mobile}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">

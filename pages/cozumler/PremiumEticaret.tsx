@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Crown, Zap, Users, BarChart3, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const PremiumEticaret: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -17,6 +18,7 @@ const PremiumEticaret: React.FC = () => {
         ]}
         icon={Crown}
         badge="E-Ticaret Çözümü"
+        image={HERO_IMAGES.premium}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">

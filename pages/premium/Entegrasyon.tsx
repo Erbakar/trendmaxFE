@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, CreditCard, BarChart3, Package, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
+import { HERO_IMAGES } from '../../data/heroImages';
 
 const Entegrasyon: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
@@ -28,6 +29,7 @@ const Entegrasyon: React.FC = () => {
           { label: 'Entegrasyon Çözümleri' },
         ]}
         icon={Truck}
+        image={HERO_IMAGES.integration}
       />
 
       <section id="icerik" className="py-20 bg-gray-50">
