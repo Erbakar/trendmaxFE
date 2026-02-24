@@ -19,6 +19,7 @@ import EticaretPaketleri from './pages/cozumler/EticaretPaketleri';
 import PremiumEticaret from './pages/cozumler/PremiumEticaret';
 import OzelCozumler from './pages/cozumler/OzelCozumler';
 import EIhracat from './pages/cozumler/EIhracat';
+import Referanslar from './pages/Referanslar';
 
 const App: React.FC = () => {
   return (
@@ -42,6 +43,7 @@ const App: React.FC = () => {
             <Route path="/premium/entegrasyon" element={<Entegrasyon />} />
             <Route path="/premium/seo" element={<SEO />} />
             <Route path="/premium/temalar" element={<Temalar />} />
+            <Route path="/referanslar" element={<Referanslar />} />
             <Route path="/:category" element={<DynamicPage />} />
             <Route path="/:category/:subpage" element={<DynamicPage />} />
           </Routes>
