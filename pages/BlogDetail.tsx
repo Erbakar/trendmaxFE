@@ -23,15 +23,15 @@ const BlogDetail: React.FC = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      {/* Hero */}
+      {/* Hero with featured image */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0">
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-slate-900/40" />
         </div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
           <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-6 uppercase tracking-widest">
@@ -71,6 +71,14 @@ const BlogDetail: React.FC = () => {
       {/* Content */}
       <article className="py-16 lg:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Featured image */}
+          <div className="rounded-2xl overflow-hidden shadow-xl mb-12 -mt-8 relative z-10 border-4 border-white">
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full h-auto max-h-[400px] object-cover"
+            />
+          </div>
           <div
             className="blog-content text-gray-600 leading-relaxed [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:mt-8 [&_h3]:mb-4 [&_p]:mb-4 [&_ul]:my-6 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:my-1"
             dangerouslySetInnerHTML={{ __html: post.content }}
