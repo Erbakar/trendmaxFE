@@ -9,6 +9,11 @@ import SSS from './pages/SSS';
 import Paketler from './pages/Paketler';
 import Kampus from './pages/Kampus';
 import BlogDetail from './pages/BlogDetail';
+import PremiumLanding from './pages/premium/PremiumLanding';
+import MobilUygulama from './pages/premium/MobilUygulama';
+import Entegrasyon from './pages/premium/Entegrasyon';
+import SEO from './pages/premium/SEO';
+import Temalar from './pages/premium/Temalar';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +27,11 @@ const App: React.FC = () => {
             <Route path="/fiyatlar" element={<Paketler />} />
             <Route path="/kampus" element={<Kampus />} />
             <Route path="/kampus/:slug" element={<BlogDetail />} />
+            <Route path="/premium" element={<PremiumLanding />} />
+            <Route path="/premium/mobil" element={<MobilUygulama />} />
+            <Route path="/premium/entegrasyon" element={<Entegrasyon />} />
+            <Route path="/premium/seo" element={<SEO />} />
+            <Route path="/premium/temalar" element={<Temalar />} />
             <Route path="/:category" element={<DynamicPage />} />
             <Route path="/:category/:subpage" element={<DynamicPage />} />
           </Routes>
