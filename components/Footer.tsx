@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, TrendingUp } from 'lucide-react';
 import { NAVIGATION_MENU } from '../constants';
 
@@ -7,7 +8,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-slate-950 text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
           {/* Brand Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-8">
@@ -36,11 +37,36 @@ const Footer: React.FC = () => {
             <div key={menu.title}>
               <h4 className="font-bold text-lg mb-8 text-white">{menu.title}</h4>
               <ul className="space-y-4">
-                {menu.items?.map((item) => (
-                  <li key={item.title}>
-                    <a href={`#${item.path}`} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{item.title}</a>
+                {menu.items?.length ? (
+                  menu.items.map((item) => (
+                    <li key={item.title}>
+                      <Link to={item.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{item.title}</Link>
+                    </li>
+                  ))
+                ) : (
+                  <li>
+                    <Link to={menu.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{menu.title}</Link>
                   </li>
-                ))}
+                )}
+              </ul>
+            </div>
+          ))}
+          {/* Kampüs */}
+          {NAVIGATION_MENU.filter((m) => m.title === "Kampüs").map((menu) => (
+            <div key={menu.title}>
+              <h4 className="font-bold text-lg mb-8 text-white">{menu.title}</h4>
+              <ul className="space-y-4">
+                {menu.items?.length ? (
+                  menu.items.map((item) => (
+                    <li key={item.title}>
+                      <Link to={item.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{item.title}</Link>
+                    </li>
+                  ))
+                ) : (
+                  <li>
+                    <Link to={menu.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{menu.title}</Link>
+                  </li>
+                )}
               </ul>
             </div>
           ))}
@@ -79,7 +105,8 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-slate-900 text-slate-600 text-xs font-bold gap-4">
           <p>© 2024 Trendmax Bilişim Teknolojileri A.Ş. Tüm Hakları Saklıdır.</p>
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 flex-wrap gap-2">
+            <Link to="/sss" className="hover:text-orange-500">SSS</Link>
             <a href="#" className="hover:text-orange-500">Kullanım Koşulları</a>
             <a href="#" className="hover:text-orange-500">KVKK Aydınlatma Metni</a>
             <a href="#" className="hover:text-orange-500">Çerez Politikası</a>

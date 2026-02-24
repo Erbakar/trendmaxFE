@@ -10,11 +10,7 @@ import {
   Settings, 
   Search, 
   Palette, 
-  BarChart, 
-  HelpCircle, 
-  BookOpen, 
-  Video, 
-  Database 
+  BarChart 
 } from 'lucide-react';
 import { NavItem } from './types';
 
@@ -32,11 +28,6 @@ export const NAVIGATION_MENU: NavItem[] = [
   {
     title: "Fiyatlar",
     path: "/fiyatlar",
-    items: [
-      { title: "Paket Karşılaştırma", path: "/fiyatlar/karsilastir", description: "Sizin için en doğru paketi seçin.", icon: <BarChart className="w-6 h-6 text-orange-500" /> },
-      { title: "Fiyat Detayları", path: "/fiyatlar/detaylar", description: "Şeffaf ve net fiyatlandırma politikası.", icon: <Zap className="w-6 h-6 text-orange-500" /> },
-      { title: "Teklif Al", path: "/fiyatlar/teklif", description: "Size özel projelendirme ve teklif süreci.", icon: <ShoppingBag className="w-6 h-6 text-orange-500" /> },
-    ]
   },
   {
     title: "Premium Çözümler",
@@ -60,11 +51,6 @@ export const NAVIGATION_MENU: NavItem[] = [
   {
     title: "Kampüs",
     path: "/kampus",
-    items: [
-      { title: "Blog", path: "/kampus/blog", description: "E-ticaret dünyasından en güncel haberler.", icon: <BookOpen className="w-6 h-6 text-orange-600" /> },
-      { title: "Video Eğitimler", path: "/kampus/video", description: "Adım adım e-ticaret öğrenin.", icon: <Video className="w-6 h-6 text-red-600" /> },
-      { title: "Bilgi Bankası", path: "/kampus/bilgi", description: "Teknik dökümanlar ve yardım merkezi.", icon: <Database className="w-6 h-6 text-gray-700" /> },
-    ]
   }
 ];
 
