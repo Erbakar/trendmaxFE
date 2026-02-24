@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
-import { Calendar, Clock, ArrowLeft, User } from 'lucide-react';
-import { getPostBySlug } from '../data/blogPosts';
+import { Calendar, Clock, ArrowLeft, User, ArrowRight } from 'lucide-react';
+import { getPostBySlug, getRelatedPosts } from '../data/blogPosts';
 
 const formatDate = (dateStr: string) => {
   const date = new Date(dateStr);
@@ -94,6 +94,47 @@ const BlogDetail: React.FC = () => {
           </div>
         </div>
       </article>
+
+      {/* Related Posts */}
+      <section className="py-16 lg:py-20 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-10">
+            İlgili Yazılar
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {getRelatedPosts(post.slug).map((related) => (
+              <article
+                key={related.id}
+                className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-orange-100 transition-all duration-300"
+              >
+                <Link to={`/kampus/${related.slug}`} className="block">
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={related.image}
+                      alt={related.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-4 lg:p-5">
+                    <span className="inline-block text-xs font-bold text-orange-600 uppercase tracking-wider mb-2">
+                      {related.category}
+                    </span>
+                    <h3 className="font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors line-clamp-2 text-sm lg:text-base">
+                      {related.title}
+                    </h3>
+                    <div className="flex items-center justify-between text-xs text-gray-400">
+                      <span>{formatDate(related.date)}</span>
+                      <span className="flex items-center gap-1 text-orange-600 font-semibold group-hover:gap-2 transition-all">
+                        Oku <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-16 bg-white border-t border-gray-100">
