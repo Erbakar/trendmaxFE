@@ -14,6 +14,11 @@ import MobilUygulama from './pages/premium/MobilUygulama';
 import Entegrasyon from './pages/premium/Entegrasyon';
 import SEO from './pages/premium/SEO';
 import Temalar from './pages/premium/Temalar';
+import CozumlerLanding from './pages/cozumler/CozumlerLanding';
+import EticaretPaketleri from './pages/cozumler/EticaretPaketleri';
+import PremiumEticaret from './pages/cozumler/PremiumEticaret';
+import OzelCozumler from './pages/cozumler/OzelCozumler';
+import EIhracat from './pages/cozumler/EIhracat';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +32,11 @@ const App: React.FC = () => {
             <Route path="/fiyatlar" element={<Paketler />} />
             <Route path="/kampus" element={<Kampus />} />
             <Route path="/kampus/:slug" element={<BlogDetail />} />
+            <Route path="/cozumler" element={<CozumlerLanding />} />
+            <Route path="/cozumler/paketler" element={<EticaretPaketleri />} />
+            <Route path="/cozumler/premium" element={<PremiumEticaret />} />
+            <Route path="/cozumler/ozel" element={<OzelCozumler />} />
+            <Route path="/cozumler/e-ihracat" element={<EIhracat />} />
             <Route path="/premium" element={<PremiumLanding />} />
             <Route path="/premium/mobil" element={<MobilUygulama />} />
             <Route path="/premium/entegrasyon" element={<Entegrasyon />} />
