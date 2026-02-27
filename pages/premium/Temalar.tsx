@@ -8,11 +8,48 @@ const Temalar: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const themes = [
-    { name: 'Minimalist', style: 'Sade, odaklı, dönüşüm odaklı', color: 'from-gray-100 to-gray-200' },
-    { name: 'Lüks', style: 'Premium his, büyük görseller, animasyonlar', color: 'from-amber-100 to-amber-200' },
-    { name: 'Modern Tech', style: 'Koyu mod, neon vurgular, futuristik', color: 'from-slate-800 to-slate-900' },
-    { name: 'Doğal', style: 'Organik renkler, yumuşak geçişler', color: 'from-green-100 to-emerald-200' },
-    { name: 'Boutique', style: 'Özel tasarım, marka odaklı', color: 'from-rose-100 to-pink-200' },
+    {
+      name: 'Soft',
+      style: 'Minimal ve profesyonel tasarım. Dikkat dağıtmayan arayüz ile müşterilerinizi direkt ürüne odaklayın. Dönüşüm oranları için optimize edilmiş kart yapısı ve hızlı sepete ekleme akışı. Güven veren görünüm ile satışları artırın.',
+      color: 'from-gray-100 to-gray-200',
+      image: '/theme-images/soft.png',
+    },
+    {
+      name: 'Default',
+      style: 'Hepsi bir arada, klasik ve güvenilir tema. Ürün odaklı yerleşim ile sepet ve ödeme süreçlerinde kayıpları minimize eder. SEO dostu, mobil uyumlu. Her sektör için hızlı kurulum ve yüksek dönüşüm.',
+      color: 'from-slate-100 to-slate-200',
+      image: '/theme-images/default.png',
+    },
+    {
+      name: 'Mobilya',
+      style: 'Ev ve mobilya mağazaları için özel tasarım. Geniş ürün görselleri, hızlı filtreleme ve karşılaştırma. Ölçü ve detay bilgileri vurgulu. Satın alma kararını hızlandıran, güven veren yerleşim ile satışları artırın.',
+      color: 'from-amber-50 to-amber-100',
+      image: '/theme-images/mobilya.png',
+    },
+    {
+      name: 'Petshop',
+      style: 'Evcil hayvan mağazaları için sıcak ve dost canlısı tasarım. Kategori bazlı gezinme, hızlı ürün bulma. Marka hissi ve ürün fotoğrafları öne çıkar. Sadık müşteri odaklı deneyim ile tekrar satın almayı teşvik eder.',
+      color: 'from-orange-50 to-amber-50',
+      image: '/theme-images/petshop.png',
+    },
+    {
+      name: 'Telefon',
+      style: 'Mobil ve teknoloji mağazaları için modern tasarım. Özellikler ve teknik detaylar net sunulur. Karşılaştırma tabloları ve hızlı satın alma akışı. Teknolojiye ilgi duyan hedef kitle için dönüşüm odaklı yerleşim.',
+      color: 'from-slate-800 to-slate-900',
+      image: '/theme-images/telefon.png',
+    },
+    {
+      name: 'Butik',
+      style: 'Şık ve özel ürün mağazaları için premium tasarım. Marka kimliğini öne çıkaran, lüks his veren arayüz. Ürün hikayeleri ve detaylar vurgulu. Premium müşteri deneyimi ile yüksek sepet ortalaması hedefler.',
+      color: 'from-rose-100 to-pink-200',
+      image: '/theme-images/butik.png',
+    },
+    {
+      name: 'Aqua',
+      style: 'Taze, dinamik ve profesyonel görünüm. Kozmetik, spa, sıvı ürünler veya su ile ilgili sektörler için ideal. Temiz ve güven veren tasarım. Müşteri güvenini artıran, satış odaklı yerleşim ile dönüşüm oranlarını yükseltin.',
+      color: 'from-cyan-50 to-blue-100',
+      image: '/theme-images/aqua.png',
+    },
   ];
 
   return (
@@ -45,8 +82,12 @@ const Temalar: React.FC = () => {
                 key={i}
                 className="group bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all"
               >
-                <div className={`h-40 bg-gradient-to-br ${theme.color} flex items-center justify-center`}>
-                  <Layout className="w-16 h-16 text-gray-400 group-hover:scale-110 transition-transform" />
+                <div className={`h-40 bg-gradient-to-br ${theme.color} flex items-center justify-center overflow-hidden`}>
+                  {theme.image ? (
+                    <img src={theme.image} alt={theme.name} className="w-full h-full object-cover" />
+                  ) : (
+                    <Layout className="w-16 h-16 text-gray-400 group-hover:scale-110 transition-transform" />
+                  )}
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{theme.name}</h3>
