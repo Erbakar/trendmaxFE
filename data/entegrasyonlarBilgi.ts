@@ -95,7 +95,7 @@ export const ENTEGRASYON_BILGI_SECTIONS: EntegrasyonBilgiSection[] = [
       'FBA veya kendi kargoladığınız model fark etmeksizin sipariş ve iade süreçleri panelinizde izlenir, muhasebe ve ERP çıktılarıyla uyumlu hale getirilebilir.',
     ],
     imageUrl:
-      'https://images.unsplash.com/photo-1523474253046-8cd2748b5d62?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Küresel ticaret',
     accentClass: 'from-amber-500 to-orange-700',
     icon: Globe,
@@ -230,7 +230,7 @@ export const ENTEGRASYON_BILGI_SECTIONS: EntegrasyonBilgiSection[] = [
       'Tekrarlayan ödeme ve abonelik modelleri desteklenerek üyelik ve hizmet satışları kolaylaştırılabilir.',
     ],
     imageUrl:
-      'https://images.unsplash.com/photo-1556742111-a301067d7105?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=800&q=80',
     imageAlt: 'Online ödeme',
     accentClass: 'from-cyan-600 to-blue-700',
     icon: Wallet,

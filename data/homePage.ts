@@ -2,9 +2,9 @@
 export const DEMO_TEMA_IMAGES = [
   'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&h=250&q=80',
   'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1556742111-a301067d7105?auto=format&fit=crop&w=400&h=250&q=80',
+  'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=400&h=250&q=80',
   'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1556742044-3c52e6a827ce?auto=format&fit=crop&w=400&h=250&q=80',
+  'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=400&h=250&q=80',
   'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=400&h=250&q=80',
 ];
 
