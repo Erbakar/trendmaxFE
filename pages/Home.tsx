@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
-import { DEMO_TEMA_IMAGES, HOME_PACKAGES, ENTEGRASYON_LOGOS } from '../data/homePage';
+import { DEMO_TEMA_IMAGES, HOME_PACKAGES } from '../data/homePage';
+import HomeIntegrationShowcase from '../components/HomeIntegrationShowcase';
 import { YAZILIM_PACKAGES } from '../data/eticaretPaketOzellikleri';
 import SikcaSorulanSorularGrid from '../components/SikcaSorulanSorularGrid';
 import {
@@ -196,23 +197,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Yüzlerce sistem - Pazaryeri ve Kargo logoları */}
-      <section className="py-24 bg-white border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-black mb-12">Yüzlerce Sistemle Tam Entegre</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-            {ENTEGRASYON_LOGOS.map((int, i) => (
-              <div key={i} className="p-5 bg-gray-50 rounded-2xl hover:bg-orange-50 transition-colors border border-gray-100 flex flex-col items-center justify-center min-h-[100px]">
-                <span className="text-lg font-black text-gray-800">{int.name}</span>
-                <span className="text-xs font-semibold text-orange-600 uppercase tracking-wider mt-1">{int.category}</span>
-              </div>
-            ))}
-          </div>
-          <Link to="/entegrasyonlar" className="inline-flex items-center gap-2 mt-4 text-orange-600 font-bold hover:underline">
-            Tüm Entegrasyonları Gör <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+      <HomeIntegrationShowcase />
 
       {/* Success Stories / Testimonials */}
       <section className="py-24 bg-orange-50/30">

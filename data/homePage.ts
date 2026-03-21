@@ -16,18 +16,36 @@ export const HOME_PACKAGES = [
   { title: 'Trendyol Profesyonel Kurulum Paketi', price: '18.500', features: ['Hesap Açılışı', '2K En Çok Satanlar Listesi', 'Sipariş & Müşteri Yönetimi'], highlight: false },
 ];
 
-/** Entegrasyon logoları - pazaryeri ve kargo (isim + kategori) */
-export const ENTEGRASYON_LOGOS = [
-  { name: 'Trendyol', category: 'Pazaryeri' },
-  { name: 'Hepsiburada', category: 'Pazaryeri' },
-  { name: 'N11', category: 'Pazaryeri' },
-  { name: 'Gittigidiyor', category: 'Pazaryeri' },
-  { name: 'Amazon', category: 'Pazaryeri' },
-  { name: 'Çiçeksepeti', category: 'Pazaryeri' },
-  { name: 'Aras Kargo', category: 'Kargo' },
-  { name: 'Yurtiçi Kargo', category: 'Kargo' },
-  { name: 'MNG Kargo', category: 'Kargo' },
-  { name: 'PTT Kargo', category: 'Kargo' },
-  { name: 'Sürat Kargo', category: 'Kargo' },
-  { name: 'UPS', category: 'Kargo' },
+/** Pazaryeri / kargo — logo.clearbit.com/{domain} ile marka logoları (yüklenemezse isim gösterilir) */
+export type HomeIntegrationLogo = {
+  name: string;
+  category: 'Pazaryeri' | 'Kargo';
+  domain: string;
+  /** Varsa doğrudan kullanılır (ör. resmi SVG CDN); yoksa logo.clearbit.com/{domain} */
+  logoUrl?: string;
+};
+
+export const ENTEGRASYON_LOGOS: HomeIntegrationLogo[] = [
+  { name: 'Trendyol', category: 'Pazaryeri', domain: 'trendyol.com' },
+  { name: 'Hepsiburada', category: 'Pazaryeri', domain: 'hepsiburada.com' },
+  { name: 'N11', category: 'Pazaryeri', domain: 'n11.com' },
+  { name: 'GittiGidiyor', category: 'Pazaryeri', domain: 'gittigidiyor.com' },
+  {
+    name: 'Amazon',
+    category: 'Pazaryeri',
+    domain: 'amazon.com.tr',
+    logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@11/icons/amazon.svg',
+  },
+  { name: 'Çiçeksepeti', category: 'Pazaryeri', domain: 'ciceksepeti.com' },
+  { name: 'Aras Kargo', category: 'Kargo', domain: 'aras.com.tr' },
+  { name: 'Yurtiçi Kargo', category: 'Kargo', domain: 'yurticikargo.com' },
+  { name: 'MNG Kargo', category: 'Kargo', domain: 'mng.com.tr' },
+  { name: 'PTT Kargo', category: 'Kargo', domain: 'ptt.gov.tr' },
+  { name: 'Sürat Kargo', category: 'Kargo', domain: 'suratkargo.com.tr' },
+  {
+    name: 'UPS',
+    category: 'Kargo',
+    domain: 'ups.com',
+    logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@11/icons/ups.svg',
+  },
 ];

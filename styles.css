@@ -16,6 +16,36 @@
   animation-play-state: paused;
 }
 
+/* Ana sayfa — entegrasyon logo şeritleri */
+@keyframes marquee-integrations {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-integrations {
+  display: flex;
+  width: max-content;
+  animation: marquee-integrations 52s linear infinite;
+}
+
+.animate-marquee-integrations:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-integrations-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-integrations 64s linear infinite reverse;
+}
+
+.animate-marquee-integrations-reverse:hover {
+  animation-play-state: paused;
+}
+
 @keyframes float-soft {
   0%,
   100% {
