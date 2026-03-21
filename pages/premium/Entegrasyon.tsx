@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, CreditCard, BarChart3, Package, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Truck, CreditCard, BarChart3, Package, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
 import { HERO_IMAGES } from '../../data/heroImages';
+import SikcaSorulanSorularGrid from '../../components/SikcaSorulanSorularGrid';
 
 const Entegrasyon: React.FC = () => {
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
   const integrations = [
     { name: 'Trendyol', category: 'Pazaryeri', status: 'Aktif' },
     { name: 'Hepsiburada', category: 'Pazaryeri', status: 'Aktif' },
@@ -92,49 +91,27 @@ const Entegrasyon: React.FC = () => {
 
       <section className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-3xl font-black mb-8">Entegrasyon Süreci</h2>
-              <div className="space-y-8">
-                {[
-                  { step: '01', title: 'İhtiyaç Analizi', desc: 'Mevcut sistemleriniz ve iş akışlarınız analiz edilir.' },
-                  { step: '02', title: 'API Eşleştirme', desc: 'Hedef platformlarla teknik bağlantı kurulur.' },
-                  { step: '03', title: 'Test & Doğrulama', desc: 'Canlıya almadan önce kapsamlı test yapılır.' },
-                  { step: '04', title: 'Go-Live & Destek', desc: '7/24 teknik destek ile kesintisiz çalışma.' },
-                ].map((s, i) => (
-                  <div key={i} className="flex gap-6">
-                    <div className="text-4xl font-black text-orange-500/50">{s.step}</div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">{s.title}</h3>
-                      <p className="text-slate-400">{s.desc}</p>
-                    </div>
-                  </div>
-                ))}
+          <h2 className="text-3xl font-black mb-8">Entegrasyon Süreci</h2>
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl">
+            {[
+              { step: '01', title: 'İhtiyaç Analizi', desc: 'Mevcut sistemleriniz ve iş akışlarınız analiz edilir.' },
+              { step: '02', title: 'API Eşleştirme', desc: 'Hedef platformlarla teknik bağlantı kurulur.' },
+              { step: '03', title: 'Test & Doğrulama', desc: 'Canlıya almadan önce kapsamlı test yapılır.' },
+              { step: '04', title: 'Go-Live & Destek', desc: '7/24 teknik destek ile kesintisiz çalışma.' },
+            ].map((s, i) => (
+              <div key={i} className="flex gap-6">
+                <div className="text-4xl font-black text-orange-500/50">{s.step}</div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2">{s.title}</h3>
+                  <p className="text-slate-400">{s.desc}</p>
+                </div>
               </div>
-            </div>
-            <div>
-              <h2 className="text-3xl font-black mb-8">Sıkça Sorulan Sorular</h2>
-              <div className="space-y-4">
-                {[
-                  { q: 'Mevcut ERP sistemimle uyumlu mu?', a: 'Logo Tiger, Netsis, SAP ve özel yazılımlarla entegrasyon deneyimimiz var. Özel API gerektiren sistemler için analiz sonrası uygunluk belirlenir.' },
-                  { q: 'Entegrasyon maliyeti nedir?', a: 'Standart entegrasyonlar paket fiyatına dahildir. Özel geliştirme gerektiren sistemler için ayrı teklif sunulur.' },
-                ].map((faq, i) => (
-                  <div key={i} className="border border-slate-800 rounded-2xl overflow-hidden">
-                    <button
-                      onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                      className="w-full flex justify-between items-center p-6 text-left hover:bg-slate-800"
-                    >
-                      <span className="font-bold">{faq.q}</span>
-                      {activeFaq === i ? <ChevronUp className="text-orange-500" /> : <ChevronDown className="text-slate-500" />}
-                    </button>
-                    {activeFaq === i && <div className="px-6 pb-6 text-slate-400">{faq.a}</div>}
-                  </div>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      <SikcaSorulanSorularGrid introTitle="Sıkça Sorulan Sorular" />
 
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">

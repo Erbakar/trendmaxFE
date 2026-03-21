@@ -1,16 +1,10 @@
 
 import React from 'react';
-import { 
-  ShoppingBag, 
-  Globe, 
-  Crown, 
-  Zap, 
-  Smartphone, 
-  Truck, 
-  Settings, 
-  Search, 
-  Palette, 
-  BarChart 
+import {
+  ShoppingBag,
+  ShieldCheck,
+  Store,
+  Globe,
 } from 'lucide-react';
 import { NavItem } from './types';
 
@@ -20,9 +14,9 @@ export const NAVIGATION_MENU: NavItem[] = [
     path: "/cozumler",
     items: [
       { title: "E-Ticaret Paketleri", path: "/cozumler/paketler", description: "Her ölçekteki işletme için uygun e-ticaret altyapısı.", icon: <ShoppingBag className="w-6 h-6 text-orange-600" /> },
-      { title: "Premium E-Ticaret Paketleri", path: "/cozumler/premium", description: "Büyük ölçekli işletmeler için yüksek performans.", icon: <Crown className="w-6 h-6 text-yellow-600" /> },
-      { title: "Özel E-Ticaret Çözümleri", path: "/cozumler/ozel", description: "İşletmenize özel butik geliştirme süreçleri.", icon: <Settings className="w-6 h-6 text-purple-600" /> },
-      { title: "E-İhracat Paketleri", path: "/cozumler/e-ihracat", description: "Sınırları aşın, dünyaya satış yapın.", icon: <Globe className="w-6 h-6 text-green-600" /> },
+      { title: "Sıfır Risk E-Ticaret Paketi", path: "/cozumler/sifir-risk", description: "Şirket kurmadan e-ticaret yapın!", icon: <ShieldCheck className="w-6 h-6 text-green-600" /> },
+      { title: "Pazar Yeri Pro Expert", path: "/cozumler/pazar-yeri-pro", description: "Pazaryerlerinde 24 saatte 10.000+ ürün ile satışa başlayın.", icon: <Store className="w-6 h-6 text-orange-600" /> },
+      { title: "E-İhracat", path: "/cozumler/e-ihracat", description: "Satışa hazır ürünler ile Amazon ve Etsy Global'de yerinizi alın.", icon: <Globe className="w-6 h-6 text-green-600" /> },
     ]
   },
   {
@@ -30,19 +24,16 @@ export const NAVIGATION_MENU: NavItem[] = [
     path: "/fiyatlar",
   },
   {
-    title: "Premium Çözümler",
-    path: "/premium",
-    items: [
-      { title: "Native Mobil Uygulama", path: "/premium/mobil", description: "iOS & Android için yüksek performanslı uygulamalar.", icon: <Smartphone className="w-6 h-6 text-orange-600" /> },
-      { title: "Entegrasyon Çözümleri", path: "/premium/entegrasyon", description: "ERP, Kargo ve Ödeme sistemleri ile tam uyum.", icon: <Truck className="w-6 h-6 text-red-500" /> },
-      { title: "SEO Yönetim Araçları", path: "/premium/seo", description: "Arama motorlarında zirveye yerleşin.", icon: <Search className="w-6 h-6 text-cyan-500" /> },
-      { title: "Özel Temalar", path: "/premium/temalar", description: "Modern ve dönüşüm odaklı tasarım seçenekleri.", icon: <Palette className="w-6 h-6 text-pink-500" /> },
-    ]
+    title: "Entegrasyonlar",
+    path: "/entegrasyonlar",
   },
   {
-    title: "Referanslar",
-    path: "/referanslar",
-
+    title: "Stoksuz Satış",
+    path: "/stoksuz-satis",
+  },
+  {
+    title: "E-İhracat",
+    path: "/e-ihracat",
   },
   {
     title: "Kampüs",

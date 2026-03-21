@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Crown, Zap, Users, BarChart3, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Crown, Zap, Users, BarChart3, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
 import { HERO_IMAGES } from '../../data/heroImages';
+import SikcaSorulanSorularGrid from '../../components/SikcaSorulanSorularGrid';
 
 const PremiumEticaret: React.FC = () => {
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
   return (
     <div className="pt-20 min-h-screen bg-white">
       <AnimatedHero
@@ -68,25 +67,7 @@ const PremiumEticaret: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-black text-center mb-12">Premium SSS</h2>
-          <div className="space-y-4">
-            {[
-              { q: 'Premium paket kimler için uygun?', a: 'Aylık 10.000+ sipariş işleyen, çoklu marka yöneten veya özel sistem entegrasyonu gerektiren işletmeler için idealdir.' },
-              { q: 'Özel API entegrasyonu ne sunuyor?', a: 'Mevcut ERP, stok ve muhasebe sistemlerinizle REST/SOAP API üzerinden iki yönlü veri senkronizasyonu sağlanır.' },
-            ].map((faq, i) => (
-              <div key={i} className="border border-slate-800 rounded-2xl overflow-hidden">
-                <button onClick={() => setActiveFaq(activeFaq === i ? null : i)} className="w-full flex justify-between items-center p-6 text-left hover:bg-slate-800">
-                  <span className="font-bold">{faq.q}</span>
-                  {activeFaq === i ? <ChevronUp className="text-orange-500" /> : <ChevronDown className="text-slate-500" />}
-                </button>
-                {activeFaq === i && <div className="px-6 pb-6 text-slate-400">{faq.a}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SikcaSorulanSorularGrid introTitle="Sıkça Sorulan Sorular" />
 
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">

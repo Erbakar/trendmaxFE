@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Settings, Layout, Code, Headphones, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Settings, Layout, Code, Headphones, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
 import { HERO_IMAGES } from '../../data/heroImages';
+import SikcaSorulanSorularGrid from '../../components/SikcaSorulanSorularGrid';
 
 const OzelCozumler: React.FC = () => {
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
   return (
     <div className="pt-20 min-h-screen bg-white">
       <AnimatedHero
@@ -91,25 +90,7 @@ const OzelCozumler: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-black text-center mb-12">Özel Çözüm SSS</h2>
-          <div className="space-y-4">
-            {[
-              { q: 'Proje süresi ne kadar?', a: 'Proje kapsamına göre değişir. Basit özelleştirmeler 4-6 hafta, kapsamlı platformlar 3-6 ay sürebilir.' },
-              { q: 'Maliyet nasıl belirlenir?', a: 'İhtiyaç analizi sonrası sabit fiyat veya Agile sprint bazlı teklif sunuyoruz. Şeffaf fiyatlandırma garantisi.' },
-            ].map((faq, i) => (
-              <div key={i} className="border border-slate-800 rounded-2xl overflow-hidden">
-                <button onClick={() => setActiveFaq(activeFaq === i ? null : i)} className="w-full flex justify-between items-center p-6 text-left hover:bg-slate-800">
-                  <span className="font-bold">{faq.q}</span>
-                  {activeFaq === i ? <ChevronUp className="text-orange-500" /> : <ChevronDown className="text-slate-500" />}
-                </button>
-                {activeFaq === i && <div className="px-6 pb-6 text-slate-400">{faq.a}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SikcaSorulanSorularGrid introTitle="Sıkça Sorulan Sorular" />
 
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">

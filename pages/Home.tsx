@@ -1,12 +1,53 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
-import { CLIENT_LOGOS } from '../constants';
-import { 
-  ShoppingBag, Zap, Shield, Rocket, Smartphone, Globe, 
-  BarChart, Users, CheckCircle, ArrowRight, Star, 
-  CreditCard, Truck, RefreshCcw, Search
+import { DEMO_TEMA_IMAGES, HOME_PACKAGES, ENTEGRASYON_LOGOS } from '../data/homePage';
+import { YAZILIM_PACKAGES } from '../data/eticaretPaketOzellikleri';
+import SikcaSorulanSorularGrid from '../components/SikcaSorulanSorularGrid';
+import {
+  Zap, Shield, Smartphone, Globe, CheckCircle, ArrowRight, Star,
 } from 'lucide-react';
+
+/** Sizi Arayalım - ad, telefon, e-posta, mesaj formu */
+function SiziArayalimForm() {
+  const [sent, setSent] = useState(false);
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+  };
+  if (sent) {
+    return (
+      <div className="bg-orange-50 border border-orange-200 rounded-2xl p-8 text-center">
+        <CheckCircle className="w-12 h-12 text-orange-600 mx-auto mb-4" />
+        <p className="font-bold text-gray-900">Talebiniz alındı. En kısa sürede sizinle iletişime geçeceğiz.</p>
+      </div>
+    );
+  }
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label className="block text-sm font-bold text-gray-700 mb-1">Ad Soyad</label>
+        <input type="text" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="Adınız Soyadınız" />
+      </div>
+      <div>
+        <label className="block text-sm font-bold text-gray-700 mb-1">Telefon</label>
+        <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="05XX XXX XX XX" />
+      </div>
+      <div>
+        <label className="block text-sm font-bold text-gray-700 mb-1">E-posta</label>
+        <input type="email" required className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500" placeholder="ornek@email.com" />
+      </div>
+      <div>
+        <label className="block text-sm font-bold text-gray-700 mb-1">Mesaj (isteğe bağlı)</label>
+        <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 resize-none" placeholder="Merak ettiklerinizi yazabilirsiniz..." />
+      </div>
+      <button type="submit" className="w-full py-4 bg-orange-600 text-white font-black rounded-xl hover:bg-orange-700 transition-colors">
+        Gönder
+      </button>
+    </form>
+  );
+}
 
 const Home: React.FC = () => {
   return (
@@ -46,13 +87,12 @@ const Home: React.FC = () => {
         </div>
 
         <div className="relative flex">
-          <div className="animate-marquee flex items-center space-x-10 whitespace-nowrap py-8">
-            {CLIENT_LOGOS.map((logo, i) => (
-              <img key={`logo-1-${i}`} src={logo} alt="Referans" className="h-20 w-auto rounded-lg opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110 shadow-md hover:shadow-xl" />
+          <div className="animate-marquee flex items-center space-x-8 whitespace-nowrap py-8">
+            {DEMO_TEMA_IMAGES.map((img, i) => (
+              <img key={`tema-1-${i}`} src={img} alt="Demo tema" className="h-36 w-auto rounded-xl object-cover opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100" />
             ))}
-            {/* Double the logos for seamless scroll */}
-            {CLIENT_LOGOS.map((logo, i) => (
-              <img key={`logo-2-${i}`} src={logo} alt="Referans" className="h-20 w-auto rounded-lg opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-110 shadow-md hover:shadow-xl" />
+            {DEMO_TEMA_IMAGES.map((img, i) => (
+              <img key={`tema-2-${i}`} src={img} alt="Demo tema" className="h-36 w-auto rounded-xl object-cover opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100" />
             ))}
           </div>
         </div>
@@ -71,7 +111,7 @@ const Home: React.FC = () => {
               <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Yıllık Sipariş</div>
             </div>
             <div>
-              <div className="text-4xl font-black text-orange-600 mb-2">15 Yıl</div>
+              <div className="text-4xl font-black text-orange-600 mb-2">21 Yıl</div>
               <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Sektör Tecrübesi</div>
             </div>
             <div>
@@ -133,58 +173,44 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Industry Solutions - More Corporate */}
+      {/* Sektörünüze Özel - Tema görüntüleri, tıklanınca temalar sayfasına */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black mb-4">Sektörünüze Özel Çözümler</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">Trendmax ile işinizin gereksinimlerini biliyor, her sektöre özel e-ticaret dinamikleri geliştiriyoruz.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Giyim & Moda", tags: "Beden Tablosu, Renk Kartelası", img: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=400&q=80" },
-              { title: "Gıda & Market", tags: "Teslimat Saatleri, Bölgesel Stok", img: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80" },
-              { title: "Elektronik", tags: "Seri No Takibi, Teknik Servis", img: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=400&q=80" },
-              { title: "B2B / Kurumsal", tags: "Cari Yönetimi, Bayi İndirimi", img: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&w=400&q=80" }
-            ].map((s, i) => (
-              <div key={i} className="group cursor-pointer">
-                <div className="overflow-hidden rounded-3xl relative h-64 mb-4">
-                  <img src={s.img} alt={s.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-                    <h3 className="text-white font-bold text-xl">{s.title}</h3>
-                    <p className="text-orange-300 text-sm font-medium">{s.tags}</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {DEMO_TEMA_IMAGES.slice(0, 4).map((img, i) => (
+              <Link key={i} to="/premium/temalar" className="group block">
+                <div className="overflow-hidden rounded-3xl relative h-56 mb-4 border border-gray-100 shadow-md hover:shadow-xl transition-all">
+                  <img src={img} alt={`Tema ${i + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
+                    <span className="text-white font-bold">Tema Önizleme</span>
+                    <span className="text-orange-300 text-sm">İncele →</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Integration Cloud Section */}
+      {/* Yüzlerce sistem - Pazaryeri ve Kargo logoları */}
       <section className="py-24 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-black mb-12">Yüzlerce Sistemle Tam Entegre</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {[
-              { icon: <CreditCard />, name: "Ödeme Sistemleri" },
-              { icon: <Truck />, name: "Kargo Firmaları" },
-              { icon: <RefreshCcw />, name: "ERP & Muhasebe" },
-              { icon: <ShoppingBag />, name: "Pazaryerleri" },
-              { icon: <Search />, name: "Arama Motorları" },
-              { icon: <Star />, name: "Puan & Sadakat" }
-            ].map((int, i) => (
-              <div key={i} className="p-6 bg-gray-50 rounded-2xl hover:bg-orange-50 transition-colors border border-gray-100">
-                <div className="text-orange-600 flex justify-center mb-4">
-                  {React.cloneElement(int.icon as React.ReactElement, { className: 'w-8 h-8' })}
-                </div>
-                <div className="text-sm font-bold text-gray-700">{int.name}</div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
+            {ENTEGRASYON_LOGOS.map((int, i) => (
+              <div key={i} className="p-5 bg-gray-50 rounded-2xl hover:bg-orange-50 transition-colors border border-gray-100 flex flex-col items-center justify-center min-h-[100px]">
+                <span className="text-lg font-black text-gray-800">{int.name}</span>
+                <span className="text-xs font-semibold text-orange-600 uppercase tracking-wider mt-1">{int.category}</span>
               </div>
             ))}
           </div>
-          <button className="mt-12 text-orange-600 font-bold flex items-center mx-auto hover:underline">
-            Tüm Entegrasyonları Gör <ArrowRight className="ml-2 w-4 h-4" />
-          </button>
+          <Link to="/entegrasyonlar" className="inline-flex items-center gap-2 mt-4 text-orange-600 font-bold hover:underline">
+            Tüm Entegrasyonları Gör <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
@@ -224,68 +250,99 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Pricing Teaser */}
+      {/* Trendmax Paketlerimiz - Fiyatlar ile tutarlı: Yazılım (Basic/Plus/Extreme) + Eğitim & Stoksuz (4 paket) */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-black mb-4">Trendmax Paketlerimiz</h2>
             <p className="text-gray-500 text-lg">Her ihtiyaca uygun şeffaf fiyatlandırma.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Soft Paket", price: "4.999", color: "orange", features: ["100 Ürün", "Hazır Temalar", "Temel Raporlama"] },
-              { title: "Plus Paket", price: "9.999", color: "orange", features: ["1000 Ürün", "Pazaryeri Entegrasyonları", "Mobil Uyumlu Temalar"], highlight: true },
-              { title: "Special Paket", price: "19.999", color: "orange", features: ["Sınırsız Ürün", "E-İhracat Modülü", "Özel Tasarım Desteği"] }
-            ].map((pkg) => (
-              <div 
-                key={pkg.title} 
-                className={`bg-white rounded-[2.5rem] p-10 transition-transform hover:-translate-y-2 relative shadow-sm border border-gray-100 ${pkg.highlight ? 'ring-2 ring-orange-500 scale-105 shadow-xl' : ''}`}
-              >
-                {pkg.highlight && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">Popüler Seçim</span>}
-                <h3 className="text-2xl font-black mb-4">{pkg.title}</h3>
-                <div className="mb-6">
-                  <span className="text-5xl font-black text-gray-900">{pkg.price}</span>
-                  <span className="text-gray-500 font-bold"> TL /Yıl</span>
+
+          {/* E-Ticaret Yazılım Paketleri - xlsx ile aynı (Basic, Plus, Extreme) */}
+          <div className="mb-16">
+            <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">E-Ticaret Yazılım Paketleri</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {YAZILIM_PACKAGES.map((pkg) => (
+                <div
+                  key={pkg.id}
+                  className={`bg-gray-50 rounded-[2.5rem] p-8 transition-transform hover:-translate-y-2 relative shadow-sm border border-gray-100 ${pkg.highlight ? 'ring-2 ring-orange-500 shadow-xl' : ''}`}
+                >
+                  {pkg.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Popüler</span>}
+                  <h4 className="text-xl font-black text-gray-900 mb-3">{pkg.title}</h4>
+                  <div className="mb-4">
+                    <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
+                    <span className="text-gray-500 font-bold text-sm"> TL</span>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {pkg.features.slice(0, 3).map((f) => (
+                      <li key={f} className="flex items-center text-gray-700 text-sm font-medium">
+                        <CheckCircle className="w-4 h-4 text-orange-500 mr-2 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/fiyatlar" className={`block w-full py-4 rounded-2xl font-black text-center text-sm transition-all ${pkg.highlight ? 'bg-orange-600 text-white hover:bg-orange-700 shadow-lg shadow-orange-100' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    Satın Al
+                  </Link>
                 </div>
-                <ul className="space-y-4 mb-10">
-                  {pkg.features.map(f => (
-                    <li key={f} className="flex items-center text-gray-700 font-medium">
-                      <CheckCircle className="w-5 h-5 text-orange-500 mr-3" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-5 rounded-2xl font-black text-lg transition-all ${pkg.highlight ? 'bg-orange-600 text-white hover:bg-orange-700 shadow-lg shadow-orange-100' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
-                  Satın Al
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Eğitim & Stoksuz Paketleri - Fiyatlar sayfası ile aynı (4 paket) */}
+          <div>
+            <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">Eğitim & Stoksuz E-Ticaret Paketleri</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {HOME_PACKAGES.map((pkg, idx) => (
+                <div
+                  key={idx}
+                  className={`bg-gray-50 rounded-[2.5rem] p-8 transition-transform hover:-translate-y-2 relative shadow-sm border border-gray-100 ${pkg.highlight ? 'ring-2 ring-orange-500 shadow-xl' : ''}`}
+                >
+                  {pkg.highlight && <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-orange-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Popüler</span>}
+                  <h4 className="text-lg font-black text-gray-900 mb-3 line-clamp-2">{pkg.title}</h4>
+                  <div className="mb-4">
+                    <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
+                    <span className="text-gray-500 font-bold text-sm"> TL</span>
+                  </div>
+                  <ul className="space-y-2 mb-6">
+                    {pkg.features.slice(0, 3).map((f) => (
+                      <li key={f} className="flex items-center text-gray-700 text-sm font-medium">
+                        <CheckCircle className="w-4 h-4 text-orange-500 mr-2 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link to="/fiyatlar" className={`block w-full py-4 rounded-2xl font-black text-center text-sm transition-all ${pkg.highlight ? 'bg-orange-600 text-white hover:bg-orange-700 shadow-lg shadow-orange-100' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}>
+                    Satın Al
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Enhanced CTA - High Impact */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="bg-slate-900 rounded-[3rem] p-16 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-orange-600/20 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-orange-600/20 rounded-full blur-3xl"></div>
-            
-            <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">
-              E-Ticaret'te <span className="text-orange-500">Trendmax</span> ile Zirveye Çıkın
-            </h2>
-            <p className="text-xl text-slate-400 mb-12 max-w-3xl mx-auto font-medium">
-              Geleceği Trendmax ile inşa edin. 15 günlük ücretsiz deneme sürenizi hemen başlatın.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-6 relative z-10">
-              <button className="bg-orange-600 text-white px-12 py-5 rounded-full font-black text-xl hover:bg-orange-700 hover:scale-105 transition-all shadow-2xl shadow-orange-600/30">
-                Ücretsiz Denemeyi Başlat
-              </button>
-              <button className="bg-transparent border-2 border-slate-700 text-white px-12 py-5 rounded-full font-black text-xl hover:bg-white/5 transition-all">
-                Sunum İste
-              </button>
-            </div>
+      <SikcaSorulanSorularGrid
+        sectionClassName="py-24 bg-gray-50 border-y border-gray-100"
+        introTitle="Sıkça Sorulan Sorular"
+        introDescription="Merak ettiklerinizin yanıtları burada."
+        footer={
+          <div className="text-center">
+            <Link to="/sss" className="inline-flex items-center gap-2 text-orange-600 font-bold hover:underline">
+              Tüm SSS <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
+        }
+      />
+
+      {/* Sizi Arayalım Formu */}
+      <section className="py-20 bg-white">
+        <div className="max-w-2xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-black mb-4">Sizi Arayalım</h2>
+            <p className="text-gray-500">İletişim bilgilerinizi bırakın, sizinle en kısa sürede iletişime geçelim.</p>
+          </div>
+          <SiziArayalimForm />
         </div>
       </section>
     </div>

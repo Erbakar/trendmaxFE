@@ -1,11 +1,12 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { 
-  CheckCircle2, ArrowRight, HelpCircle, Zap, Shield, 
-  BarChart, Globe, Smartphone, Settings, Users, Star, 
-  X, ChevronDown, ChevronUp 
+import {
+  CheckCircle2, ArrowRight, HelpCircle, Zap, Shield,
+  BarChart, Globe, Smartphone, Settings, Users, Star,
+  X,
 } from 'lucide-react';
+import SikcaSorulanSorularGrid from '../components/SikcaSorulanSorularGrid';
 
 // Detaylı Paket Özellikleri Verisi
 const PACKAGE_FEATURES = [
@@ -21,7 +22,6 @@ const PACKAGE_FEATURES = [
 
 const DynamicPage: React.FC = () => {
   const { category, subpage } = useParams();
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const isPricingPage = category === 'fiyatlar';
 
@@ -175,38 +175,10 @@ const DynamicPage: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Section - High Authority */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-black mb-4">Sıkça Sorulan Sorular</h2>
-            <p className="text-slate-400">Aklınıza takılan tüm soruların kurumsal yanıtları.</p>
-          </div>
-          <div className="space-y-4">
-            {[
-              { q: "Kurulum süreci ne kadar sürer?", a: "Seçtiğiniz pakete bağlı olarak temel mağaza kurulumu 24 saat içinde tamamlanır. Özel entegrasyonlar için uzman ekibimiz bir takvim belirler." },
-              { q: "Verilerim güvende mi?", a: "Evet, tüm verileriniz Tier-4 standartlarındaki veri merkezlerimizde yedekli olarak saklanır ve SSL sertifikaları ile korunur." },
-              { q: "Mevcut sitemden Trendmax'e geçebilir miyim?", a: "Kesinlikle. Veri taşıma modüllerimizle ürün, kategori ve müşteri verilerinizi kayıpsız bir şekilde taşıyoruz." },
-              { q: "Teknik destek hizmeti ücretli mi?", a: "Hayır, tüm paketlerimizde 7/24 telefon ve ticket desteği yıllık abonelik bedeline dahildir." }
-            ].map((faq, i) => (
-              <div key={i} className="border border-slate-800 rounded-3xl overflow-hidden">
-                <button 
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                  className="w-full flex justify-between items-center p-8 text-left hover:bg-slate-800 transition-colors"
-                >
-                  <span className="text-lg font-bold">{faq.q}</span>
-                  {activeFaq === i ? <ChevronUp className="text-orange-500" /> : <ChevronDown className="text-slate-500" />}
-                </button>
-                {activeFaq === i && (
-                  <div className="p-8 pt-0 text-slate-400 leading-relaxed bg-slate-800/50">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SikcaSorulanSorularGrid
+        introTitle="Sıkça Sorulan Sorular"
+        introDescription="E-ticaret paketleri ve pazaryeri eğitimleri hakkında merak ettiklerinize buradan ulaşabilirsiniz."
+      />
 
       {/* Final CTA */}
       <section className="py-24 bg-white text-center">

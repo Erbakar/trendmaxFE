@@ -20,6 +20,10 @@ import PremiumEticaret from './pages/cozumler/PremiumEticaret';
 import OzelCozumler from './pages/cozumler/OzelCozumler';
 import EIhracat from './pages/cozumler/EIhracat';
 import Referanslar from './pages/Referanslar';
+import Entegrasyonlar from './pages/Entegrasyonlar';
+import StoksuzSatis from './pages/StoksuzSatis';
+import SifirRisk from './pages/cozumler/SifirRisk';
+import PazarYeriPro from './pages/cozumler/PazarYeriPro';
 
 const App: React.FC = () => {
   return (
@@ -38,6 +42,11 @@ const App: React.FC = () => {
             <Route path="/cozumler/premium" element={<PremiumEticaret />} />
             <Route path="/cozumler/ozel" element={<OzelCozumler />} />
             <Route path="/cozumler/e-ihracat" element={<EIhracat />} />
+            <Route path="/cozumler/sifir-risk" element={<SifirRisk />} />
+            <Route path="/cozumler/pazar-yeri-pro" element={<PazarYeriPro />} />
+            <Route path="/entegrasyonlar" element={<Entegrasyonlar />} />
+            <Route path="/stoksuz-satis" element={<StoksuzSatis />} />
+            <Route path="/e-ihracat" element={<EIhracat />} />
             <Route path="/premium" element={<PremiumLanding />} />
             <Route path="/premium/mobil" element={<MobilUygulama />} />
             <Route path="/premium/entegrasyon" element={<Entegrasyon />} />

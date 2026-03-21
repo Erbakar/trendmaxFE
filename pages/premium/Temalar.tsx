@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Palette, Layout, Sparkles, Smartphone, ArrowRight, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { Palette, Layout, Sparkles, Smartphone, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
 import { HERO_IMAGES } from '../../data/heroImages';
+import SikcaSorulanSorularGrid from '../../components/SikcaSorulanSorularGrid';
 
 const Temalar: React.FC = () => {
-  const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
   const themes = [
     { name: 'Minimalist', style: 'Sade, odaklı, dönüşüm odaklı', color: 'from-gray-100 to-gray-200' },
     { name: 'Lüks', style: 'Premium his, büyük görseller, animasyonlar', color: 'from-amber-100 to-amber-200' },
@@ -106,28 +105,7 @@ const Temalar: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-black text-center mb-12">Tema SSS</h2>
-          <div className="space-y-4">
-            {[
-              { q: 'Hazır tema mı yoksa özel tasarım mı tercih etmeliyim?', a: 'Bütçe ve süre kısıtınız varsa hazır temalar ideal. Marka kimliğiniz çok özelse ve benzersiz bir deneyim istiyorsanız özel tasarım öneririz. İkisi arasında kararsız kalanlar için yarı-özelleştirilebilir paketler sunuyoruz.' },
-              { q: 'Tema değişikliği mevcut verilerimi etkiler mi?', a: 'Hayır. Ürün, kategori ve sipariş verileriniz tema bağımsızdır. Tema değişikliği sadece görsel katmanı etkiler, verileriniz güvende kalır.' },
-            ].map((faq, i) => (
-              <div key={i} className="border border-slate-800 rounded-2xl overflow-hidden">
-                <button
-                  onClick={() => setActiveFaq(activeFaq === i ? null : i)}
-                  className="w-full flex justify-between items-center p-6 text-left hover:bg-slate-800"
-                >
-                  <span className="font-bold">{faq.q}</span>
-                  {activeFaq === i ? <ChevronUp className="text-orange-500" /> : <ChevronDown className="text-slate-500" />}
-                </button>
-                {activeFaq === i && <div className="px-6 pb-6 text-slate-400">{faq.a}</div>}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <SikcaSorulanSorularGrid introTitle="Sıkça Sorulan Sorular" />
 
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">

@@ -74,9 +74,9 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Link to="/sss" className="text-sm font-semibold text-gray-700 hover:text-orange-600 transition-colors">SSS</Link>
             <button className="text-sm font-semibold text-gray-700 hover:text-orange-600">Giriş Yap</button>
-            <button className="bg-orange-600 text-white px-6 py-3 rounded-full text-sm font-black hover:bg-orange-700 transition-all shadow-lg shadow-orange-100 active:scale-95">
-              Ücretsiz Dene
-            </button>
+            <Link to="/premium/temalar" className="bg-orange-600 text-white px-6 py-3 rounded-full text-sm font-black hover:bg-orange-700 transition-all shadow-lg shadow-orange-100 active:scale-95">
+              Demoyu İncele
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -123,7 +123,7 @@ const Header: React.FC = () => {
             <div className="pt-6 border-t border-gray-100 flex flex-col space-y-4">
               <Link to="/sss" onClick={() => setIsMobileMenuOpen(false)} className="w-full text-center font-bold text-gray-700 py-3">SSS</Link>
               <button className="w-full text-center font-bold text-gray-700 py-3">Giriş Yap</button>
-              <button className="w-full bg-orange-600 text-white py-4 rounded-2xl font-black shadow-lg shadow-orange-100">Ücretsiz Dene</button>
+              <Link to="/premium/temalar" onClick={() => setIsMobileMenuOpen(false)} className="w-full bg-orange-600 text-white py-4 rounded-2xl font-black shadow-lg shadow-orange-100 text-center block">Demoyu İncele</Link>
             </div>
           </div>
         </div>

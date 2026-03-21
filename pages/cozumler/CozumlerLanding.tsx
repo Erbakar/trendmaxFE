@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, Crown, Settings, Globe, ArrowRight, Zap } from 'lucide-react';
+import { ShoppingBag, ShieldCheck, Store, Globe, ArrowRight, Zap } from 'lucide-react';
 import { HERO_IMAGES } from '../../data/heroImages';
 
 const cozumlerItems = [
   { title: 'E-Ticaret Paketleri', path: '/cozumler/paketler', desc: 'Her ölçekteki işletme için uygun e-ticaret altyapısı.', icon: ShoppingBag },
-  { title: 'Premium E-Ticaret Paketleri', path: '/cozumler/premium', desc: 'Büyük ölçekli işletmeler için yüksek performans.', icon: Crown },
-  { title: 'Özel E-Ticaret Çözümleri', path: '/cozumler/ozel', desc: 'İşletmenize özel butik geliştirme süreçleri.', icon: Settings },
-  { title: 'E-İhracat Paketleri', path: '/cozumler/e-ihracat', desc: 'Sınırları aşın, dünyaya satış yapın.', icon: Globe },
+  { title: 'Sıfır Risk E-Ticaret Paketi', path: '/cozumler/sifir-risk', desc: 'Şirket kurmadan e-ticaret yapın!', icon: ShieldCheck },
+  { title: 'Pazar Yeri Pro Expert', path: '/cozumler/pazar-yeri-pro', desc: 'Pazaryerlerinde 24 saatte 10.000+ ürün ile satışa başlayın.', icon: Store },
+  { title: 'E-İhracat', path: '/cozumler/e-ihracat', desc: 'Satışa hazır ürünler ile Amazon ve Etsy Global\'de yerinizi alın.', icon: Globe },
 ];
 
 const CozumlerLanding: React.FC = () => {
