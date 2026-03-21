@@ -16,36 +16,25 @@ export const HOME_PACKAGES = [
   { title: 'Trendyol Profesyonel Kurulum Paketi', price: '18.500', features: ['Hesap Açılışı', '2K En Çok Satanlar Listesi', 'Sipariş & Müşteri Yönetimi'], highlight: false },
 ];
 
-/** Pazaryeri / kargo — logo.clearbit.com/{domain} ile marka logoları (yüklenemezse isim gösterilir) */
+/** Ana sayfa entegrasyon şeritleri — görseller `public/logos/integrations/` altında */
 export type HomeIntegrationLogo = {
   name: string;
   category: 'Pazaryeri' | 'Kargo';
-  domain: string;
-  /** Varsa doğrudan kullanılır (ör. resmi SVG CDN); yoksa logo.clearbit.com/{domain} */
-  logoUrl?: string;
+  /** Vite public kökü: /logos/... */
+  logoUrl: string;
 };
 
 export const ENTEGRASYON_LOGOS: HomeIntegrationLogo[] = [
-  { name: 'Trendyol', category: 'Pazaryeri', domain: 'trendyol.com' },
-  { name: 'Hepsiburada', category: 'Pazaryeri', domain: 'hepsiburada.com' },
-  { name: 'N11', category: 'Pazaryeri', domain: 'n11.com' },
-  { name: 'GittiGidiyor', category: 'Pazaryeri', domain: 'gittigidiyor.com' },
-  {
-    name: 'Amazon',
-    category: 'Pazaryeri',
-    domain: 'amazon.com.tr',
-    logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@11/icons/amazon.svg',
-  },
-  { name: 'Çiçeksepeti', category: 'Pazaryeri', domain: 'ciceksepeti.com' },
-  { name: 'Aras Kargo', category: 'Kargo', domain: 'aras.com.tr' },
-  { name: 'Yurtiçi Kargo', category: 'Kargo', domain: 'yurticikargo.com' },
-  { name: 'MNG Kargo', category: 'Kargo', domain: 'mng.com.tr' },
-  { name: 'PTT Kargo', category: 'Kargo', domain: 'ptt.gov.tr' },
-  { name: 'Sürat Kargo', category: 'Kargo', domain: 'suratkargo.com.tr' },
-  {
-    name: 'UPS',
-    category: 'Kargo',
-    domain: 'ups.com',
-    logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@11/icons/ups.svg',
-  },
+  { name: 'Trendyol', category: 'Pazaryeri', logoUrl: '/logos/integrations/trendyol.svg' },
+  { name: 'Hepsiburada', category: 'Pazaryeri', logoUrl: '/logos/integrations/hepsiburada.svg' },
+  { name: 'N11', category: 'Pazaryeri', logoUrl: '/logos/integrations/n11.svg' },
+  { name: 'GittiGidiyor', category: 'Pazaryeri', logoUrl: '/logos/integrations/gittigidiyor.svg' },
+  { name: 'Amazon', category: 'Pazaryeri', logoUrl: '/logos/integrations/amazon.svg' },
+  { name: 'Çiçeksepeti', category: 'Pazaryeri', logoUrl: '/logos/integrations/ciceksepeti.svg' },
+  { name: 'Aras Kargo', category: 'Kargo', logoUrl: '/logos/integrations/aras.svg' },
+  { name: 'Yurtiçi Kargo', category: 'Kargo', logoUrl: '/logos/integrations/yurtici.svg' },
+  { name: 'MNG Kargo', category: 'Kargo', logoUrl: '/logos/integrations/mng.svg' },
+  { name: 'PTT Kargo', category: 'Kargo', logoUrl: '/logos/integrations/ptt.svg' },
+  { name: 'Sürat Kargo', category: 'Kargo', logoUrl: '/logos/integrations/surat.svg' },
+  { name: 'UPS', category: 'Kargo', logoUrl: '/logos/integrations/ups.svg' },
 ];

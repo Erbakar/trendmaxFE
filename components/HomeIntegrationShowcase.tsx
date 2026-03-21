@@ -3,13 +3,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Link2 } from 'lucide-react';
 import { ENTEGRASYON_LOGOS, type HomeIntegrationLogo } from '../data/homePage';
 
-function clearbitLogoUrl(domain: string) {
-  return `https://logo.clearbit.com/${domain}?size=128`;
-}
-
 function IntegrationLogoCard({ item }: { item: HomeIntegrationLogo }) {
   const [failed, setFailed] = useState(false);
-  const src = item.logoUrl ?? clearbitLogoUrl(item.domain);
+  const src = item.logoUrl;
 
   return (
     <div className="group relative flex h-[92px] w-[168px] shrink-0 flex-col items-center justify-center rounded-2xl border border-white/60 bg-white/70 px-4 py-3 shadow-sm shadow-slate-900/10 backdrop-blur-md transition-all duration-500 hover:-translate-y-1.5 hover:border-orange-200/90 hover:bg-white hover:shadow-lg hover:shadow-orange-500/15">
@@ -17,10 +13,9 @@ function IntegrationLogoCard({ item }: { item: HomeIntegrationLogo }) {
         <img
           src={src}
           alt={`${item.name} logosu`}
-          className="max-h-11 w-auto max-w-[132px] object-contain opacity-70 grayscale transition-all duration-500 group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
+          className="max-h-11 w-auto max-w-[132px] object-contain opacity-100 transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
           decoding="async"
-          referrerPolicy="no-referrer"
           onError={() => setFailed(true)}
         />
       ) : (
@@ -44,7 +39,7 @@ function MarqueeRow({
   return (
     <div className={reverse ? 'animate-marquee-integrations-reverse' : 'animate-marquee-integrations'}>
       {loop.map((item, i) => (
-        <div key={`${item.domain}-${i}`} className="mx-3 shrink-0">
+        <div key={`${item.logoUrl}-${i}`} className="mx-3 shrink-0">
           <IntegrationLogoCard item={item} />
         </div>
       ))}
