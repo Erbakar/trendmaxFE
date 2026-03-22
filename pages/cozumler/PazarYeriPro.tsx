@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { Store, Package, Zap, Truck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
 import { HERO_IMAGES } from '../../data/heroImages';
+import { EGITIM_STOKSUZ_PACKAGES } from '../../data/paketlerEgitimStoksuz';
 import SikcaSorulanSorularGrid from '../../components/SikcaSorulanSorularGrid';
+import RevealOnScroll from '../../components/RevealOnScroll';
+
+const Reveal = RevealOnScroll;
 
 const PazarYeriPro: React.FC = () => {
   return (
@@ -19,6 +23,63 @@ const PazarYeriPro: React.FC = () => {
         badge="E-Ticaret Çözümü"
         image={HERO_IMAGES.ecommerce}
       />
+
+      {/* Eğitim & Stoksuz E-Ticaret Paketleri — Paketler.tsx ile aynı blok */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Eğitim & Stoksuz E-Ticaret Paketleri
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              Stoksuz & sermayesiz e-ticaret projemize dahil olun. Şirket kurmadan, depo ve ürün maliyetini düşünmeden satış yapın.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {EGITIM_STOKSUZ_PACKAGES.map((pkg) => (
+              <div key={pkg.id}>
+                <Reveal>
+                  <div
+                    className={`relative bg-white rounded-3xl shadow-lg border-2 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col ${
+                      pkg.highlight ? 'border-orange-500 ring-2 ring-orange-200' : 'border-gray-100'
+                    }`}
+                  >
+                    {pkg.highlight && (
+                      <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-center py-2 text-sm font-bold">
+                        Popüler
+                      </div>
+                    )}
+                    <div className={`flex flex-col flex-1 p-8 ${pkg.highlight ? 'pt-14' : ''}`}>
+                      <h3 className="text-lg font-bold text-gray-900 mb-6 leading-tight min-h-[3.5rem]">
+                        {pkg.title}
+                      </h3>
+                      <ul className="space-y-3 mb-8 max-h-[320px] overflow-y-auto pr-1 flex-1">
+                        {pkg.features.map((f, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                            <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mb-6">
+                        <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
+                        <span className="text-gray-500 font-semibold"> TL</span>
+                      </div>
+                      <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
+                      <button
+                        type="button"
+                        className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto"
+                      >
+                        Kayıt Ol
+                      </button>
+                    </div>
+                  </div>
+                </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="icerik" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, Phone } from 'lucide-react';
 import { YAZILIM_PACKAGES } from '../data/eticaretPaketOzellikleri';
+import { EGITIM_STOKSUZ_PACKAGES as PACKAGES } from '../data/paketlerEgitimStoksuz';
 import { PAKET_BILGI_SECTIONS } from '../data/paketlerBilgi';
 import RevealOnScroll from '../components/RevealOnScroll';
 
@@ -10,128 +11,29 @@ const Reveal = RevealOnScroll;
 /** E-Ticaret Yazılım Paketleri (Basic, Plus, Extreme) - xlsx'ten */
 const PACKAGES_YAZILIM = YAZILIM_PACKAGES;
 
-/** Eğitim & Stoksuz Paketleri (mevcut 4 paket) */
-const PACKAGES = [
-  {
-    id: 'pazaryeri',
-    title: 'Pazar Yeri Stoksuz E-Ticaret Birebir Eğitim Paketi',
-    price: '8.500',
-    highlight: false,
-    features: [
-      'Şirket Kuruluşu',
-      '2 Pazar Yeri Mağaza Açılışı',
-      'Ücretsiz Entegratör Yazılım Kurulumu',
-      'Ücretsiz Logo Tasarımı',
-      'Ürün Yükleme Eğitimi',
-      'Trendyol Panel Eğitimi & Ürün Yükleme',
-      'Gittigidiyor Panel Eğitimi & Ürün Yükleme',
-      'Satış Garantili Ürün Desteği',
-      "5 Farklı Sektör, 50'den Fazla Kategori",
-      "8.000 + Hazır Farklı Ürün",
-      'Tedarikçi İlişkileri',
-      'Kar Marjı Düzenleme & Finans Eğitimi',
-      'Kargo ve Sevkiyat',
-      'Dijital Pazarlama Eğitimi (Google, Instagram, Facebook)',
-      'Tüm Panel Eğitimlerine Ömür Boyu Ücretsiz Erişim',
-      'Tüm Paketlerde %15 İndirim Hakkı',
-    ],
-  },
-  {
-    id: 'sifir-sermaye',
-    title: 'Sıfır Sermaye E-Ticaret Sitesi Paketi',
-    price: '12.500',
-    highlight: true,
-    features: [
-      '24 Saatte Hazır E-Ticaret Sitesi',
-      "8.000 + Farklı Hazır Ürün",
-      'Hazır Ödeme Alt Yapısı',
-      '1 Yıllık Hosting Hizmeti',
-      'Ücretsiz Logo Tasarımı',
-      'Kargo ve Lojistik Hizmeti',
-      'Şirket Kurmak Yok',
-      'Vergi Yok',
-      'Kargo ve Depolama Hizmeti',
-      'Tedarikçi Desteği Hizmeti',
-      "5 Farklı Sektör, 50'den Fazla Kategori",
-      'Kargo ve Sevkiyat',
-      'Dijital Pazarlama Eğitimi (Google, Instagram, Facebook)',
-      'Tüm Panel Eğitimlerine Ömür Boyu Ücretsiz Erişim',
-      'Tüm Paketlerde %15 İndirim Hakkı',
-    ],
-  },
-  {
-    id: 'full-full',
-    title: "Full + Full 2'si Bir Arada Paketi",
-    price: '18.000',
-    highlight: false,
-    features: [
-      'Şirket Kuruluşu',
-      '2 Pazar Yeri Mağaza Açılışı',
-      'Ücretsiz Entegratör Yazılım Kurulumu',
-      'Ücretsiz Logo Tasarımı',
-      'Ürün Yükleme Eğitimi',
-      'Trendyol Panel Eğitimi & Ürün Yükleme',
-      'Gittigidiyor Panel Eğitimi & Ürün Yükleme',
-      'Satış Garantili Ürün Desteği',
-      "5 Farklı Sektör, 50'den Fazla Kategori",
-      'Tedarikçi İlişkileri',
-      'Kar Marjı Düzenleme & Finans Eğitimi',
-      'Kargo ve Sevkiyat',
-      '24 Saatte Hazır E-Ticaret Sitesi',
-      "8.000 + Farklı Hazır Ürün",
-      '1 Yıllık Hosting Hizmeti',
-      'Şirket Kurmak Yok, Vergi Yok',
-      'Kargo ve Depolama Hizmeti',
-      'Dijital Pazarlama Eğitimi (Google, Instagram, Facebook)',
-      'Tüm Panel Eğitimlerine Ömür Boyu Ücretsiz Erişim',
-      'Tüm Paketlerde %15 İndirim Hakkı',
-    ],
-  },
-  {
-    id: 'trendyol-profesyonel',
-    title: 'Trendyol Profesyonel Kurulum Paketi',
-    price: '18.500',
-    highlight: false,
-    features: [
-      'Hesap Açılışı',
-      'Açılış Suspendi',
-      "2K En Çok Satanlar Listesi",
-      'Mağaza Ayarları',
-      'Sipariş Yönetimi',
-      'Müşteri Yönetimi',
-      'Şikayet Kaldırma Metni',
-      'Yazılım Ayarları',
-      "2K Riskli Ürün Kategorisi",
-      'Feedback Alma Metni',
-      'İade Süreci',
-    ],
-  },
-];
-
 const COMPARISON_FEATURES = [
-  { name: 'Şirket Kuruluşu', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: '2 Pazar Yeri Mağaza Açılışı', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Ücretsiz Entegratör Yazılım Kurulumu', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Ücretsiz Logo Tasarımı', pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Ürün Yükleme Eğitimi', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Trendyol Panel Eğitimi & Ürün Yükleme', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Gittigidiyor Panel Eğitimi & Ürün Yükleme', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Satış Garantili Ürün Desteği', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: "5 Farklı Sektör, 50'den Fazla Kategori", pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Tedarikçi İlişkileri', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Kar Marjı Düzenleme & Finans Eğitimi', pazaryeri: true, sifirSermaye: false, fullFull: true, trendyol: false },
-  { name: 'Kargo ve Sevkiyat', pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: '24 Saatte Hazır E-Ticaret Sitesi', pazaryeri: false, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: "8.000 + Farklı Hazır Ürün", pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Hazır Ödeme Alt Yapısı', pazaryeri: false, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: '1 Yıllık Hosting Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Şirket Kurmak Yok, Vergi Yok', pazaryeri: false, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Kargo ve Lojistik Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Tedarikçi Desteği Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Dijital Pazarlama Eğitimi (Google, Instagram, Facebook)', pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Tüm Panel Eğitimlerine Ömür Boyu Ücretsiz Erişim', pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Tüm Paketlerde %15 İndirim Hakkı', pazaryeri: true, sifirSermaye: true, fullFull: true, trendyol: false },
-  { name: 'Hesap Açılışı & Mağaza Kurulumu', pazaryeri: false, sifirSermaye: false, fullFull: false, trendyol: true },
+  { name: 'Şirket Kuruluşu', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: '2 Pazar Yeri Mağaza Açılışı', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Ücretsiz Entegratör Yazılım Kurulumu', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Ücretsiz Logo Tasarımı', pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: 'Ürün Yükleme Eğitimi', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Trendyol Panel Eğitimi & Ürün Yükleme', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Gittigidiyor Panel Eğitimi & Ürün Yükleme', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Satış Garantili Ürün Desteği', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: "5 Farklı Sektör, 50'den Fazla Kategori", pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: 'Tedarikçi İlişkileri', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Kar Marjı Düzenleme & Finans Eğitimi', pazaryeri: true, sifirSermaye: false, fullFull: true },
+  { name: 'Kargo ve Sevkiyat', pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: '24 Saatte Hazır E-Ticaret Sitesi', pazaryeri: false, sifirSermaye: true, fullFull: true },
+  { name: "8.000 + Farklı Hazır Ürün", pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: 'Hazır Ödeme Alt Yapısı', pazaryeri: false, sifirSermaye: true, fullFull: true },
+  { name: '1 Yıllık Hosting Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true },
+  { name: 'Şirket Kurmak Yok, Vergi Yok', pazaryeri: false, sifirSermaye: true, fullFull: true },
+  { name: 'Kargo ve Lojistik Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true },
+  { name: 'Tedarikçi Desteği Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true },
+  { name: 'Dijital Pazarlama Eğitimi (Google, Instagram, Facebook)', pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: 'Tüm Panel Eğitimlerine Ömür Boyu Ücretsiz Erişim', pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: 'Tüm Paketlerde %15 İndirim Hakkı', pazaryeri: true, sifirSermaye: true, fullFull: true },
 ];
 
 const Paketler: React.FC = () => {
@@ -155,7 +57,173 @@ const Paketler: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* E-Ticaret Yazılım Paketleri (Basic, Plus, Extreme) - E-Ticaret Paket Özellikleri.xlsx */}
+      <section className="py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              E-Ticaret Yazılım Paketleri
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              Trendmax hazır e-ticaret altyapısı ile sitenizi hızlıca açın. Her bütçeye uygun paketler.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PACKAGES_YAZILIM.map((pkg) => (
+              <div key={pkg.id}>
+              <Reveal>
+              <div
+                className={`relative bg-white rounded-3xl shadow-lg border-2 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col ${
+                  pkg.highlight ? 'border-orange-500 ring-2 ring-orange-200' : 'border-gray-100'
+                }`}
+              >
+                {pkg.highlight && (
+                  <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-center py-2 text-sm font-bold">
+                    Popüler
+                  </div>
+                )}
+                <div className={`flex flex-col flex-1 p-8 ${pkg.highlight ? 'pt-14' : ''}`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-6">{pkg.title}</h3>
+                  <ul className="space-y-3 mb-8 max-h-[320px] overflow-y-auto pr-1 flex-1">
+                    {pkg.features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mb-6">
+                    <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
+                    <span className="text-gray-500 font-semibold"> TL</span>
+                  </div>
+                  <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
+                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto">
+                    Kayıt Ol
+                  </button>
+                </div>
+              </div>
+              </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
+      {/* Eğitim & Stoksuz Paketleri */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Eğitim & Stoksuz E-Ticaret Paketleri
+            </h2>
+            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+              Stoksuz & sermayesiz e-ticaret projemize dahil olun. Şirket kurmadan, depo ve ürün maliyetini düşünmeden satış yapın.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PACKAGES.map((pkg) => (
+              <div key={pkg.id}>
+              <Reveal>
+              <div
+                className={`relative bg-white rounded-3xl shadow-lg border-2 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col ${
+                  pkg.highlight ? 'border-orange-500 ring-2 ring-orange-200' : 'border-gray-100'
+                }`}
+              >
+                {pkg.highlight && (
+                  <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-center py-2 text-sm font-bold">
+                    Popüler
+                  </div>
+                )}
+                <div className={`flex flex-col flex-1 p-8 ${pkg.highlight ? 'pt-14' : ''}`}>
+                  <h3 className="text-lg font-bold text-gray-900 mb-6 leading-tight min-h-[3.5rem]">
+                    {pkg.title}
+                  </h3>
+                  <ul className="space-y-3 mb-8 max-h-[320px] overflow-y-auto pr-1 flex-1">
+                    {pkg.features.map((f, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                        <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mb-6">
+                    <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
+                    <span className="text-gray-500 font-semibold"> TL</span>
+                  </div>
+                  <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
+                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto">
+                    Kayıt Ol
+                  </button>
+                </div>
+              </div>
+              </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+              Size Uygun En Profesyonel Paketlerimiz
+            </h2>
+          </Reveal>
+          <Reveal>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse min-w-[640px]">
+              <thead>
+                <tr className="border-b-2 border-gray-200">
+                  <th className="py-4 px-4 text-left text-sm font-black text-gray-500 uppercase">Özellikler</th>
+                  <th className="py-4 px-4 text-center text-sm">
+                    <div className="font-bold text-gray-900">Pazar Yeri</div>
+                    <div className="text-orange-600 font-black">8.500 TL</div>
+                  </th>
+                  <th className="py-4 px-4 text-center text-sm bg-orange-50">
+                    <div className="font-bold text-gray-900">Sıfır Sermaye</div>
+                    <div className="text-orange-600 font-black">12.500 TL</div>
+                  </th>
+                  <th className="py-4 px-4 text-center text-sm">
+                    <div className="font-bold text-gray-900">Full + Full</div>
+                    <div className="text-orange-600 font-black">18.000 TL</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {COMPARISON_FEATURES.map((row, i) => (
+                  <tr key={i} className="hover:bg-gray-50">
+                    <td className="py-3 px-4 font-medium text-gray-700 text-sm">{row.name}</td>
+                    <td className="py-3 px-4 text-center">
+                      {row.pazaryeri ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
+                    </td>
+                    <td className="py-3 px-4 text-center bg-orange-50/30">
+                      {row.sifirSermaye ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      {row.fullFull ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr className="border-t-2 border-gray-200 bg-gray-50">
+                  <td className="py-4 px-4"></td>
+                  {['pazaryeri', 'sifirSermaye', 'fullFull'].map((id) => (
+                    <td key={id} className="py-4 px-4 text-center">
+                      <button type="button" className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-bold text-sm">
+                        Kayıt Ol
+                      </button>
+                    </td>
+                  ))}
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          </Reveal>
+        </div>
+      </section>
       {/* E-ticaret paketleri bilgilendirme — animasyon + görseller */}
       <section className="py-16 lg:py-24 bg-gradient-to-b from-white via-gray-50/80 to-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -229,180 +297,7 @@ const Paketler: React.FC = () => {
         </div>
       </section>
 
-      {/* E-Ticaret Yazılım Paketleri (Basic, Plus, Extreme) - E-Ticaret Paket Özellikleri.xlsx */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              E-Ticaret Yazılım Paketleri
-            </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Trendmax hazır e-ticaret altyapısı ile sitenizi hızlıca açın. Her bütçeye uygun paketler.
-            </p>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PACKAGES_YAZILIM.map((pkg) => (
-              <div key={pkg.id}>
-              <Reveal>
-              <div
-                className={`relative bg-white rounded-3xl shadow-lg border-2 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col ${
-                  pkg.highlight ? 'border-orange-500 ring-2 ring-orange-200' : 'border-gray-100'
-                }`}
-              >
-                {pkg.highlight && (
-                  <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-center py-2 text-sm font-bold">
-                    Popüler
-                  </div>
-                )}
-                <div className={`flex flex-col flex-1 p-8 ${pkg.highlight ? 'pt-14' : ''}`}>
-                  <h3 className="text-xl font-bold text-gray-900 mb-6">{pkg.title}</h3>
-                  <ul className="space-y-3 mb-8 max-h-[320px] overflow-y-auto pr-1 flex-1">
-                    {pkg.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mb-6">
-                    <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
-                    <span className="text-gray-500 font-semibold"> TL</span>
-                  </div>
-                  <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
-                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto">
-                    Kayıt Ol
-                  </button>
-                </div>
-              </div>
-              </Reveal>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Eğitim & Stoksuz Paketleri (Pazar Yeri, Sıfır Sermaye, Full+Full, Trendyol) */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Eğitim & Stoksuz E-Ticaret Paketleri
-            </h2>
-            <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Stoksuz & sermayesiz e-ticaret projemize dahil olun. Şirket kurmadan, depo ve ürün maliyetini düşünmeden satış yapın.
-            </p>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {PACKAGES.map((pkg) => (
-              <div key={pkg.id}>
-              <Reveal>
-              <div
-                className={`relative bg-white rounded-3xl shadow-lg border-2 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col ${
-                  pkg.highlight ? 'border-orange-500 ring-2 ring-orange-200' : 'border-gray-100'
-                }`}
-              >
-                {pkg.highlight && (
-                  <div className="absolute top-0 left-0 right-0 bg-orange-600 text-white text-center py-2 text-sm font-bold">
-                    Popüler
-                  </div>
-                )}
-                <div className={`flex flex-col flex-1 p-8 ${pkg.highlight ? 'pt-14' : ''}`}>
-                  <h3 className="text-lg font-bold text-gray-900 mb-6 leading-tight min-h-[3.5rem]">
-                    {pkg.title}
-                  </h3>
-                  <ul className="space-y-3 mb-8 max-h-[320px] overflow-y-auto pr-1 flex-1">
-                    {pkg.features.map((f, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                        <CheckCircle2 className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mb-6">
-                    <span className="text-3xl font-black text-gray-900">{pkg.price}</span>
-                    <span className="text-gray-500 font-semibold"> TL</span>
-                  </div>
-                  <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
-                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto">
-                    Kayıt Ol
-                  </button>
-                </div>
-              </div>
-              </Reveal>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Comparison Table */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Reveal className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Size Uygun En Profesyonel Paketlerimiz
-            </h2>
-          </Reveal>
-          <Reveal>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse min-w-[800px]">
-              <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="py-4 px-4 text-left text-sm font-black text-gray-500 uppercase">Özellikler</th>
-                  <th className="py-4 px-4 text-center text-sm">
-                    <div className="font-bold text-gray-900">Pazar Yeri</div>
-                    <div className="text-orange-600 font-black">8.500 TL</div>
-                  </th>
-                  <th className="py-4 px-4 text-center text-sm bg-orange-50">
-                    <div className="font-bold text-gray-900">Sıfır Sermaye</div>
-                    <div className="text-orange-600 font-black">12.500 TL</div>
-                  </th>
-                  <th className="py-4 px-4 text-center text-sm">
-                    <div className="font-bold text-gray-900">Full + Full</div>
-                    <div className="text-orange-600 font-black">18.000 TL</div>
-                  </th>
-                  <th className="py-4 px-4 text-center text-sm">
-                    <div className="font-bold text-gray-900">Trendyol Pro</div>
-                    <div className="text-orange-600 font-black">18.500 TL</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {COMPARISON_FEATURES.map((row, i) => (
-                  <tr key={i} className="hover:bg-gray-50">
-                    <td className="py-3 px-4 font-medium text-gray-700 text-sm">{row.name}</td>
-                    <td className="py-3 px-4 text-center">
-                      {row.pazaryeri ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
-                    </td>
-                    <td className="py-3 px-4 text-center bg-orange-50/30">
-                      {row.sifirSermaye ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      {row.fullFull ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      {row.trendyol ? <CheckCircle2 className="w-5 h-5 text-orange-500 mx-auto" /> : <span className="text-gray-300">—</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className="border-t-2 border-gray-200 bg-gray-50">
-                  <td className="py-4 px-4"></td>
-                  {['pazaryeri', 'sifirSermaye', 'fullFull', 'trendyol'].map((id) => (
-                    <td key={id} className="py-4 px-4 text-center">
-                      <button className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-bold text-sm">
-                        Kayıt Ol
-                      </button>
-                    </td>
-                  ))}
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-          </Reveal>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-16 lg:py-24 bg-orange-600">
