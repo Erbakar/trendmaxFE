@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
-import { DEMO_TEMA_IMAGES, HOME_PACKAGES } from '../data/homePage';
+import { DEMO_TEMA_IMAGES, HOME_PACKAGES, THEME_MARQUEE_IMAGES } from '../data/homePage';
 import HomeIntegrationShowcase from '../components/HomeIntegrationShowcase';
 import { YAZILIM_PACKAGES } from '../data/eticaretPaketOzellikleri';
 import SikcaSorulanSorularGrid from '../components/SikcaSorulanSorularGrid';
@@ -89,11 +89,21 @@ const Home: React.FC = () => {
 
         <div className="relative flex">
           <div className="animate-marquee flex items-center space-x-8 whitespace-nowrap py-8">
-            {DEMO_TEMA_IMAGES.map((img, i) => (
-              <img key={`tema-1-${i}`} src={img} alt="Demo tema" className="h-36 w-auto rounded-xl object-cover opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100" />
+            {THEME_MARQUEE_IMAGES.map((img, i) => (
+              <img
+                key={`tema-1-${i}`}
+                src={img}
+                alt="Trendmax tema önizlemesi"
+                className="h-100 w-72 shrink-0 rounded-xl object-cover object-top opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100 bg-gray-50"
+              />
             ))}
-            {DEMO_TEMA_IMAGES.map((img, i) => (
-              <img key={`tema-2-${i}`} src={img} alt="Demo tema" className="h-36 w-auto rounded-xl object-cover opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100" />
+            {THEME_MARQUEE_IMAGES.map((img, i) => (
+              <img
+                key={`tema-2-${i}`}
+                src={img}
+                alt="Trendmax tema önizlemesi"
+                className="h-100 w-72 shrink-0 rounded-xl object-cover object-top opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100 bg-gray-50"
+              />
             ))}
           </div>
         </div>

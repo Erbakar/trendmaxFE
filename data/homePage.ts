@@ -1,4 +1,15 @@
-/** Demo tema görüntüleri - marquee ve sektör kartları için */
+/** `public/theme/` — ana sayfa “Mutlu Müşteriler” tema marquee şeridi */
+export const THEME_MARQUEE_IMAGES = [
+  '/theme/butik.png',
+  '/theme/aqua.png',
+  '/theme/telefon.png',
+  '/theme/mobilya.png',
+  '/theme/petshop.png',
+  '/theme/soft.png',
+  '/theme/defaukt.png',
+];
+
+/** Demo tema görüntüleri - sektör kartları vb. */
 export const DEMO_TEMA_IMAGES = [
   'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&h=250&q=80',
   'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&h=250&q=80',
