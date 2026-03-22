@@ -90,20 +90,30 @@ const Home: React.FC = () => {
         <div className="relative flex">
           <div className="animate-marquee flex items-center space-x-8 whitespace-nowrap py-8">
             {THEME_MARQUEE_IMAGES.map((img, i) => (
-              <img
+              <div
                 key={`tema-1-${i}`}
-                src={img}
-                alt="Trendmax tema önizlemesi"
-                className="h-100 w-72 shrink-0 rounded-xl object-cover object-top opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100 bg-gray-50"
-              />
+                className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow-lg transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-xl"
+              >
+                <img
+                  src={img}
+                  alt="Trendmax tema önizlemesi"
+                  className="h-full w-[calc(100%+2px)] max-w-none -translate-x-[2px] object-cover object-top"
+                  draggable={false}
+                />
+              </div>
             ))}
             {THEME_MARQUEE_IMAGES.map((img, i) => (
-              <img
+              <div
                 key={`tema-2-${i}`}
-                src={img}
-                alt="Trendmax tema önizlemesi"
-                className="h-100 w-72 shrink-0 rounded-xl object-cover object-top opacity-90 hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105 shadow-lg hover:shadow-xl border border-gray-100 bg-gray-50"
-              />
+                className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow-lg transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-xl"
+              >
+                <img
+                  src={img}
+                  alt="Trendmax tema önizlemesi"
+                  className="h-full w-[calc(100%+2px)] max-w-none -translate-x-[2px] object-cover object-top"
+                  draggable={false}
+                />
+              </div>
             ))}
           </div>
         </div>
