@@ -1,4 +1,7 @@
 export const HERO_IMAGES = {
+  /** Ana sayfa hero 1. slayt — panel/analitik (kart/para teması yok) */
+  homeHeroInfrastructure:
+    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
   ecommerce: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
   mobile: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80',
   integration: 'https://www.cdnaws.com/i/237977/qi2qQLqi2qQZW3D2ZW3D2ZW3D2LHVUkzZW3D2ZW3D2/blog/pazaryeri-entegrasyonu-nedir--6971473382170.png',

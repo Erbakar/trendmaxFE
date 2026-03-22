@@ -235,7 +235,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Trendmax Paketlerimiz - Fiyatlar ile tutarlı: Yazılım (Basic/Plus/Extreme) + Eğitim & Stoksuz (4 paket) */}
+      {/* Trendmax Paketlerimiz - Fiyatlar ile tutarlı: Yazılım (Başlangıç/Uzman/Üst Düzey) + Eğitim & Stoksuz (3 paket) */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
@@ -243,7 +243,7 @@ const Home: React.FC = () => {
             <p className="text-gray-500 text-lg">Her ihtiyaca uygun şeffaf fiyatlandırma.</p>
           </div>
 
-          {/* E-Ticaret Yazılım Paketleri - xlsx ile aynı (Basic, Plus, Extreme) */}
+          {/* E-Ticaret Yazılım Paketleri - xlsx ile aynı (Başlangıç, Uzman, Üst Düzey) */}
           <div className="mb-16">
             <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">E-Ticaret Yazılım Paketleri</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -274,10 +274,10 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          {/* Eğitim & Stoksuz Paketleri - Fiyatlar sayfası ile aynı (4 paket) */}
+          {/* Eğitim & Stoksuz Paketleri - Fiyatlar sayfası ile aynı (3 paket) */}
           <div>
             <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">Eğitim & Stoksuz E-Ticaret Paketleri</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {HOME_PACKAGES.map((pkg, idx) => (
                 <div
                   key={idx}

@@ -8,7 +8,7 @@ import RevealOnScroll from '../components/RevealOnScroll';
 
 const Reveal = RevealOnScroll;
 
-/** E-Ticaret Yazılım Paketleri (Basic, Plus, Extreme) - xlsx'ten */
+/** E-Ticaret Yazılım Paketleri (Başlangıç, Uzman, Üst Düzey) - xlsx'ten */
 const PACKAGES_YAZILIM = YAZILIM_PACKAGES;
 
 const COMPARISON_FEATURES = [
@@ -57,7 +57,7 @@ const Paketler: React.FC = () => {
           </div>
         </div>
       </section>
-      {/* E-Ticaret Yazılım Paketleri (Basic, Plus, Extreme) - E-Ticaret Paket Özellikleri.xlsx */}
+      {/* E-Ticaret Yazılım Paketleri — E-Ticaret Paket Özellikleri.xlsx */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-12">

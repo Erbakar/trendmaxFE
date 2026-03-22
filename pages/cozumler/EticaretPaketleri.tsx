@@ -76,7 +76,7 @@ const EticaretPaketleri: React.FC = () => {
               E-Ticaret Yazılım Paketleri
             </h2>
             <p className="text-gray-500 text-lg leading-relaxed">
-              Trendmax hazır e-ticaret altyapısı ile sitenizi hızlıca açın. Basic, Plus ve Extreme seçenekleriyle
+              Trendmax hazır e-ticaret altyapısı ile sitenizi hızlıca açın. Başlangıç, Uzman ve Üst Düzey seçenekleriyle
               her bütçeye uygun paketler — tüm özellikler ve güncel fiyatlar için fiyatlar sayfamızı da
               inceleyebilirsiniz.
             </p>
@@ -202,7 +202,7 @@ const EticaretPaketleri: React.FC = () => {
               </Reveal>
               <div className="space-y-4">
                 {[
-                  'Basic, Plus ve Extreme yazılım paketleri',
+                  'Başlangıç, Uzman ve Üst Düzey yazılım paketleri',
                   'Trendyol, Hepsiburada ve N11 entegrasyonu (paket kapsamına göre)',
                   'Mobil uyumlu ve SEO dostu altyapı',
                   '7/24 teknik destek ve güvenlik güncellemeleri',

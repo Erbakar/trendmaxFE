@@ -10,10 +10,9 @@ export const DEMO_TEMA_IMAGES = [
 
 /** Ana sayfa paket özeti - ilk 3 özellik + fiyat */
 export const HOME_PACKAGES = [
-  { title: 'Pazar Yeri Stoksuz E-Ticaret Birebir Eğitim Paketi', price: '8.500', features: ['Şirket Kuruluşu', '2 Pazar Yeri Mağaza Açılışı', '8.000+ Hazır Ürün'], highlight: false },
-  { title: 'Sıfır Sermaye E-Ticaret Sitesi Paketi', price: '12.500', features: ['24 Saatte Hazır E-Ticaret Sitesi', '8.000+ Farklı Hazır Ürün', 'Şirket Kurmak Yok, Vergi Yok'], highlight: true },
-  { title: "Full + Full 2'si Bir Arada Paketi", price: '18.000', features: ['Pazar Yeri + E-Ticaret Sitesi', 'Tüm Eğitimler Dahil', 'Kargo ve Depolama Hizmeti'], highlight: false },
-  { title: 'Trendyol Profesyonel Kurulum Paketi', price: '18.500', features: ['Hesap Açılışı', '2K En Çok Satanlar Listesi', 'Sipariş & Müşteri Yönetimi'], highlight: false },
+  { title: 'Pazar Yeri Stoksuz E-Ticaret Birebir Eğitim Paketi', price: '12.500', features: ['Şirket Kuruluşu', '2 Pazar Yeri Mağaza Açılışı', '8.000+ Hazır Ürün'], highlight: false },
+  { title: 'Sıfır Sermaye E-Ticaret Sitesi Paketi', price: '18.500', features: ['24 Saatte Hazır E-Ticaret Sitesi', '8.000+ Farklı Hazır Ürün', 'Şirket Kurmak Yok, Vergi Yok'], highlight: true },
+  { title: "Full + Full 2'si Bir Arada Paketi", price: '28.500', features: ['Pazar Yeri + E-Ticaret Sitesi', 'Tüm Eğitimler Dahil', 'Kargo ve Depolama Hizmeti'], highlight: false },
 ];
 
 /** Ana sayfa entegrasyon şeritleri — görseller `public/logos/integrations/` altında */

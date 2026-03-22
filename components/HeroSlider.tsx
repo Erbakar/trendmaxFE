@@ -10,8 +10,8 @@ const SLIDES = [
     subtitle: "Satışlarınızı artırmak ve markanızı büyütmek için profesyonel çözümler.",
     cta1: "Ücretsiz Dene",
     cta2: "Teklif Al",
-    image: HERO_IMAGES.ecommerce,
-    imageAlt: "Online ödeme ve e-ticaret satış ortamı",
+    image: HERO_IMAGES.homeHeroInfrastructure,
+    imageAlt: "E-ticaret paneli ve satış analitiği",
   },
   {
     title: "E-İhracat ile Sınırları Ortadan Kaldırın",
