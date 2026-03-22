@@ -78,11 +78,11 @@ const Home: React.FC = () => {
                 />
               ))}
               <div className="w-12 h-12 rounded-full border-4 border-white bg-orange-100 flex items-center justify-center text-xs font-bold text-orange-600 shadow-sm ring-1 ring-orange-100">
-                +25K
+                +1K
               </div>
             </div>
             <p className="text-sm font-semibold text-gray-500 max-w-md mx-auto leading-relaxed">
-              Türkiye'nin önde gelen 25.000'den fazla markası, e-ticaret süreçlerini <span className="text-orange-600 font-bold">Trendmax</span> ile yöneterek büyümeye devam ediyor.
+              Türkiye'nin önde gelen 1.000'den fazla markası, e-ticaret süreçlerini <span className="text-orange-600 font-bold">Trendmax</span> ile yöneterek büyümeye devam ediyor.
             </p>
           </div>
         </div>
@@ -92,7 +92,7 @@ const Home: React.FC = () => {
             {THEME_MARQUEE_IMAGES.map((img, i) => (
               <div
                 key={`tema-1-${i}`}
-                className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow-lg transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-xl"
+                className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow shadow-gray-900/15 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-2xl hover:shadow-gray-900/10"
               >
                 <img
                   src={img}
@@ -105,7 +105,7 @@ const Home: React.FC = () => {
             {THEME_MARQUEE_IMAGES.map((img, i) => (
               <div
                 key={`tema-2-${i}`}
-                className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow-lg transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-xl"
+                className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow shadow-gray-900/15 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-2xl hover:shadow-gray-900/10"
               >
                 <img
                   src={img}
