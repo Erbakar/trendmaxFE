@@ -21,8 +21,8 @@ const Referanslar: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img src={HERO_IMAGES.premium} alt="" className="w-full h-full object-cover opacity-35" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-900/70 z-[1]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/20 via-transparent to-transparent z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/65 via-slate-900/58 to-slate-900/46 z-[1]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/15 via-transparent to-transparent z-[1]" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 w-full">
           <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-6 uppercase tracking-widest">
             <Link to="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
