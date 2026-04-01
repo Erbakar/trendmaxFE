@@ -9,14 +9,19 @@ export const THEME_MARQUEE_IMAGES = [
   '/theme/defaukt.png',
 ];
 
-/** Demo tema görüntüleri - sektör kartları vb. */
-export const DEMO_TEMA_IMAGES = [
-  'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=400&h=250&q=80',
-  'https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&w=400&h=250&q=80',
+export type HomeSektorTemaCard = {
+  image: string;
+  href: string;
+  /** img alt ve kart erişilebilir adı */
+  title: string;
+};
+
+/** Ana sayfa “Sektörünüze Özel Çözümler” — demo mağazalar (yeni sekmede) */
+export const HOME_SEKTOR_TEMA_CARDS: HomeSektorTemaCard[] = [
+  { image: '/theme/butik-web.png', href: 'https://butik.trendmaxtr.com/', title: 'Butik demo mağazası' },
+  { image: '/theme/mobilya-web.png', href: 'https://mobilya.trendmaxtr.com/', title: 'Mobilya demo mağazası' },
+  { image: '/theme/telefon-web.png', href: 'https://telefon.trendmaxtr.com/', title: 'Telefon demo mağazası' },
+  { image: '/theme/petshop-web.png', href: 'https://petshop.trendmaxtr.com/', title: 'Pet shop demo mağazası' },
 ];
 
 /** Ana sayfa paket özeti - ilk 3 özellik + fiyat */

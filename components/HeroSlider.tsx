@@ -1,16 +1,17 @@
 
-import React, { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { HERO_IMAGES } from '../data/heroImages';
 
-/** Ana sayfa hero — e-ticaret altyapısı, küresel satış, mobil mağaza temalı görseller */
+/** Ana sayfa hero — mobil 480x640, web 1440x500 */
 const SLIDES = [
   {
     title: "Türkiye'nin En Gelişmiş E-Ticaret Altyapısı",
     subtitle: "Satışlarınızı artırmak ve markanızı büyütmek için profesyonel çözümler.",
     cta1: "Ücretsiz Dene",
     cta2: "Teklif Al",
-    image: HERO_IMAGES.homeHeroInfrastructure,
+    imageWeb: HERO_IMAGES.homesliderWeb1,
+    imageMobile: HERO_IMAGES.homesliderMobile1,
     imageAlt: "E-ticaret paneli ve satış analitiği",
   },
   {
@@ -18,82 +19,90 @@ const SLIDES = [
     subtitle: "Dünyanın her yerine kolayca satış yapın, döviz ile kazanın.",
     cta1: "Hemen Başla",
     cta2: "Detayları Gör",
-    image: HERO_IMAGES.export,
+    imageWeb: HERO_IMAGES.homesliderWeb2,
+    imageMobile: HERO_IMAGES.homesliderMobile2,
     imageAlt: "Küresel ticaret ve dünya pazarları",
-  },
-  {
-    title: "Native Mobil Uygulama ile Her An Yanlarında",
-    subtitle: "Yüksek dönüşüm oranlı mobil uygulamalarla müşteri sadakatini artırın.",
-    cta1: "Mobil Uygulamanı Kur",
-    cta2: "Özellikleri İncele",
-    image: HERO_IMAGES.mobile,
-    imageAlt: "Mobil telefonda alışveriş ve mağaza uygulaması",
   },
 ];
 
-/** Tüm slaytlarda aynı nötr maske — turuncu tonlu multiply katmanı yok */
-const HERO_MASK_CLASS =
-  'absolute inset-0 bg-gradient-to-r from-slate-950/[0.88] via-slate-900/55 to-slate-900/25';
-
 const HeroSlider: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const didSwipe = useRef(false);
+  const safeCurrent = SLIDES.length > 0 ? current % SLIDES.length : 0;
+  const swipeThreshold = 50;
+
+  const goToNext = () => setCurrent((prev) => (prev + 1) % SLIDES.length);
+  const goToPrev = () => setCurrent((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
+
+  useEffect(() => {
+    // Keep index in range (helps after hot-reload / slide count changes)
+    if (current >= SLIDES.length) {
+      setCurrent(0);
+    }
+  }, [current]);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % SLIDES.length);
+      goToNext();
     }, 6000);
     return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="relative w-full h-[min(72vh,640px)] min-h-[420px] sm:min-h-[480px] md:min-h-[520px] overflow-hidden bg-slate-950">
+    <div
+      className="relative w-full overflow-hidden bg-slate-950 aspect-[480/640] md:aspect-[1440/500]"
+      onTouchStart={(e) => {
+        touchStartX.current = e.touches[0].clientX;
+        touchStartY.current = e.touches[0].clientY;
+      }}
+      onTouchEnd={(e) => {
+        if (touchStartX.current === null || touchStartY.current === null) return;
+
+        const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+        const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+
+        if (Math.abs(deltaX) > swipeThreshold && Math.abs(deltaX) > Math.abs(deltaY)) {
+          didSwipe.current = true;
+          if (deltaX < 0) goToNext();
+          else goToPrev();
+        }
+
+        touchStartX.current = null;
+        touchStartY.current = null;
+      }}
+    >
       {SLIDES.map((slide, index) => (
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            index === safeCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'
           }`}
         >
-          <div className="absolute inset-0">
-            <img
-              src={slide.image}
-              alt={slide.imageAlt}
-              className="w-full h-full object-cover scale-105 motion-reduce:scale-100"
-              loading={index === 0 ? 'eager' : 'lazy'}
-              fetchPriority={index === 0 ? 'high' : 'low'}
-            />
-            <div className={HERO_MASK_CLASS} aria-hidden />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-slate-950/20 pointer-events-none"
-              aria-hidden
-            />
-          </div>
-
-          <div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 flex items-center pb-20 sm:pb-16">
-            <div className="max-w-2xl text-white">
-              <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-[3.25rem] font-extrabold mb-4 md:mb-6 leading-[1.12] tracking-tight drop-shadow-sm">
-                {slide.title}
-              </h1>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/85 mb-6 md:mb-8 leading-relaxed max-w-xl">
-                {slide.subtitle}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                <button
-                  type="button"
-                  className="bg-white text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-slate-100 transition-all flex items-center justify-center group shadow-lg shadow-black/20"
-                >
-                  {slide.cta1}
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button
-                  type="button"
-                  className="bg-white/10 backdrop-blur-sm border border-white/25 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/15 transition-all"
-                >
-                  {slide.cta2}
-                </button>
-              </div>
-            </div>
-          </div>
+          <Link
+            to="/fiyatlar"
+            aria-label="Fiyatlar sayfasına git"
+            className="absolute inset-0 block"
+            onClick={(e) => {
+              if (didSwipe.current) {
+                e.preventDefault();
+                didSwipe.current = false;
+              }
+            }}
+          >
+            <picture className="contents">
+              <source media="(max-width: 767px)" srcSet={slide.imageMobile} type="image/png" />
+              <source media="(min-width: 768px)" srcSet={slide.imageWeb} type="image/png" />
+              <img
+                src={slide.imageMobile}
+                alt={slide.imageAlt}
+                className="h-full w-full object-cover object-center"
+                loading={index === 0 ? 'eager' : 'lazy'}
+                fetchPriority={index === 0 ? 'high' : 'low'}
+              />
+            </picture>
+          </Link>
         </div>
       ))}
 
@@ -105,7 +114,7 @@ const HeroSlider: React.FC = () => {
             onClick={() => setCurrent(index)}
             aria-label={`Slayt ${index + 1}`}
             className={`h-2 rounded-full transition-all duration-300 ${
-              index === current ? 'w-8 bg-white shadow-sm' : 'w-2 bg-white/40 hover:bg-white/60'
+              index === safeCurrent ? 'w-8 bg-white shadow-sm' : 'w-2 bg-white/40 hover:bg-white/60'
             }`}
           />
         ))}

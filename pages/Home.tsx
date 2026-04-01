@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeroSlider from '../components/HeroSlider';
-import { DEMO_TEMA_IMAGES, HOME_PACKAGES, THEME_MARQUEE_IMAGES } from '../data/homePage';
+import { HOME_PACKAGES, HOME_SEKTOR_TEMA_CARDS, THEME_MARQUEE_IMAGES } from '../data/homePage';
 import HomeIntegrationShowcase from '../components/HomeIntegrationShowcase';
 import { YAZILIM_PACKAGES } from '../data/eticaretPaketOzellikleri';
 import SikcaSorulanSorularGrid from '../components/SikcaSorulanSorularGrid';
@@ -194,24 +194,34 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Sektörünüze Özel - Tema görüntüleri, tıklanınca temalar sayfasına */}
+      {/* Sektörünüze Özel — demo mağazalar (harici link, yeni sekme) */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-black mb-4">Sektörünüze Özel Çözümler</h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">Trendmax ile işinizin gereksinimlerini biliyor, her sektöre özel e-ticaret dinamikleri geliştiriyoruz.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {DEMO_TEMA_IMAGES.slice(0, 4).map((img, i) => (
-              <Link key={i} to="/premium/temalar" className="group block">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {HOME_SEKTOR_TEMA_CARDS.map((card) => (
+              <a
+                key={card.href}
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
                 <div className="overflow-hidden rounded-3xl relative h-56 mb-4 border border-gray-100 shadow-md hover:shadow-xl transition-all">
-                  <img src={img} alt={`Tema ${i + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                     <span className="text-white font-bold">Tema Önizleme</span>
                     <span className="text-orange-300 text-sm">İncele →</span>
                   </div>
                 </div>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

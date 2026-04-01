@@ -72,8 +72,8 @@ const Header: React.FC = () => {
 
           {/* CTAs */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link to="/sss" className="text-sm font-semibold text-gray-700 hover:text-orange-600 transition-colors">SSS</Link>
-            <button className="text-sm font-semibold text-gray-700 hover:text-orange-600">Giriş Yap</button>
+            <Link to="/sss" className="text-sm font-semibold text-gray-700 hover:text-orange-600 transition-color mr-10">SSS</Link>
+           {/* <button className="text-sm font-semibold text-gray-700 hover:text-orange-600">Giriş Yap</button> */}
             <Link to="/premium/temalar" className="bg-orange-600 text-white px-6 py-3 rounded-full text-sm font-black hover:bg-orange-700 transition-all shadow-lg shadow-orange-100 active:scale-95">
               Demoyu İncele
             </Link>

@@ -1,15 +1,17 @@
 export const HERO_IMAGES = {
-  /** Ana sayfa hero 1. slayt — panel/analitik (kart/para teması yok) */
-  homeHeroInfrastructure:
-    'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80',
-  ecommerce: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
+  /** Ana sayfa hero — public/slider-images */
+  homesliderWeb1: '/slider-images/web1.png',
+  homesliderWeb2: '/slider-images/web2.png',
+  homesliderMobile1: '/slider-images/mobil1.png',
+  homesliderMobile2: '/slider-images/mobil2.png',
+  export: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1600&q=80',
   mobile: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80',
+  ecommerce: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',
   integration: 'https://www.cdnaws.com/i/237977/qi2qQLqi2qQZW3D2ZW3D2ZW3D2LHVUkzZW3D2ZW3D2/blog/pazaryeri-entegrasyonu-nedir--6971473382170.png',
   seo: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1600&q=80',
   design: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=80',
   premium: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1600&q=80',
   custom: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80',
-  export: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1600&q=80',
   digital: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80',
   support: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80',
 };
