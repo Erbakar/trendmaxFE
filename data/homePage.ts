@@ -18,10 +18,10 @@ export type HomeSektorTemaCard = {
 
 /** Ana sayfa “Sektörünüze Özel Çözümler” — demo mağazalar (yeni sekmede) */
 export const HOME_SEKTOR_TEMA_CARDS: HomeSektorTemaCard[] = [
-  { image: '/theme/butik-web.png', href: 'https://butik.trendmaxtr.com/', title: 'Butik demo mağazası' },
-  { image: '/theme/mobilya-web.png', href: 'https://mobilya.trendmaxtr.com/', title: 'Mobilya demo mağazası' },
-  { image: '/theme/telefon-web.png', href: 'https://telefon.trendmaxtr.com/', title: 'Telefon demo mağazası' },
-  { image: '/theme/petshop-web.png', href: 'https://petshop.trendmaxtr.com/', title: 'Pet shop demo mağazası' },
+  { image: '/theme/butik-web.png', href: 'https://trendmaxtr.com/butik/', title: 'Butik demo mağazası' },
+  { image: '/theme/mobilya-web.png', href: 'https://trendmaxtr.com/mobilya/', title: 'Mobilya demo mağazası' },
+  { image: '/theme/telefon-web.png', href: 'https://trendmaxtr.com/telefon/', title: 'Telefon demo mağazası' },
+  { image: '/theme/petshop-web.png', href: 'https://trendmaxtr.com/petshop/', title: 'Pet shop demo mağazası' },
 ];
 
 /** Ana sayfa paket özeti - ilk 3 özellik + fiyat */

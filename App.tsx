@@ -24,6 +24,8 @@ import Entegrasyonlar from './pages/Entegrasyonlar';
 import StoksuzSatis from './pages/StoksuzSatis';
 import SifirRisk from './pages/cozumler/SifirRisk';
 import PazarYeriPro from './pages/cozumler/PazarYeriPro';
+import Odeme from './pages/Odeme';
+import OdemeSonuc from './pages/OdemeSonuc';
 
 const App: React.FC = () => {
   return (
@@ -54,6 +56,8 @@ const App: React.FC = () => {
             <Route path="/premium/seo" element={<SEO />} />
             <Route path="/premium/temalar" element={<Temalar />} />
             <Route path="/referanslar" element={<Referanslar />} />
+            <Route path="/odeme" element={<Odeme />} />
+            <Route path="/odeme-sonuc" element={<OdemeSonuc />} />
             <Route path="/:category" element={<DynamicPage />} />
             <Route path="/:category/:subpage" element={<DynamicPage />} />
           </Routes>

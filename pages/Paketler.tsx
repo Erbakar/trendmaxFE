@@ -11,6 +11,9 @@ const Reveal = RevealOnScroll;
 /** E-Ticaret Yazılım Paketleri (Başlangıç, Uzman, Üst Düzey) - xlsx'ten */
 const PACKAGES_YAZILIM = YAZILIM_PACKAGES;
 
+const getCheckoutPath = (type: 'yazilim' | 'egitim', packageId: string) =>
+  `/odeme?tip=${type}&paket=${packageId}`;
+
 const COMPARISON_FEATURES = [
   { name: 'Şirket Kuruluşu', pazaryeri: true, sifirSermaye: false, fullFull: true },
   { name: '2 Pazar Yeri Mağaza Açılışı', pazaryeri: true, sifirSermaye: false, fullFull: true },
@@ -97,9 +100,12 @@ const Paketler: React.FC = () => {
                     <span className="text-gray-500 font-semibold"> TL</span>
                   </div>
                   <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
-                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto">
-                    Kayıt Ol
-                  </button>
+                  <Link
+                    to={getCheckoutPath('yazilim', pkg.id)}
+                    className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto text-center"
+                  >
+                    Satın Al
+                  </Link>
                 </div>
               </div>
               </Reveal>
@@ -151,9 +157,12 @@ const Paketler: React.FC = () => {
                     <span className="text-gray-500 font-semibold"> TL</span>
                   </div>
                   <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
-                  <button className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto">
-                    Kayıt Ol
-                  </button>
+                  <Link
+                    to={getCheckoutPath('egitim', pkg.id)}
+                    className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto text-center"
+                  >
+                    Satın Al
+                  </Link>
                 </div>
               </div>
               </Reveal>
@@ -210,11 +219,14 @@ const Paketler: React.FC = () => {
               <tfoot>
                 <tr className="border-t-2 border-gray-200 bg-gray-50">
                   <td className="py-4 px-4"></td>
-                  {['pazaryeri', 'sifirSermaye', 'fullFull'].map((id) => (
+                  {['pazaryeri', 'sifir-sermaye', 'full-full'].map((id) => (
                     <td key={id} className="py-4 px-4 text-center">
-                      <button type="button" className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-bold text-sm">
-                        Kayıt Ol
-                      </button>
+                      <Link
+                        to={getCheckoutPath('egitim', id)}
+                        className="inline-flex bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-xl font-bold text-sm"
+                      >
+                        Satın Al
+                      </Link>
                     </td>
                   ))}
                 </tr>

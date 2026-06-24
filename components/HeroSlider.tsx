@@ -52,7 +52,7 @@ const HeroSlider: React.FC = () => {
 
   return (
     <div
-      className="relative w-full overflow-hidden bg-slate-950 aspect-[480/640] md:aspect-[1440/500]"
+      className="relative w-full overflow-hidden bg-slate-950 aspect-[480/640] md:aspect-[1440/572]"
       onTouchStart={(e) => {
         touchStartX.current = e.touches[0].clientX;
         touchStartY.current = e.touches[0].clientY;
