@@ -1,12 +1,18 @@
 /** `public/theme/` — ana sayfa “Mutlu Müşteriler” tema marquee şeridi */
-export const THEME_MARQUEE_IMAGES = [
-  '/theme/butik.png',
-  '/theme/aqua.png',
-  '/theme/telefon.png',
-  '/theme/mobilya.png',
-  '/theme/petshop.png',
-  '/theme/soft.png',
-  '/theme/defaukt.png',
+export type HomeThemeMarqueeItem = {
+  image: string;
+  href: string;
+  title: string;
+};
+
+export const THEME_MARQUEE_IMAGES: HomeThemeMarqueeItem[] = [
+  { image: '/theme/butik.png', href: 'https://trendmaxtr.com/butik/', title: 'Butik tema önizlemesi' },
+  { image: '/theme/aqua.png', href: 'https://trendmaxtr.com/aqua/', title: 'Aqua tema önizlemesi' },
+  { image: '/theme/telefon.png', href: 'https://trendmaxtr.com/telefon/', title: 'Telefon tema önizlemesi' },
+  { image: '/theme/mobilya.png', href: 'https://trendmaxtr.com/mobilya/', title: 'Mobilya tema önizlemesi' },
+  { image: '/theme/petshop.png', href: 'https://trendmaxtr.com/petshop/', title: 'Pet shop tema önizlemesi' },
+  { image: '/theme/soft.png', href: 'https://trendmaxtr.com/soft/', title: 'Soft tema önizlemesi' },
+  { image: '/theme/defaukt.png', href: 'https://trendmaxtr.com/default/', title: 'Default tema önizlemesi' },
 ];
 
 export type HomeSektorTemaCard = {
@@ -22,6 +28,9 @@ export const HOME_SEKTOR_TEMA_CARDS: HomeSektorTemaCard[] = [
   { image: '/theme/mobilya-web.png', href: 'https://trendmaxtr.com/mobilya/', title: 'Mobilya demo mağazası' },
   { image: '/theme/telefon-web.png', href: 'https://trendmaxtr.com/telefon/', title: 'Telefon demo mağazası' },
   { image: '/theme/petshop-web.png', href: 'https://trendmaxtr.com/petshop/', title: 'Pet shop demo mağazası' },
+  { image: '/theme/aqua-web.png', href: 'https://trendmaxtr.com/aqua/', title: 'Aqua demo mağazası' },
+  { image: '/theme/soft-web.png', href: 'https://trendmaxtr.com/soft/', title: 'Soft demo mağazası' },
+  { image: '/theme/default-web.png', href: 'https://trendmaxtr.com/default/', title: 'Default demo mağazası' },
 ];
 
 /** Ana sayfa paket özeti - ilk 3 özellik + fiyat */

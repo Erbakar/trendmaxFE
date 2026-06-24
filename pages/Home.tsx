@@ -89,31 +89,37 @@ const Home: React.FC = () => {
 
         <div className="relative flex">
           <div className="animate-marquee flex items-center space-x-8 whitespace-nowrap py-8">
-            {THEME_MARQUEE_IMAGES.map((img, i) => (
-              <div
+            {THEME_MARQUEE_IMAGES.map((theme, i) => (
+              <a
                 key={`tema-1-${i}`}
+                href={theme.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow shadow-gray-900/15 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-2xl hover:shadow-gray-900/10"
               >
                 <img
-                  src={img}
-                  alt="Trendmax tema önizlemesi"
+                  src={theme.image}
+                  alt={theme.title}
                   className="h-full w-[calc(100%+2px)] max-w-none -translate-x-[2px] object-cover object-top"
                   draggable={false}
                 />
-              </div>
+              </a>
             ))}
-            {THEME_MARQUEE_IMAGES.map((img, i) => (
-              <div
+            {THEME_MARQUEE_IMAGES.map((theme, i) => (
+              <a
                 key={`tema-2-${i}`}
+                href={theme.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative h-100 w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border border-gray-100 bg-gray-50 opacity-90 shadow shadow-gray-900/15 transition-all duration-300 hover:scale-105 hover:opacity-100 hover:shadow-2xl hover:shadow-gray-900/10"
               >
                 <img
-                  src={img}
-                  alt="Trendmax tema önizlemesi"
+                  src={theme.image}
+                  alt={theme.title}
                   className="h-full w-[calc(100%+2px)] max-w-none -translate-x-[2px] object-cover object-top"
                   draggable={false}
                 />
-              </div>
+              </a>
             ))}
           </div>
         </div>
