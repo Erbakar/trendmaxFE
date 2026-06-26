@@ -107,9 +107,11 @@ const Footer: React.FC = () => {
           <p>© 2024 Trendmax Bilişim Teknolojileri A.Ş. Tüm Hakları Saklıdır.</p>
           <div className="flex space-x-6 flex-wrap gap-2">
             <Link to="/sss" className="hover:text-orange-500">SSS</Link>
-            <a href="#" className="hover:text-orange-500">Kullanım Koşulları</a>
-            <a href="#" className="hover:text-orange-500">KVKK Aydınlatma Metni</a>
-            <a href="#" className="hover:text-orange-500">Çerez Politikası</a>
+            <a href="/legal/hizmet-sartlari.docx" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500">Kullanım Koşulları</a>
+            <a href="/legal/gizlilik-ve-guvenlik.docx" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500">KVKK Aydınlatma Metni</a>
+            <a href="/legal/mesafeli-satis-sozlesmesi.docx" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500">Mesafeli Satış Sözleşmesi</a>
+            <a href="/legal/teslimat-politikasi.docx" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500">Teslimat Politikası</a>
+            <a href="/legal/iade-politikasi.docx" target="_blank" rel="noopener noreferrer" className="hover:text-orange-500">İade Politikası</a>
           </div>
         </div>
       </div>
