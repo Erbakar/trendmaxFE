@@ -26,6 +26,7 @@ import SifirRisk from './pages/cozumler/SifirRisk';
 import PazarYeriPro from './pages/cozumler/PazarYeriPro';
 import Odeme from './pages/Odeme';
 import OdemeSonuc from './pages/OdemeSonuc';
+import LegalPage from './pages/LegalPage';
 
 const App: React.FC = () => {
   return (
@@ -58,6 +59,7 @@ const App: React.FC = () => {
             <Route path="/referanslar" element={<Referanslar />} />
             <Route path="/odeme" element={<Odeme />} />
             <Route path="/odeme-sonuc" element={<OdemeSonuc />} />
+            <Route path="/yasal/:slug" element={<LegalPage />} />
             <Route path="/:category" element={<DynamicPage />} />
             <Route path="/:category/:subpage" element={<DynamicPage />} />
           </Routes>
