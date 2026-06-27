@@ -103,15 +103,15 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-slate-900 text-slate-600 text-xs font-bold gap-4">
-          <p>© 2024 Trendmax Bilişim Teknolojileri A.Ş. Tüm Hakları Saklıdır.</p>
-          <div className="flex space-x-6 flex-wrap gap-2">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-10 border-t border-slate-900 text-slate-600 text-xs font-bold gap-6">
+          <p className="text-left">© 2024 Trendmax Bilişim Teknolojileri A.Ş. Tüm Hakları Saklıdır.</p>
+          <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-wrap gap-x-6 gap-y-2 text-left md:text-right">
             <Link to="/sss" className="hover:text-orange-500">SSS</Link>
-            <Link to="/yasal/kullanim-kosullari" className="hover:text-orange-500">Kullanim Kosullari</Link>
-            <Link to="/yasal/kvkk-aydinlatma-metni" className="hover:text-orange-500">KVKK Aydinlatma Metni</Link>
-            <Link to="/yasal/mesafeli-satis-sozlesmesi" className="hover:text-orange-500">Mesafeli Satis Sozlesmesi</Link>
-            <Link to="/yasal/teslimat-politikasi" className="hover:text-orange-500">Teslimat Politikasi</Link>
-            <Link to="/yasal/iade-politikasi" className="hover:text-orange-500">Iade Politikasi</Link>
+            <Link to="/yasal/kullanim-kosullari" className="hover:text-orange-500">Kullanım Koşulları</Link>
+            <Link to="/yasal/kvkk-aydinlatma-metni" className="hover:text-orange-500">KVKK Aydınlatma Metni</Link>
+            <Link to="/yasal/mesafeli-satis-sozlesmesi" className="hover:text-orange-500">Mesafeli Satış Sözleşmesi</Link>
+            <Link to="/yasal/teslimat-politikasi" className="hover:text-orange-500">Teslimat Politikası</Link>
+            <Link to="/yasal/iade-politikasi" className="hover:text-orange-500">İade Politikası</Link>
           </div>
         </div>
       </div>
