@@ -1,5 +1,93 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(249, 115, 22, 0.42);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(234, 88, 12, 0.18);
+  color: #7c2d12;
+}
+
+.page-hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to right, black, transparent 82%);
+}
+
+@media (max-width: 1023px) {
+  .page-hero-grid {
+    background-size: 40px 40px;
+  }
+
+  .mobile-navigation-open .whatsapp-floating {
+    display: none;
+  }
+}
+
+.mobile-horizontal-scroll {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  main section[id] {
+    scroll-margin-top: 5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Custom Animations */
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -7,7 +95,6 @@
 }
 
 .animate-marquee {
-  display: flex;
   width: max-content;
   animation: marquee 30s linear infinite;
 }
@@ -27,7 +114,6 @@
 }
 
 .animate-marquee-integrations {
-  display: flex;
   width: max-content;
   animation: marquee-integrations 52s linear infinite;
 }
@@ -37,7 +123,6 @@
 }
 
 .animate-marquee-integrations-reverse {
-  display: flex;
   width: max-content;
   animation: marquee-integrations 64s linear infinite reverse;
 }
@@ -71,4 +156,8 @@
 
 .visual-float {
   animation: float-soft 5s ease-in-out infinite;
+}
+/* Production asset revision: 2026-08-25 */
+:root {
+  --trendmax-asset-revision: 20260825;
 }

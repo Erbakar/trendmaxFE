@@ -97,7 +97,7 @@ const Entegrasyon: React.FC = () => {
               { step: '01', title: 'İhtiyaç Analizi', desc: 'Mevcut sistemleriniz ve iş akışlarınız analiz edilir.' },
               { step: '02', title: 'API Eşleştirme', desc: 'Hedef platformlarla teknik bağlantı kurulur.' },
               { step: '03', title: 'Test & Doğrulama', desc: 'Canlıya almadan önce kapsamlı test yapılır.' },
-              { step: '04', title: 'Go-Live & Destek', desc: '7/24 teknik destek ile kesintisiz çalışma.' },
+              { step: '04', title: 'Go-Live & Destek', desc: 'Paket kapsamına göre teknik destek ve izleme.' },
             ].map((s, i) => (
               <div key={i} className="flex gap-6">
                 <div className="text-4xl font-black text-orange-500/50">{s.step}</div>

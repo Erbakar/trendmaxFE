@@ -10,7 +10,7 @@ const StoksuzSatis: React.FC = () => {
     <div className="pt-20 min-h-screen bg-white">
       <AnimatedHero
         title="Stoksuz Satış"
-        subtitle="Dropshipping yöntemi ile stok tutmadan, sermaye riski olmadan e-ticaret yapın. 2 XML yüklü demo site ile hemen inceleyin."
+        subtitle="Dropshipping yöntemiyle stok bulundurmadan satış operasyonu kurun. XML ürün kaynakları, tedarikçi akışı ve hazır altyapıyı birlikte yönetin."
         breadcrumb={[{ label: 'Stoksuz Satış' }]}
         icon={Package}
         badge="Dropshipping"
@@ -28,8 +28,8 @@ const StoksuzSatis: React.FC = () => {
               <ul className="space-y-4">
                 {[
                   'E-Ticaret paketi aldığınızda ürün kataloğu ile birlikte gelir',
-                  '2 XML yüklü demo site ile canlı örnekleri inceleyebilirsiniz',
-                  'Şirket kurmadan, vergi ve stok riski olmadan başlayın',
+                  'XML ürün kaynakları ile katalog ve stoklar otomatik güncellenir',
+                  'Şirket, vergi ve faturalama yükümlülüklerini iş modelinize göre planlayın',
                   'Pazaryerleri ve kendi sitenizde aynı anda satış',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
@@ -43,9 +43,9 @@ const StoksuzSatis: React.FC = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-6">Neden Stoksuz Satış?</h3>
               <div className="space-y-4">
                 {[
-                  { icon: Package, title: 'Sıfır Stok Maliyeti', desc: 'Ürün alıp depolamazsınız.' },
+                  { icon: Package, title: 'Stok Yükünü Azaltın', desc: 'Satış öncesinde ürün depolama ihtiyacını azaltın.' },
                   { icon: Truck, title: 'Kargo Tedarikçide', desc: 'Sevkiyat tedarikçi tarafından yapılır.' },
-                  { icon: Zap, title: 'Hızlı Başlangıç', desc: '24 saatte mağaza açılır.' },
+                  { icon: Zap, title: 'Planlı Kurulum', desc: 'Gerekli bilgiler tamamlandığında kurulum süreci başlatılır.' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-4 rounded-xl bg-gray-50">
                     <item.icon className="w-6 h-6 text-orange-600 flex-shrink-0" />
@@ -56,8 +56,8 @@ const StoksuzSatis: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <Link to="/cozumler/paketler" className="mt-6 block text-center bg-orange-600 text-white py-3 rounded-xl font-bold hover:bg-orange-700">
-                Demo İncele & Satın Al
+              <Link to="/fiyatlar" className="mt-6 block text-center bg-orange-600 text-white py-3 rounded-xl font-bold hover:bg-orange-700">
+                Paketleri İncele
               </Link>
             </div>
           </div>
@@ -68,7 +68,7 @@ const StoksuzSatis: React.FC = () => {
 
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Stoksuz Satışa Hemen Başlayın</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Stoksuz Satış Modelinizi Planlayın</h2>
           <Link to="/fiyatlar" className="inline-flex items-center gap-2 bg-white text-orange-600 px-10 py-4 rounded-2xl font-bold hover:bg-orange-50 transition-colors">
             Paketleri İncele <ArrowRight className="w-5 h-5" />
           </Link>

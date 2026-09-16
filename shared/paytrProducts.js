@@ -20,13 +20,13 @@ export const PAYTR_PRODUCTS = [
   {
     type: 'egitim',
     sourceId: 'pazaryeri',
-    title: 'Pazar Yeri Stoksuz E-Ticaret Birebir Eğitim Paketi',
+    title: 'Pazaryeri Stoksuz E-Ticaret Kurulum Paketi',
     amountTRY: 12500,
   },
   {
     type: 'egitim',
     sourceId: 'sifir-sermaye',
-    title: 'Sıfır Sermaye E-Ticaret Sitesi Paketi',
+    title: 'Sıfır Risk E-Ticaret Sitesi Paketi',
     amountTRY: 18500,
   },
   {

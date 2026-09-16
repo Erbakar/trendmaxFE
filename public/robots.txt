@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /odeme
+Disallow: /odeme-sonuc
+
+User-agent: GPTBot
+Allow: /
+Disallow: /odeme
+Disallow: /odeme-sonuc
+
+Sitemap: https://trendmaxtr.com/sitemap.xml

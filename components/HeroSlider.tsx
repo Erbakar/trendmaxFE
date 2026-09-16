@@ -3,30 +3,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { HERO_IMAGES } from '../data/heroImages';
 
-/** Ana sayfa hero — mobil 480x640, web 1440x500 */
 const SLIDES = [
   {
-    title: "Türkiye'nin En Gelişmiş E-Ticaret Altyapısı",
-    subtitle: "Satışlarınızı artırmak ve markanızı büyütmek için profesyonel çözümler.",
-    cta1: "Ücretsiz Dene",
-    cta2: "Teklif Al",
     imageWeb: HERO_IMAGES.homesliderWeb1,
     imageMobile: HERO_IMAGES.homesliderMobile1,
-    imageAlt: "E-ticaret paneli ve satış analitiği",
+    imageAlt: 'Stok olmadan 10.000+ ürünle satışa başlayın',
   },
   {
-    title: "E-İhracat ile Sınırları Ortadan Kaldırın",
-    subtitle: "Dünyanın her yerine kolayca satış yapın, döviz ile kazanın.",
-    cta1: "Hemen Başla",
-    cta2: "Detayları Gör",
     imageWeb: HERO_IMAGES.homesliderWeb2,
     imageMobile: HERO_IMAGES.homesliderMobile2,
-    imageAlt: "Küresel ticaret ve dünya pazarları",
+    imageAlt: 'E-ticaret yazılım paketi ile sitenizi kurun ve büyütün',
   },
 ];
 
 const HeroSlider: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
   const didSwipe = useRef(false);
@@ -37,23 +30,36 @@ const HeroSlider: React.FC = () => {
   const goToPrev = () => setCurrent((prev) => (prev - 1 + SLIDES.length) % SLIDES.length);
 
   useEffect(() => {
-    // Keep index in range (helps after hot-reload / slide count changes)
     if (current >= SLIDES.length) {
       setCurrent(0);
     }
   }, [current]);
 
   useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePreference = () => setReduceMotion(media.matches);
+    updatePreference();
+    media.addEventListener('change', updatePreference);
+    return () => media.removeEventListener('change', updatePreference);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused || reduceMotion) return;
     const timer = setInterval(() => {
       goToNext();
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [isPaused, reduceMotion]);
 
   return (
     <div
-      className="relative w-full overflow-hidden bg-slate-950 aspect-[480/640] md:aspect-[1440/572]"
+      className="relative w-full bg-white"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={() => setIsPaused(false)}
       onTouchStart={(e) => {
+        setIsPaused(true);
         touchStartX.current = e.touches[0].clientX;
         touchStartY.current = e.touches[0].clientY;
       }}
@@ -73,50 +79,59 @@ const HeroSlider: React.FC = () => {
         touchStartY.current = null;
       }}
     >
-      {SLIDES.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === safeCurrent ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-        >
-          <Link
-            to="/fiyatlar"
-            aria-label="Fiyatlar sayfasına git"
-            className="absolute inset-0 block"
-            onClick={(e) => {
-              if (didSwipe.current) {
-                e.preventDefault();
-                didSwipe.current = false;
-              }
-            }}
+      <div className="grid justify-items-center">
+        {SLIDES.map((slide, index) => (
+          <div
+            key={index}
+            className={`col-start-1 row-start-1 w-full ${
+              index === safeCurrent ? 'z-10 opacity-100' : 'z-0 pointer-events-none opacity-0'
+            } transition-opacity duration-1000 ease-in-out`}
           >
-            <picture className="contents">
-              <source media="(max-width: 767px)" srcSet={slide.imageMobile} type="image/png" />
-              <source media="(min-width: 768px)" srcSet={slide.imageWeb} type="image/png" />
-              <img
-                src={slide.imageMobile}
-                alt={slide.imageAlt}
-                className="h-full w-full object-cover object-center"
-                loading={index === 0 ? 'eager' : 'lazy'}
-                fetchPriority={index === 0 ? 'high' : 'low'}
-              />
-            </picture>
-          </Link>
-        </div>
-      ))}
+            <Link
+              to="/fiyatlar"
+              aria-label="Fiyatlar sayfasına git"
+              className="block w-full"
+              onClick={(e) => {
+                if (didSwipe.current) {
+                  e.preventDefault();
+                  didSwipe.current = false;
+                }
+              }}
+            >
+              <picture className="block w-full">
+                <source media="(max-width: 767px)" srcSet={slide.imageMobile} type="image/jpeg" />
+                <source media="(min-width: 768px)" srcSet={slide.imageWeb} type="image/jpeg" />
+                <img
+                  src={slide.imageWeb}
+                  alt={slide.imageAlt}
+                  className="block h-auto w-full"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : 'low'}
+                  draggable={false}
+                />
+              </picture>
+            </Link>
+          </div>
+        ))}
+      </div>
 
-      <div className="absolute bottom-5 sm:bottom-7 md:bottom-9 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 rounded-full bg-black/25 backdrop-blur-md px-3 py-2 border border-white/10">
+      <div className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/25 p-1 backdrop-blur-md sm:bottom-4">
         {SLIDES.map((_, index) => (
           <button
             key={index}
             type="button"
-            onClick={() => setCurrent(index)}
+            onClick={() => {
+              setCurrent(index);
+              setIsPaused(true);
+            }}
             aria-label={`Slayt ${index + 1}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              index === safeCurrent ? 'w-8 bg-white shadow-sm' : 'w-2 bg-white/40 hover:bg-white/60'
-            }`}
-          />
+            aria-current={index === safeCurrent ? 'true' : undefined}
+            className="group flex h-11 w-11 items-center justify-center rounded-full"
+          >
+            <span className={`h-2 rounded-full transition-all duration-300 ${
+              index === safeCurrent ? 'w-7 bg-white shadow-sm' : 'w-2 bg-white/40 group-hover:bg-white/60'
+            }`} />
+          </button>
         ))}
       </div>
     </div>

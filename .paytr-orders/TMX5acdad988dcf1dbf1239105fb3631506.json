@@ -1,0 +1,27 @@
+{
+    "orderId": "TMX5acdad988dcf1dbf1239105fb3631506",
+    "publicToken": "5RJMYt9HwBgDsA_6F8A-bhSr5LlQ6_b0",
+    "status": "pending",
+    "createdAt": "2026-08-25T15:22:20+00:00",
+    "customer": {
+        "fullName": "Test Kullanici",
+        "email": "test@example.com",
+        "phone": "05555555555",
+        "address": "Test Mahallesi Test Sokak No 1 Istanbul"
+    },
+    "product": {
+        "title": "Başlangıç",
+        "amountTRY": 19500
+    },
+    "expectedAmount": 1950000,
+    "acceptances": {
+        "privacyNotice": true,
+        "preInformation": true,
+        "distanceSales": true,
+        "earlyPerformance": true,
+        "version": "2026-08-23",
+        "acceptedAt": "2026-08-25T15:22:20+00:00",
+        "ip": "127.0.0.1"
+    },
+    "updatedAt": "2026-08-25T15:22:21+00:00"
+}

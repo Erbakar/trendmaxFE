@@ -32,18 +32,18 @@ const Temalar: React.FC = () => {
               Liquid Theme Showcase
             </p>
             <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4">
-              Temalarımızı Canlı Olarak İnceleyin
+              Temalarımızı İnceleyin
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Tüm temalarımız mobil uyumlu, hızlı ve dönüşüm odaklıdır. Kartlara tıklayarak
-              canlı demo mağaza örneklerini inceleyebilirsiniz.
+              masaüstü mağaza önizlemelerini inceleyebilirsiniz.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {HOME_SEKTOR_TEMA_CARDS.map((theme) => (
-              <a
+              <Link
                 key={theme.href}
-                href={theme.href}
+                to={theme.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden rounded-3xl border border-white/60 bg-white/60 backdrop-blur-xl shadow-[0_12px_40px_rgba(15,23,42,0.12)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,23,42,0.22)] block"
@@ -59,10 +59,10 @@ const Temalar: React.FC = () => {
                 <div className="relative p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{theme.title}</h3>
                   <span className="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-orange-700 bg-orange-100/80 ring-1 ring-orange-200/70 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                    Canlı demoyu aç
+                    Önizlemeyi aç
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

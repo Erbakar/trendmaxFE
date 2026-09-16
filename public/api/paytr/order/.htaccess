@@ -1,0 +1,5 @@
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(TMX[0-9A-Fa-f]{32})/?$ index.php?order_id=$1 [QSA,L]
+

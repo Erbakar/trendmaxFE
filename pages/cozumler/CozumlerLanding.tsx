@@ -2,43 +2,31 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, ShieldCheck, Store, Globe, ArrowRight, Zap } from 'lucide-react';
 import { HERO_IMAGES } from '../../data/heroImages';
+import AnimatedHero from '../../components/AnimatedHero';
 
 const cozumlerItems = [
   { title: 'E-Ticaret Paketleri', path: '/cozumler/paketler', desc: 'Her ölçekteki işletme için uygun e-ticaret altyapısı.', icon: ShoppingBag },
-  { title: 'Sıfır Risk E-Ticaret Paketi', path: '/cozumler/sifir-risk', desc: 'Şirket kurmadan e-ticaret yapın!', icon: ShieldCheck },
-  { title: 'Pazar Yeri Pro Expert', path: '/cozumler/pazar-yeri-pro', desc: 'Pazaryerlerinde 24 saatte 10.000+ ürün ile satışa başlayın.', icon: Store },
-  { title: 'E-İhracat', path: '/cozumler/e-ihracat', desc: 'Satışa hazır ürünler ile Amazon ve Etsy Global\'de yerinizi alın.', icon: Globe },
+  { title: 'Sıfır Risk E-Ticaret Paketi', path: '/cozumler/sifir-risk', desc: 'Stok ve lojistik operasyonunu tedarikçi modeliyle planlayın.', icon: ShieldCheck },
+  { title: 'Pazar Yeri Pro Expert', path: '/cozumler/pazar-yeri-pro', desc: 'Pazaryeri mağaza, ürün ve entegrasyon kurulumunu birlikte yönetin.', icon: Store },
+  { title: 'E-İhracat', path: '/cozumler/e-ihracat', desc: 'Çoklu dil, para birimi ve global satış kanalı çözümleri.', icon: Globe },
 ];
 
 const CozumlerLanding: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-[400px] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img src={HERO_IMAGES.ecommerce} alt="" className="w-full h-full object-cover opacity-40" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/65 via-slate-900/58 to-slate-900/46 z-[1]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/15 via-transparent to-transparent z-[1]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
-          <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-8 uppercase tracking-widest">
-            <Link to="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
-            <span>/</span>
-            <span className="text-white/60">E-Ticaret Çözümleri</span>
-          </nav>
-          <div className="inline-flex items-center gap-2 bg-orange-600/20 text-orange-400 px-4 py-2 rounded-full text-sm font-bold mb-8">
-            <Zap className="w-5 h-5" />
-            <span>Dijital Ticaret</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-            E-Ticaret Çözümleri
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mb-10">
-            Küçük işletmeden kurumsal devlere, her ölçeğe uygun e-ticaret altyapıları ve özel çözümlerle dijital satış yolculuğunuza başlayın.
-          </p>
-        </div>
-      </section>
+      <AnimatedHero
+        title="E-Ticaret Çözümleri"
+        subtitle="Yeni başlayan işletmelerden büyüyen markalara kadar farklı operasyon ihtiyaçları için yazılım, entegrasyon ve eğitim çözümleri."
+        breadcrumb={[{ label: 'E-Ticaret Çözümleri' }]}
+        icon={Zap}
+        badge="Dijital Ticaret"
+        image={HERO_IMAGES.corporateOperations}
+        imagePosition="center right"
+        primaryAction={{ label: 'Paketleri Karşılaştırın', to: '/fiyatlar' }}
+        secondaryActionLabel="Çözümleri Keşfedin"
+      />
 
-      <section className="py-24 bg-gray-50">
+      <section id="icerik" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 text-center mb-16">
             Çözümlerimizi Keşfedin

@@ -1,177 +1,81 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Award, Building2, Quote, ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, MonitorSmartphone, Palette, ShoppingBag } from 'lucide-react';
+import { THEME_DEMOS } from '../data/homePage';
+import AnimatedHero from '../components/AnimatedHero';
 import { HERO_IMAGES } from '../data/heroImages';
-import { REFERANS_MARKALAR, REFERANS_ISTATISTIKLER, BASARI_HIKAYELERI } from '../data/referanslar';
 
-const Referanslar: React.FC = () => {
-  const [activeSector, setActiveSector] = React.useState('Tümü');
+const Referanslar: React.FC = () => (
+  <div className="min-h-screen bg-white pt-20">
+    <AnimatedHero
+      title="Tema ve Çözüm Örnekleri"
+      subtitle="Farklı sektörler için hazırlanan mağaza önizlemelerini, mobil deneyimi ve tasarım yaklaşımımızı inceleyin."
+      breadcrumb={[{ label: 'Çözüm Örnekleri' }]}
+      icon={Palette}
+      badge="Tasarım Galerisi"
+      image={HERO_IMAGES.design}
+      imagePosition="center"
+      primaryAction={{ label: 'Projenizi Konuşalım', to: '/iletisim' }}
+      secondaryActionLabel="Örnekleri İnceleyin"
+    />
 
-  const filteredMarkalar = activeSector === 'Tümü'
-    ? REFERANS_MARKALAR
-    : REFERANS_MARKALAR.filter((m) => m.sector === activeSector);
-
-  const sectors = [...new Set(REFERANS_MARKALAR.map((m) => m.sector))];
-  const allSectors = ['Tümü', ...sectors];
-
-  return (
-    <div className="pt-20 min-h-screen bg-white">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-[420px] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img src={HERO_IMAGES.premium} alt="" className="w-full h-full object-cover opacity-35" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/65 via-slate-900/58 to-slate-900/46 z-[1]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/15 via-transparent to-transparent z-[1]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24 w-full">
-          <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-6 uppercase tracking-widest">
-            <Link to="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
-            <span>/</span>
-            <span className="text-white/60">Referanslar</span>
-          </nav>
-          <div className="inline-flex items-center gap-2 bg-orange-600/20 text-orange-400 px-4 py-2 rounded-full text-sm font-bold mb-6">
-            <Award className="w-5 h-5" />
-            <span>Güvenilir İş Ortakları</span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4">
-            Referanslarımız
-          </h1>
-          <p className="text-xl text-slate-300 max-w-2xl">
-            Türkiye&apos;nin önde gelen 25.000+ markası Trendmax ile dijital ticarette büyümeye devam ediyor.
+    <section id="icerik" className="py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 max-w-3xl">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-orange-600">Önizleme galerisi</p>
+          <h2 className="mt-3 text-3xl font-black text-gray-900 md:text-4xl">Sektörünüze uygun vitrini keşfedin.</h2>
+          <p className="mt-4 text-lg leading-relaxed text-gray-600">
+            Buradaki görseller tema tasarımlarını gösterir. Nihai mağaza; marka kimliği, içerik ve seçilen paket kapsamına göre özelleştirilir.
           </p>
         </div>
-      </section>
 
-      {/* Stats */}
-      <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {REFERANS_ISTATISTIKLER.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="text-4xl md:text-5xl font-black text-orange-600 mb-2">{stat.value}</div>
-                <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">{stat.label}</div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {THEME_DEMOS.map((theme) => (
+            <Link key={theme.slug} to={`/tema/${theme.slug}`} target="_blank" rel="noopener noreferrer" className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-xl">
+              <div className="aspect-[16/10] overflow-hidden bg-gray-100">
+                <img src={theme.landscapeImage} alt={`${theme.name} tema önizlemesi`} className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Marka Logoları */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Bize Güvenen Markalar</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Moda&apos;dan elektroniğe, kozmetikten gıdaya farklı sektörlerden binlerce marka Trendmax altyapısıyla satış yapıyor.
-            </p>
-          </div>
-
-          {/* Sektör Filtre */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {allSectors.map((sector) => (
-              <button
-                key={sector}
-                onClick={() => setActiveSector(sector)}
-                className={`px-6 py-3 rounded-2xl font-bold text-sm transition-all ${
-                  activeSector === sector
-                    ? 'bg-orange-600 text-white shadow-lg shadow-orange-600/25'
-                    : 'bg-white text-gray-600 hover:bg-orange-50 hover:text-orange-600 border border-gray-200'
-                }`}
-              >
-                {sector}
-              </button>
-            ))}
-          </div>
-
-          {/* Logo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredMarkalar.map((marka, i) => (
-              <div
-                key={i}
-                className="group bg-white rounded-2xl p-8 flex flex-col items-center justify-center border border-gray-100 hover:border-orange-200 hover:shadow-xl transition-all min-h-[160px]"
-              >
-                <img
-                  src={marka.logo}
-                  alt={marka.name}
-                  className="max-h-14 w-auto object-contain grayscale group-hover:grayscale-0 transition-all opacity-80 group-hover:opacity-100"
-                />
-                <span className="mt-4 text-xs font-semibold text-gray-400 uppercase tracking-wider">{marka.sector}</span>
+              <div className="flex items-center justify-between gap-4 p-6">
+                <div>
+                  <h3 className="text-xl font-black text-gray-900">{theme.name}</h3>
+                  <p className="mt-1 text-sm text-gray-500">Masaüstü ve mobil tema görünümü</p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-orange-600 transition-transform group-hover:translate-x-1" />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Başarı Hikayeleri */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Başarı Hikayeleri</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Müşterilerimizin Trendmax ile yaşadıkları dönüşüm hikayeleri.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {BASARI_HIKAYELERI.map((hikaye, i) => (
-              <div
-                key={i}
-                className="relative bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:shadow-xl transition-all"
-              >
-                <div className="absolute top-6 right-6 text-orange-400">
-                  <Quote className="w-10 h-10" />
-                </div>
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 fill-orange-400 text-orange-400" />
-                  ))}
-                </div>
-                <p className="text-gray-700 font-medium leading-relaxed mb-6">&ldquo;{hikaye.quote}&rdquo;</p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
-                    <Building2 className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-gray-900">{hikaye.author}</div>
-                    <div className="text-sm text-gray-500">{hikaye.role}</div>
-                    <span className="inline-block mt-1 text-xs font-semibold text-orange-600 bg-orange-50 px-2 py-1 rounded-full">
-                      {hikaye.sector}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Kurumsal CTA */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-black mb-6">
-            Siz de Trendmax Ailesine Katılın
-          </h2>
-          <p className="text-slate-400 text-lg mb-10">
-            25.000+ markanın tercihi olan Trendmax ile e-ticaret yolculuğunuza bugün başlayın.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/fiyatlar"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-2xl font-bold transition-all"
-            >
-              Paketleri İncele <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link
-              to="/sss"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-2xl font-bold transition-all"
-            >
-              SSS
-            </Link>
-          </div>
+          ))}
         </div>
-      </section>
-    </div>
-  );
-};
+      </div>
+    </section>
+
+    <section className="bg-gray-50 py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-6 md:grid-cols-3">
+          {[
+            { icon: MonitorSmartphone, title: 'Mobil uyumlu arayüz', text: 'Tema önizlemelerini farklı ekran boyutlarında karşılaştırın.' },
+            { icon: Palette, title: 'Markaya göre özelleştirme', text: 'Renk, tipografi, görsel ve içerik alanları proje kapsamında uyarlanabilir.' },
+            { icon: ShoppingBag, title: 'Satış odaklı bileşenler', text: 'Ürün, kategori, kampanya ve ödeme adımları e-ticaret deneyimine göre tasarlanır.' },
+          ].map((item) => (
+            <article key={item.title} className="rounded-3xl border border-gray-200 bg-white p-8">
+              <item.icon className="h-8 w-8 text-orange-600" />
+              <h3 className="mt-5 text-xl font-black text-gray-900">{item.title}</h3>
+              <p className="mt-3 leading-relaxed text-gray-600">{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-orange-600 py-16 text-white">
+      <div className="mx-auto max-w-4xl px-4 text-center">
+        <h2 className="text-3xl font-black md:text-4xl">Projeniz için doğru yapıyı birlikte belirleyelim.</h2>
+        <p className="mx-auto mt-4 max-w-2xl text-lg text-orange-100">Paket kapsamı, tema ve entegrasyon seçenekleri için ekibimizle iletişime geçin.</p>
+        <Link to="/iletisim" className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-7 py-4 font-black text-orange-700 hover:bg-orange-50">
+          Bize Ulaşın <ArrowRight className="h-5 w-5" />
+        </Link>
+      </div>
+    </section>
+  </div>
+);
 
 export default Referanslar;

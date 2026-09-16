@@ -11,7 +11,7 @@ export type EgitimStoksuzPaket = {
 export const EGITIM_STOKSUZ_PACKAGES: EgitimStoksuzPaket[] = [
   {
     id: 'pazaryeri',
-    title: 'Pazar Yeri Stoksuz E-Ticaret Birebir Eğitim Paketi',
+    title: 'Pazaryeri Stoksuz E-Ticaret Kurulum Paketi',
     price: '12.500',
     highlight: false,
     features: [
@@ -21,8 +21,8 @@ export const EGITIM_STOKSUZ_PACKAGES: EgitimStoksuzPaket[] = [
       'Ücretsiz Logo Tasarımı',
       'Ürün Yükleme Eğitimi',
       'Trendyol Panel Eğitimi & Ürün Yükleme',
-      'Gittigidiyor Panel Eğitimi & Ürün Yükleme',
-      'Satış Garantili Ürün Desteği',
+      'N11 / Hepsiburada Panel Eğitimi & Ürün Yükleme',
+      'Ürün Araştırma ve Satış Stratejisi Desteği',
       "5 Farklı Sektör, 50'den Fazla Kategori",
       "8.000 + Hazır Farklı Ürün",
       'Tedarikçi İlişkileri',
@@ -35,18 +35,18 @@ export const EGITIM_STOKSUZ_PACKAGES: EgitimStoksuzPaket[] = [
   },
   {
     id: 'sifir-sermaye',
-    title: 'Sıfır Sermaye E-Ticaret Sitesi Paketi',
+    title: 'Sıfır Risk E-Ticaret Sitesi Paketi',
     price: '18.500',
     highlight: true,
     features: [
-      '24 Saatte Hazır E-Ticaret Sitesi',
+      'Kurulum Planı Dahil Hazır E-Ticaret Sitesi',
       "8.000 + Farklı Hazır Ürün",
       'Hazır Ödeme Alt Yapısı',
       '1 Yıllık Hosting Hizmeti',
       'Ücretsiz Logo Tasarımı',
       'Kargo ve Lojistik Hizmeti',
-      'Şirket Kurmak Yok',
-      'Vergi Yok',
+      'Tedarikçi Üzerinden Sipariş Karşılama Modeli',
+      'Vergi ve Faturalama Modeli Bilgilendirmesi',
       'Kargo ve Depolama Hizmeti',
       'Tedarikçi Desteği Hizmeti',
       "5 Farklı Sektör, 50'den Fazla Kategori",
@@ -68,16 +68,16 @@ export const EGITIM_STOKSUZ_PACKAGES: EgitimStoksuzPaket[] = [
       'Ücretsiz Logo Tasarımı',
       'Ürün Yükleme Eğitimi',
       'Trendyol Panel Eğitimi & Ürün Yükleme',
-      'Gittigidiyor Panel Eğitimi & Ürün Yükleme',
-      'Satış Garantili Ürün Desteği',
+      'N11 / Hepsiburada Panel Eğitimi & Ürün Yükleme',
+      'Ürün Araştırma ve Satış Stratejisi Desteği',
       "5 Farklı Sektör, 50'den Fazla Kategori",
       'Tedarikçi İlişkileri',
       'Kar Marjı Düzenleme & Finans Eğitimi',
       'Kargo ve Sevkiyat',
-      '24 Saatte Hazır E-Ticaret Sitesi',
+      'Kurulum Planı Dahil Hazır E-Ticaret Sitesi',
       "8.000 + Farklı Hazır Ürün",
       '1 Yıllık Hosting Hizmeti',
-      'Şirket Kurmak Yok, Vergi Yok',
+      'Vergi ve Faturalama Modeli Bilgilendirmesi',
       'Kargo ve Depolama Hizmeti',
       'Dijital Pazarlama Eğitimi (Google, Instagram, Facebook)',
       'Tüm Panel Eğitimlerine Ömür Boyu Ücretsiz Erişim',
@@ -85,3 +85,13 @@ export const EGITIM_STOKSUZ_PACKAGES: EgitimStoksuzPaket[] = [
     ],
   },
 ];
+
+/** Geçici olarak satış ekranlarında gösterilmeyen paketler. PayTR tanımları korunur. */
+export const TEMPORARILY_HIDDEN_EGITIM_PACKAGE_IDS = new Set([
+  'sifir-sermaye',
+  'full-full',
+]);
+
+export const VISIBLE_EGITIM_STOKSUZ_PACKAGES = EGITIM_STOKSUZ_PACKAGES.filter(
+  (pkg) => !TEMPORARILY_HIDDEN_EGITIM_PACKAGE_IDS.has(pkg.id),
+);

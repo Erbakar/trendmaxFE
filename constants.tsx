@@ -14,9 +14,9 @@ export const NAVIGATION_MENU: NavItem[] = [
     path: "/cozumler",
     items: [
       { title: "E-Ticaret Paketleri", path: "/cozumler/paketler", description: "Her ölçekteki işletme için uygun e-ticaret altyapısı.", icon: <ShoppingBag className="w-6 h-6 text-orange-600" /> },
-      { title: "Sıfır Risk E-Ticaret Paketi", path: "/cozumler/sifir-risk", description: "Şirket kurmadan e-ticaret yapın!", icon: <ShieldCheck className="w-6 h-6 text-green-600" /> },
-      { title: "Pazar Yeri Pro Expert", path: "/cozumler/pazar-yeri-pro", description: "Pazaryerlerinde 24 saatte 10.000+ ürün ile satışa başlayın.", icon: <Store className="w-6 h-6 text-orange-600" /> },
-      { title: "E-İhracat", path: "/cozumler/e-ihracat", description: "Satışa hazır ürünler ile Amazon ve Etsy Global'de yerinizi alın.", icon: <Globe className="w-6 h-6 text-green-600" /> },
+      { title: "Sıfır Risk E-Ticaret Paketi", path: "/cozumler/sifir-risk", description: "Stok ve lojistik operasyonunu tedarikçi modeliyle planlayın.", icon: <ShieldCheck className="w-6 h-6 text-green-600" /> },
+      { title: "Pazar Yeri Pro Expert", path: "/cozumler/pazar-yeri-pro", description: "Pazaryeri mağaza, ürün ve entegrasyon kurulumunu birlikte yönetin.", icon: <Store className="w-6 h-6 text-orange-600" /> },
+      { title: "E-İhracat", path: "/cozumler/e-ihracat", description: "Çoklu dil, para birimi ve global satış kanalı çözümleri.", icon: <Globe className="w-6 h-6 text-green-600" /> },
     ]
   },
   {
@@ -33,7 +33,7 @@ export const NAVIGATION_MENU: NavItem[] = [
   },
   {
     title: "E-İhracat",
-    path: "/e-ihracat",
+    path: "/cozumler/e-ihracat",
   },
   {
     title: "Kampüs",

@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Truck, CreditCard, Package, ArrowRight } from 'lucide-react';
+import { Truck, CreditCard, Package, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../components/AnimatedHero';
 import { HERO_IMAGES } from '../data/heroImages';
 import SikcaSorulanSorularGrid from '../components/SikcaSorulanSorularGrid';
 import RevealOnScroll from '../components/RevealOnScroll';
-import { ENTEGRASYON_LOGOS } from '../data/homePage';
+import { ENTEGRASYON_LOGOS, PAZARYERI_DEMO_URL } from '../data/homePage';
 import { ENTEGRASYON_BILGI_SECTIONS } from '../data/entegrasyonlarBilgi';
+import IntegratorPanelPreview from '../components/IntegratorPanelPreview';
 
 const Reveal = RevealOnScroll;
 
@@ -82,7 +83,32 @@ const Entegrasyonlar: React.FC = () => {
         </div>
       </section>
 
-
+      <section id="pazarconnect" className="overflow-hidden bg-slate-950 py-16 text-white lg:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+          <Reveal>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-orange-400">PazarConnect</p>
+              <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">Entegratörün Yeni Nesil Yönetim Paneli</h2>
+              <p className="mt-6 text-lg leading-relaxed text-slate-300">
+                Sekiz pazaryerindeki sipariş, ürün, stok, fiyat, e-arşiv fatura ve kargo süreçlerini tek merkezden yönetin.
+              </p>
+              <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+                {['8 pazaryeri entegrasyonu', 'Anlık stok ve fiyat senkronu', 'Merkezi sipariş yönetimi', 'Kargo ve fatura otomasyonu'].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm font-bold text-slate-200">
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-orange-400" /> {item}
+                  </li>
+                ))}
+              </ul>
+              <a href={PAZARYERI_DEMO_URL} target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex items-center gap-2 rounded-2xl bg-orange-600 px-7 py-4 font-black text-white transition-colors hover:bg-orange-700">
+                Entegratör Demoyu İncele <ArrowRight className="h-5 w-5" />
+              </a>
+            </div>
+          </Reveal>
+          <Reveal delayMs={120}>
+            <IntegratorPanelPreview />
+          </Reveal>
+        </div>
+      </section>
 
       <section className="py-16 lg:py-24 bg-gradient-to-b from-white via-gray-50/80 to-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -223,12 +249,22 @@ const Entegrasyonlar: React.FC = () => {
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Sistemlerinizi Trendmax ile Birleştirin</h2>
-          <Link
-            to="/fiyatlar"
-            className="inline-flex items-center gap-2 bg-white text-orange-600 px-10 py-4 rounded-2xl font-bold hover:bg-orange-50 transition-colors"
-          >
-            Paketleri İncele <ArrowRight className="w-5 h-5" />
-          </Link>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href={PAZARYERI_DEMO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-orange-600 px-10 py-4 rounded-2xl font-bold hover:bg-orange-50 transition-colors"
+            >
+              Entegratör Demoyu İncele <ArrowRight className="w-5 h-5" />
+            </a>
+            <Link
+              to="/fiyatlar"
+              className="inline-flex items-center gap-2 border border-white/30 bg-orange-700 text-white px-10 py-4 rounded-2xl font-bold hover:bg-orange-800 transition-colors"
+            >
+              Paketleri İncele
+            </Link>
+          </div>
         </div>
       </section>
     </div>

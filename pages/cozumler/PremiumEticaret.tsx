@@ -54,7 +54,7 @@ const PremiumEticaret: React.FC = () => {
               'Özel sunucu ve alan adı yönetimi',
               'Sınırsız ürün ve sipariş kapasitesi',
               'Tüm pazaryeri entegrasyonları + özel API',
-              'Öncelikli 7/24 teknik destek',
+              'Öncelikli teknik destek',
               'Özel tema ve UX danışmanlığı',
               'Güvenlik denetimi ve penetrasyon testi',
             ].map((item, i) => (

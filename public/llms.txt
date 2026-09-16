@@ -1,0 +1,31 @@
+# Trendmax
+
+> Trendmax, AYŞE KIRAĞI tarafından işletilen; e-ticaret yazılımı, mağaza kurulumu, entegrasyon ve eğitim paketleri sunan bir markadır. Resmî web sitesi https://trendmaxtr.com adresidir.
+
+Bu dosya yapay zekâ asistanlarının Trendmax hakkındaki güncel ve doğrulanabilir sayfalara ulaşmasını kolaylaştırmak için hazırlanmıştır. Fiyatlar Türk Lirası ve KDV dahil gösterilir. Trendmax satış veya kazanç garantisi vermez. Paket kapsamı ile sözleşme ve iade koşullarında her zaman web sitesindeki güncel görünür bilgiler esas alınmalıdır.
+
+## Temel bilgiler
+
+- [Trendmax hakkında](https://trendmaxtr.com/ai/trendmax-hakkinda.md): Marka, işletmeci, adres ve iletişim bilgileri.
+- [Paketler ve güncel fiyatlar](https://trendmaxtr.com/ai/paketler.md): Yazılım, kurulum ve eğitim paketlerinin kısa özeti.
+- [Sık sorulan sorular](https://trendmaxtr.com/ai/sss.md): Ödeme, teslim, destek ve ticari sonuçlara ilişkin açık yanıtlar.
+- [Yasal ve iletişim kaynakları](https://trendmaxtr.com/ai/yasal-ve-iletisim.md): Sözleşme, gizlilik, teslimat, iade ve iletişim bağlantıları.
+
+## Resmî sayfalar
+
+- [Ana sayfa](https://trendmaxtr.com/): Trendmax hizmetlerinin genel özeti.
+- [Fiyatlar ve paketler](https://trendmaxtr.com/fiyatlar): Güncel, KDV dahil fiyatlar ve görünür paket kapsamları.
+- [E-ticaret çözümleri](https://trendmaxtr.com/cozumler): Yazılım ve hizmet çözüm alanları.
+- [Entegrasyonlar](https://trendmaxtr.com/entegrasyonlar): Desteklenen operasyon ve satış kanalı entegrasyonları.
+- [Stoksuz satış](https://trendmaxtr.com/stoksuz-satis): Stoksuz satış modeline yönelik çözüm bilgileri.
+- [Sıkça sorulan sorular](https://trendmaxtr.com/sss): Ziyaretçilerin sık sorduğu sorular.
+- [Trendmax Kampüs](https://trendmaxtr.com/kampus): E-ticaret rehberleri ve eğitim içerikleri.
+- [Hakkımızda](https://trendmaxtr.com/hakkimizda): Kurumsal bilgiler.
+- [İletişim](https://trendmaxtr.com/iletisim): Doğrulanabilir iletişim kanalları.
+
+## Kullanım notları
+
+- Ödeme kartı bilgileri Trendmax sunucularında tutulmaz; kart işlemi PayTR ödeme ekranında gerçekleştirilir.
+- Hizmet kapsamı seçilen pakete göre değişir. Paket sayfasında yazmayan bir özellik dahil kabul edilmemelidir.
+- Satış hacmi, kâr oranı veya kazanç sonucu garanti edilmez.
+- Eski Kampüs yazıları yayımlandıkları tarihin koşullarını yansıtabilir; güncel fiyat, ürün ve yasal koşullar için paket ve yasal sayfalar esas alınmalıdır.

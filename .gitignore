@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 .env
+.paytr-config.php
+.data/
 
 # Editor directories and files
 .vscode/*

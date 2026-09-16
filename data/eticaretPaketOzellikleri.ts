@@ -24,7 +24,7 @@ export const YAZILIM_PACKAGES: YazilimPaket[] = [
       'Kapıda Ödeme & Havale/EFT Seçenekleri',
       'Google SEO Uyumlu Altyapı',
       'E-Posta Bildirim Sistemi',
-      '7/24 Destek Hizmeti',
+      'Teknik Destek Hizmeti',
       'Manuel ve Excel ile Ürün Yükleme',
       'Tüm Trendmax Paketlerinde %15 İndirim Hakkı',
     ],
@@ -37,7 +37,7 @@ export const YAZILIM_PACKAGES: YazilimPaket[] = [
     features: [
       'Başlangıç paketindeki tüm özellikler dahil',
       'Trendmax Dropshipping (Hazır 15.000 Ürün)',
-      '2 Pazar Yeri Entegrasyonu',
+      '8 Pazar Yeri Entegrasyonu',
       'E-fatura & E-arşiv GİB Entegrasyonu',
       'XML Import / Export Sistemi',
       'Cimri & Akakçe XML Entegrasyonu',

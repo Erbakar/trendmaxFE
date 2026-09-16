@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 import { BLOG_POSTS } from '../data/blogPosts';
+import AnimatedHero from '../components/AnimatedHero';
+import { HERO_IMAGES } from '../data/heroImages';
 
 const formatDate = (dateStr: string) => {
   const date = new Date(dateStr);
@@ -16,33 +18,20 @@ const formatDate = (dateStr: string) => {
 const Kampus: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      {/* Hero */}
-      <section className="bg-slate-900 text-white py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-6 uppercase tracking-widest">
-            <Link to="/" className="hover:text-white transition-colors">
-              Ana Sayfa
-            </Link>
-            <span>/</span>
-            <span className="text-white/60">Kampüs</span>
-          </nav>
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-orange-600/20 text-orange-400 px-4 py-2 rounded-full text-sm font-bold mb-6">
-              <BookOpen className="w-4 h-4" />
-              Blog & Eğitimler
-            </div>
-            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight">
-              Trendmax Kampüs
-            </h1>
-            <p className="text-xl text-slate-300">
-              E-ticaret dünyasından en güncel haberler, ipuçları ve eğitim içerikleri.
-            </p>
-          </div>
-        </div>
-      </section>
+      <AnimatedHero
+        title="Trendmax Kampüs"
+        subtitle="E-ticaret operasyonunuzu geliştirmenize yardımcı olacak rehberler, uygulama önerileri ve eğitim içerikleri."
+        breadcrumb={[{ label: 'Kampüs' }]}
+        icon={BookOpen}
+        badge="Bilgi Merkezi"
+        image={HERO_IMAGES.seo}
+        imagePosition="center"
+        primaryAction={{ label: 'Yardım Merkezine Gidin', to: '/sss' }}
+        secondaryActionLabel="İçerikleri Keşfedin"
+      />
 
       {/* Blog Grid */}
-      <section className="py-16 lg:py-24">
+      <section id="icerik" className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {BLOG_POSTS.map((post) => (

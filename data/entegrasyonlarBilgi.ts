@@ -71,13 +71,13 @@ export const ENTEGRASYON_BILGI_SECTIONS: EntegrasyonBilgiSection[] = [
     icon: Package,
   },
   {
-    id: 'gittigidiyor',
-    name: 'GittiGidiyor',
+    id: 'pttavm',
+    name: 'PttAVM',
     categoryLabel: 'Pazaryeri',
-    logoUrl: '/logos/integrations/gittigidiyor.svg',
+    logoUrl: '/logos/integrations/pttavm.svg',
     paragraphs: [
-      'GittiGidiyor mağazanızla ürün ve sipariş köprüsü kurarak açık artırma ve sabit fiyatlı ilanlarınızı merkezi envanterle ilişkilendirirsiniz.',
-      'Müşteri soruları ve sipariş onayları için zaman kazanırsınız; hata riski azalır ve operasyon ekibiniz tek panelden ilerler.',
+      'PttAVM mağazanızdaki ürün, stok ve fiyat güncellemelerini merkezi envanterinizle ilişkilendirerek manuel işlem yükünü azaltırsınız.',
+      'Sipariş ve sevkiyat adımlarını diğer pazaryeri kanallarıyla aynı panel üzerinden izleyerek operasyon ekibinizin tek veriyle çalışmasını sağlarsınız.',
     ],
     imageUrl:
       'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80',

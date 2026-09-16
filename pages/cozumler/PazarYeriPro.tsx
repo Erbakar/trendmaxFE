@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Store, Package, Zap, Truck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import AnimatedHero from '../../components/AnimatedHero';
 import { HERO_IMAGES } from '../../data/heroImages';
-import { EGITIM_STOKSUZ_PACKAGES } from '../../data/paketlerEgitimStoksuz';
+import { VISIBLE_EGITIM_STOKSUZ_PACKAGES } from '../../data/paketlerEgitimStoksuz';
 import SikcaSorulanSorularGrid from '../../components/SikcaSorulanSorularGrid';
 import RevealOnScroll from '../../components/RevealOnScroll';
 
@@ -14,29 +14,30 @@ const PazarYeriPro: React.FC = () => {
     <div className="pt-20 min-h-screen bg-white">
       <AnimatedHero
         title="Pazar Yeri Pro Expert"
-        subtitle="Pazaryerlerinde 24 saatte 10.000+ ürün ile satışa başlayın. Trendyol, Hepsiburada, N11 ve diğer platformlarda mağazanız anında hazır."
+        subtitle="Trendyol, Hepsiburada, N11 ve diğer destekli kanallarda mağaza kurulumu, ürün yönetimi ve entegrasyon süreçlerini tek planla yönetin."
         breadcrumb={[
           { label: 'E-Ticaret Çözümleri', path: '/cozumler' },
           { label: 'Pazar Yeri Pro Expert' },
         ]}
         icon={Store}
         badge="E-Ticaret Çözümü"
-        image={HERO_IMAGES.ecommerce}
+        image={HERO_IMAGES.digital}
+        imagePosition="center"
       />
 
       {/* Eğitim & Stoksuz E-Ticaret Paketleri — Paketler.tsx ile aynı blok */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section id="icerik" className="py-16 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
               Eğitim & Stoksuz E-Ticaret Paketleri
             </h2>
             <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-              Stoksuz & sermayesiz e-ticaret projemize dahil olun. Şirket kurmadan, depo ve ürün maliyetini düşünmeden satış yapın.
+              Kurulum, eğitim ve stoksuz satış kapsamlarını karşılaştırın; operasyonunuza uygun paketi seçin.
             </p>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {EGITIM_STOKSUZ_PACKAGES.map((pkg) => (
+          <div className={`grid grid-cols-1 gap-8 ${VISIBLE_EGITIM_STOKSUZ_PACKAGES.length === 1 ? 'mx-auto max-w-xl' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
+            {VISIBLE_EGITIM_STOKSUZ_PACKAGES.map((pkg) => (
               <div key={pkg.id}>
                 <Reveal>
                   <div
@@ -66,12 +67,12 @@ const PazarYeriPro: React.FC = () => {
                         <span className="text-gray-500 font-semibold"> TL</span>
                       </div>
                       <p className="text-xs text-gray-400 mb-6">Paket Fiyatlarımıza KDV Dahildir</p>
-                      <button
-                        type="button"
-                        className="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-2xl font-black text-lg transition-all mt-auto"
+                      <Link
+                        to={`/odeme?tip=egitim&paket=${pkg.id}`}
+                        className="mt-auto block w-full rounded-2xl bg-orange-600 py-4 text-center text-lg font-black text-white transition-all hover:bg-orange-700"
                       >
-                        Kayıt Ol
-                      </button>
+                        Satın Al
+                      </Link>
                     </div>
                   </div>
                 </Reveal>
@@ -81,17 +82,17 @@ const PazarYeriPro: React.FC = () => {
         </div>
       </section>
 
-      <section id="icerik" className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">24 Saatte Satışa Hazır</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">Pazaryeri Kurulumundan Operasyona</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Pazar Yeri Pro Expert paketi ile şirket kurulumunuzdan mağaza açılışına, ürün yüklemeden entegratör kurulumuna kadar her adımda yanınızdayız. 10.000+ ürün ile pazaryerlerinde hemen satışa başlayın.
+                Pazar Yeri Pro Expert paketi ile şirket kuruluşu danışmanlığından mağaza açılışına, ürün yükleme eğitiminden entegratör kurulumuna kadar temel adımları birlikte planlarız.
               </p>
               <ul className="space-y-4">
                 {[
-                  'Trendyol, Gittigidiyor, Hepsiburada, N11 ve daha fazlası',
+                  'Trendyol, Hepsiburada, N11, Amazon, PttAVM ve daha fazlası',
                   'Ücretsiz entegratör yazılım kurulumu',
                   'Şirket kuruluşu ve mali müşavir desteği',
                   'Ürün yükleme eğitimi ve panel eğitimleri',
@@ -107,10 +108,10 @@ const PazarYeriPro: React.FC = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-6">Paket İçeriği</h3>
               <div className="space-y-4">
                 {[
-                  { icon: Store, title: '2 Pazar Yeri Mağaza', desc: 'Trendyol + Gittigidiyor veya Hepsiburada.' },
-                  { icon: Package, title: '10.000+ Ürün', desc: 'Hazır ürün kataloğu ile anında liste.' },
+                  { icon: Store, title: 'Pazaryeri Mağaza Kurulumu', desc: 'Trendyol ve seçilen destekli pazaryeri kanalları.' },
+                  { icon: Package, title: 'Hazır Ürün Kataloğu', desc: 'Paket kapsamındaki ürünleri planlı şekilde listeleyin.' },
                   { icon: Zap, title: 'Entegratör', desc: 'Stok ve fiyat senkronizasyonu otomatik.' },
-                  { icon: Truck, title: 'Kargo Entegrasyonu', desc: 'Tüm kargo firmaları ile anlaşmalı.' },
+                  { icon: Truck, title: 'Kargo Entegrasyonu', desc: 'Desteklenen taşıyıcılarla sipariş akışını yönetin.' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-4 rounded-xl bg-gray-50">
                     <item.icon className="w-6 h-6 text-orange-600 flex-shrink-0" />
@@ -133,7 +134,7 @@ const PazarYeriPro: React.FC = () => {
 
       <section className="py-20 bg-orange-600">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Pazaryerlerinde Hemen Yerinizi Alın</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Pazaryeri Operasyonunuzu Planlayın</h2>
           <Link to="/fiyatlar" className="inline-flex items-center gap-2 bg-white text-orange-600 px-10 py-4 rounded-2xl font-bold hover:bg-orange-50 transition-colors">
             Paketleri İncele <ArrowRight className="w-5 h-5" />
           </Link>

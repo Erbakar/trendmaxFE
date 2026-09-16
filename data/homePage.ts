@@ -1,19 +1,34 @@
-/** `public/theme/` — ana sayfa “Mutlu Müşteriler” tema marquee şeridi */
+import { VISIBLE_EGITIM_STOKSUZ_PACKAGES } from './paketlerEgitimStoksuz';
+
+export type ThemeDemo = {
+  slug: string;
+  name: string;
+  portraitImage: string;
+  landscapeImage: string;
+};
+
+export const THEME_DEMOS: ThemeDemo[] = [
+  { slug: 'butik', name: 'Butik', portraitImage: '/theme/butik.png', landscapeImage: '/theme/butik-web.png' },
+  { slug: 'mobilya', name: 'Mobilya', portraitImage: '/theme/mobilya.png', landscapeImage: '/theme/mobilya-web.png' },
+  { slug: 'telefon', name: 'Telefon', portraitImage: '/theme/telefon.png', landscapeImage: '/theme/telefon-web.png' },
+  { slug: 'petshop', name: 'Pet Shop', portraitImage: '/theme/petshop.png', landscapeImage: '/theme/petshop-web.png' },
+  { slug: 'aqua', name: 'Aqua', portraitImage: '/theme/aqua.png', landscapeImage: '/theme/aqua-web.png' },
+  { slug: 'soft', name: 'Soft', portraitImage: '/theme/soft.png', landscapeImage: '/theme/soft-web.png' },
+  { slug: 'default', name: 'Default', portraitImage: '/theme/defaukt.png', landscapeImage: '/theme/default-web.png' },
+];
+
+/** `public/theme/` — ana sayfa “Örnek Siteler” tema marquee şeridi */
 export type HomeThemeMarqueeItem = {
   image: string;
   href: string;
   title: string;
 };
 
-export const THEME_MARQUEE_IMAGES: HomeThemeMarqueeItem[] = [
-  { image: '/theme/butik.png', href: 'https://trendmaxtr.com/butik/', title: 'Butik tema önizlemesi' },
-  { image: '/theme/aqua.png', href: 'https://trendmaxtr.com/aqua/', title: 'Aqua tema önizlemesi' },
-  { image: '/theme/telefon.png', href: 'https://trendmaxtr.com/telefon/', title: 'Telefon tema önizlemesi' },
-  { image: '/theme/mobilya.png', href: 'https://trendmaxtr.com/mobilya/', title: 'Mobilya tema önizlemesi' },
-  { image: '/theme/petshop.png', href: 'https://trendmaxtr.com/petshop/', title: 'Pet shop tema önizlemesi' },
-  { image: '/theme/soft.png', href: 'https://trendmaxtr.com/soft/', title: 'Soft tema önizlemesi' },
-  { image: '/theme/defaukt.png', href: 'https://trendmaxtr.com/default/', title: 'Default tema önizlemesi' },
-];
+export const THEME_MARQUEE_IMAGES: HomeThemeMarqueeItem[] = THEME_DEMOS.map((theme) => ({
+  image: theme.portraitImage,
+  href: `/tema/${theme.slug}`,
+  title: `${theme.name} tema önizlemesi`,
+}));
 
 export type HomeSektorTemaCard = {
   image: string;
@@ -22,23 +37,17 @@ export type HomeSektorTemaCard = {
   title: string;
 };
 
-/** Ana sayfa “Sektörünüze Özel Çözümler” — demo mağazalar (yeni sekmede) */
-export const HOME_SEKTOR_TEMA_CARDS: HomeSektorTemaCard[] = [
-  { image: '/theme/butik-web.png', href: 'https://trendmaxtr.com/butik/', title: 'Butik demo mağazası' },
-  { image: '/theme/mobilya-web.png', href: 'https://trendmaxtr.com/mobilya/', title: 'Mobilya demo mağazası' },
-  { image: '/theme/telefon-web.png', href: 'https://trendmaxtr.com/telefon/', title: 'Telefon demo mağazası' },
-  { image: '/theme/petshop-web.png', href: 'https://trendmaxtr.com/petshop/', title: 'Pet shop demo mağazası' },
-  { image: '/theme/aqua-web.png', href: 'https://trendmaxtr.com/aqua/', title: 'Aqua demo mağazası' },
-  { image: '/theme/soft-web.png', href: 'https://trendmaxtr.com/soft/', title: 'Soft demo mağazası' },
-  { image: '/theme/default-web.png', href: 'https://trendmaxtr.com/default/', title: 'Default demo mağazası' },
-];
+/** Ana sayfa “Sektörünüze Özel Çözümler” — dahili ve hatasız tema önizlemeleri */
+export const HOME_SEKTOR_TEMA_CARDS: HomeSektorTemaCard[] = THEME_DEMOS.map((theme) => ({
+  image: theme.landscapeImage,
+  href: `/tema/${theme.slug}`,
+  title: `${theme.name} demo mağazası`,
+}));
 
-/** Ana sayfa paket özeti - ilk 3 özellik + fiyat */
-export const HOME_PACKAGES = [
-  { title: 'Pazar Yeri Stoksuz E-Ticaret Birebir Eğitim Paketi', price: '12.500', features: ['Şirket Kuruluşu', '2 Pazar Yeri Mağaza Açılışı', '8.000+ Hazır Ürün'], highlight: false },
-  { title: 'Sıfır Sermaye E-Ticaret Sitesi Paketi', price: '18.500', features: ['24 Saatte Hazır E-Ticaret Sitesi', '8.000+ Farklı Hazır Ürün', 'Şirket Kurmak Yok, Vergi Yok'], highlight: true },
-  { title: "Full + Full 2'si Bir Arada Paketi", price: '28.500', features: ['Pazar Yeri + E-Ticaret Sitesi', 'Tüm Eğitimler Dahil', 'Kargo ve Depolama Hizmeti'], highlight: false },
-];
+/** Ana sayfa paket özeti — görünürlük fiyatlar sayfasıyla tek kaynaktan yönetilir. */
+export const HOME_PACKAGES = VISIBLE_EGITIM_STOKSUZ_PACKAGES;
+
+export const PAZARYERI_DEMO_URL = 'https://pazaryeri.trendmaxtr.com/';
 
 /** Ana sayfa entegrasyon şeritleri — görseller `public/logos/integrations/` altında */
 export type HomeIntegrationLogo = {
@@ -52,7 +61,7 @@ export const ENTEGRASYON_LOGOS: HomeIntegrationLogo[] = [
   { name: 'Trendyol', category: 'Pazaryeri', logoUrl: '/logos/integrations/trendyol.svg' },
   { name: 'Hepsiburada', category: 'Pazaryeri', logoUrl: '/logos/integrations/hepsiburada.svg' },
   { name: 'N11', category: 'Pazaryeri', logoUrl: '/logos/integrations/n11.svg' },
-  { name: 'GittiGidiyor', category: 'Pazaryeri', logoUrl: '/logos/integrations/gittigidiyor.svg' },
+  { name: 'PttAVM', category: 'Pazaryeri', logoUrl: '/logos/integrations/pttavm.svg' },
   { name: 'Amazon', category: 'Pazaryeri', logoUrl: '/logos/integrations/amazon.svg' },
   { name: 'Çiçeksepeti', category: 'Pazaryeri', logoUrl: '/logos/integrations/ciceksepeti.svg' },
   { name: 'Aras Kargo', category: 'Kargo', logoUrl: '/logos/integrations/aras.svg' },

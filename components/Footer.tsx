@@ -1,122 +1,154 @@
-
 import React from 'react';
+import { ArrowRight, ChevronDown, Headphones, Mail, MapPin, Phone, ReceiptText, ShieldCheck, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, TrendingUp } from 'lucide-react';
-import { NAVIGATION_MENU } from '../constants';
+import { COMPANY_CONTACT } from '../data/company';
+import { PAZARYERI_DEMO_URL } from '../data/homePage';
 
-const Footer: React.FC = () => {
-  return (
-    <footer className="bg-slate-950 text-white pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
-          {/* Brand Info */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center space-x-2 mb-8">
-              <div className="bg-orange-600 text-white p-1.5 rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6" strokeWidth={3} />
-              </div>
-              <div className="text-2xl font-black tracking-tight flex items-baseline">
-                <span className="text-white">Trend</span>
-                <span className="text-orange-600">max</span>
-              </div>
+type FooterNavLink =
+  | { label: string; to: string; href?: never }
+  | { label: string; href: string; to?: never };
+
+const solutionLinks = [
+  { label: 'E-Ticaret Paketleri', to: '/cozumler/paketler' },
+  { label: 'Pazaryeri Entegrasyonları', to: '/entegrasyonlar' },
+  { label: 'Stoksuz Satış', to: '/stoksuz-satis' },
+  { label: 'E-İhracat', to: '/cozumler/e-ihracat' },
+  { label: 'Premium Çözümler', to: '/premium' },
+];
+
+const resourceLinks: FooterNavLink[] = [
+  { label: 'Fiyatlar ve Paketler', to: '/fiyatlar' },
+  { label: 'Trendmax Kampüs', to: '/kampus' },
+  { label: 'Tema Örnekleri', to: '/referanslar' },
+  { label: 'Mağaza Demoları', to: '/premium/temalar' },
+  { label: 'Entegratör Demo', href: PAZARYERI_DEMO_URL },
+];
+
+const corporateLinks = [
+  { label: 'Hakkımızda', to: '/hakkimizda' },
+  { label: 'İletişim', to: '/iletisim' },
+  { label: 'Sıkça Sorulan Sorular', to: '/sss' },
+  { label: 'KVKK Aydınlatma Metni', to: '/yasal/kvkk-aydinlatma-metni' },
+  { label: 'Gizlilik ve Güvenlik', to: '/yasal/gizlilik-ve-guvenlik' },
+];
+
+const footerColumns = [
+  { title: 'Çözümler', links: solutionLinks },
+  { title: 'Kaynaklar', links: resourceLinks },
+  { title: 'Kurumsal', links: corporateLinks },
+];
+
+const FooterLink: React.FC<{ link: FooterNavLink; className: string }> = ({ link, className }) => (
+  link.href ? (
+    <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>{link.label}</a>
+  ) : (
+    <Link to={link.to} className={className}>{link.label}</Link>
+  )
+);
+
+const Footer: React.FC = () => (
+  <footer className="bg-[#07101f] text-white">
+    <div className="border-b border-white/8 bg-white/[0.025]">
+      <div className="mx-auto grid max-w-7xl grid-cols-3 gap-2 px-4 py-4 sm:px-6 md:gap-px md:py-0 lg:px-8">
+        {[
+          { icon: ShieldCheck, title: 'Güvenli ödeme akışı', text: 'Korunan ve doğrulanan ödeme adımları' },
+          { icon: ReceiptText, title: 'Şeffaf paket kapsamı', text: 'KDV dahil fiyat ve görünür sözleşmeler' },
+          { icon: Headphones, title: 'Kurulum ve destek', text: 'Paket kapsamına uygun uzman desteği' },
+        ].map((item) => (
+          <div key={item.title} className="flex min-w-0 flex-col items-center gap-2 rounded-xl border border-white/8 bg-white/[0.025] px-2 py-3 text-center md:flex-row md:gap-4 md:rounded-none md:border-y-0 md:border-r-0 md:bg-transparent md:px-7 md:py-6 md:text-left md:first:border-l-0">
+            <span className="rounded-lg border border-orange-400/20 bg-orange-500/10 p-2.5 text-orange-400 md:rounded-xl md:p-3"><item.icon className="h-4 w-4 md:h-5 md:w-5" /></span>
+            <div className="min-w-0">
+              <p className="text-[11px] font-black leading-tight text-white sm:text-xs md:text-sm">{item.title}</p>
+              <p className="mt-1 hidden text-xs leading-relaxed text-slate-400 sm:block">{item.text}</p>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-8">
-              Trendmax, Türkiye'nin en modern ve kurumsal e-ticaret çözümlerini sunar. Global standartlarda altyapımızla markanızı dijital dünyanın zirvesine taşıyoruz.
-            </p>
-            <div className="flex space-x-3">
-              {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="p-2.5 bg-slate-900 rounded-xl hover:bg-orange-600 transition-all hover:-translate-y-1">
-                  <Icon className="w-5 h-5" />
-                </a>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div className="mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-6 lg:px-8 lg:pb-8 lg:pt-20">
+      <div className="grid gap-8 border-b border-white/8 pb-10 sm:grid-cols-2 lg:grid-cols-[1.45fr_0.8fr_0.8fr_0.9fr] lg:gap-12 lg:pb-14">
+        <div className="sm:col-span-2 lg:col-span-1">
+          <Link to="/" className="inline-flex items-center gap-3" aria-label="Trendmax ana sayfa">
+            <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-orange-500 to-orange-700 shadow-[0_10px_28px_rgba(234,88,12,0.24)]">
+              <TrendingUp className="h-5 w-5" strokeWidth={3} />
+            </span>
+            <span className="text-2xl font-black tracking-[-0.04em]">Trend<span className="text-orange-500">max</span></span>
+          </Link>
+          <p className="mt-4 max-w-sm text-sm leading-6 text-slate-400 lg:mt-6 lg:leading-7">
+            E-ticaret yazılımı, pazaryeri entegrasyonu, kurulum ve eğitim süreçlerini tek bir çözüm çatısı altında planlıyoruz.
+          </p>
+          <div className="mt-5 rounded-2xl border border-white/8 bg-white/[0.035] p-3.5 lg:mt-6 lg:p-4">
+            <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-500">İşletmeci / Satıcı</p>
+            <p className="mt-2 text-sm font-black text-slate-200">{COMPANY_CONTACT.legalName}</p>
+            <p className="mt-1 text-xs leading-relaxed text-slate-500">{COMPANY_CONTACT.brandName} markası üzerinden hizmet verir.</p>
+          </div>
+        </div>
+
+        <div className="space-y-2 sm:col-span-2 lg:hidden">
+          {footerColumns.map((column) => (
+            <details key={column.title} className="group overflow-hidden rounded-xl border border-white/8 bg-white/[0.025]">
+              <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between px-4 text-sm font-black text-slate-200 [&::-webkit-details-marker]:hidden">
+                {column.title}
+                <ChevronDown className="h-4 w-4 text-orange-400 transition-transform group-open:rotate-180" />
+              </summary>
+              <ul className="border-t border-white/8 px-4 py-2">
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <FooterLink link={link} className="flex min-h-11 items-center border-b border-white/5 text-sm font-medium text-slate-400 transition-colors last:border-b-0 hover:text-orange-400" />
+                  </li>
+                ))}
+              </ul>
+            </details>
+          ))}
+        </div>
+
+        {footerColumns.map((column) => (
+          <div key={column.title} className="hidden lg:block">
+            <h2 className="text-xs font-black uppercase tracking-[0.18em] text-slate-300">{column.title}</h2>
+            <ul className="mt-6 space-y-3.5">
+              {column.links.map((link) => (
+                <li key={link.label}>
+                  <FooterLink link={link} className="flex min-h-11 items-center text-sm font-medium text-slate-500 transition-colors hover:text-orange-400 lg:min-h-0" />
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
+        ))}
+      </div>
 
-          {/* Dynamic Links */}
-          {NAVIGATION_MENU.slice(0, 3).map((menu) => (
-            <div key={menu.title}>
-              <h4 className="font-bold text-lg mb-8 text-white">{menu.title}</h4>
-              <ul className="space-y-4">
-                {menu.items?.length ? (
-                  menu.items.map((item) => (
-                    <li key={item.title}>
-                      <Link to={item.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{item.title}</Link>
-                    </li>
-                  ))
-                ) : (
-                  <li>
-                    <Link to={menu.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{menu.title}</Link>
-                  </li>
-                )}
-              </ul>
-            </div>
-          ))}
-          {/* Kampüs */}
-          {NAVIGATION_MENU.filter((m) => m.title === "Kampüs").map((menu) => (
-            <div key={menu.title}>
-              <h4 className="font-bold text-lg mb-8 text-white">{menu.title}</h4>
-              <ul className="space-y-4">
-                {menu.items?.length ? (
-                  menu.items.map((item) => (
-                    <li key={item.title}>
-                      <Link to={item.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{item.title}</Link>
-                    </li>
-                  ))
-                ) : (
-                  <li>
-                    <Link to={menu.path} className="text-slate-500 hover:text-orange-400 text-sm font-medium transition-colors">{menu.title}</Link>
-                  </li>
-                )}
-              </ul>
-            </div>
-          ))}
+      <div className="grid gap-2 border-b border-white/8 py-6 md:grid-cols-2 md:gap-4 md:py-8 lg:grid-cols-4">
+        <a href={COMPANY_CONTACT.phoneHref} className="group flex min-h-14 items-center gap-3 rounded-xl p-2 transition-colors hover:bg-white/[0.035]">
+          <span className="rounded-lg bg-white/5 p-2.5 text-orange-400"><Phone className="h-4 w-4" /></span>
+          <span><span className="block text-[10px] font-black uppercase tracking-wider text-slate-500">Telefon</span><span className="mt-1 block text-sm font-bold text-slate-200">{COMPANY_CONTACT.phoneDisplay}</span></span>
+        </a>
+        <a href={`mailto:${COMPANY_CONTACT.email}`} className="group flex min-h-14 items-center gap-3 rounded-xl p-2 transition-colors hover:bg-white/[0.035]">
+          <span className="rounded-lg bg-white/5 p-2.5 text-orange-400"><Mail className="h-4 w-4" /></span>
+          <span><span className="block text-[10px] font-black uppercase tracking-wider text-slate-500">E-posta</span><span className="mt-1 block text-sm font-bold text-slate-200">{COMPANY_CONTACT.email}</span></span>
+        </a>
+        <div className="flex items-start gap-3 rounded-xl p-2">
+          <span className="rounded-lg bg-white/5 p-2.5 text-orange-400"><MapPin className="h-4 w-4" /></span>
+          <span><span className="block text-[10px] font-black uppercase tracking-wider text-slate-500">Bursa Ofisi</span><span className="mt-1 block text-xs leading-relaxed text-slate-300">{COMPANY_CONTACT.bursaAddress}</span></span>
         </div>
-
-        {/* Contact Info Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-10 border-t border-slate-900">
-          <div className="flex items-center space-x-4 group cursor-pointer">
-            <div className="p-3 bg-slate-900 rounded-full group-hover:bg-orange-600 transition-colors">
-              <Phone className="w-5 h-5 text-orange-500 group-hover:text-white" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase">Bize Ulaşın</p>
-              <p className="text-sm font-bold">0850 441 55 66</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4 group cursor-pointer">
-            <div className="p-3 bg-slate-900 rounded-full group-hover:bg-orange-600 transition-colors">
-              <Mail className="w-5 h-5 text-orange-500 group-hover:text-white" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase">E-Posta</p>
-              <p className="text-sm font-bold">info@trendmax.com</p>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4 group cursor-pointer">
-            <div className="p-3 bg-slate-900 rounded-full group-hover:bg-orange-600 transition-colors">
-              <MapPin className="w-5 h-5 text-orange-500 group-hover:text-white" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase">Lokasyon</p>
-              <p className="text-sm font-bold">Maslak Tech Plaza, İstanbul</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-10 border-t border-slate-900 text-slate-600 text-xs font-bold gap-6">
-          <p className="text-left">© 2024 Trendmax Bilişim Teknolojileri A.Ş. Tüm Hakları Saklıdır.</p>
-          <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 md:flex md:flex-wrap gap-x-6 gap-y-2 text-left md:text-right">
-            <Link to="/sss" className="hover:text-orange-500">SSS</Link>
-            <Link to="/yasal/kullanim-kosullari" className="hover:text-orange-500">Kullanım Koşulları</Link>
-            <Link to="/yasal/kvkk-aydinlatma-metni" className="hover:text-orange-500">KVKK Aydınlatma Metni</Link>
-            <Link to="/yasal/mesafeli-satis-sozlesmesi" className="hover:text-orange-500">Mesafeli Satış Sözleşmesi</Link>
-            <Link to="/yasal/teslimat-politikasi" className="hover:text-orange-500">Teslimat Politikası</Link>
-            <Link to="/yasal/iade-politikasi" className="hover:text-orange-500">İade Politikası</Link>
-          </div>
+        <div className="flex items-start gap-3 rounded-xl p-2">
+          <span className="rounded-lg bg-white/5 p-2.5 text-orange-400"><MapPin className="h-4 w-4" /></span>
+          <span><span className="block text-[10px] font-black uppercase tracking-wider text-slate-500">London Office</span><span className="mt-1 block text-xs leading-relaxed text-slate-300">{COMPANY_CONTACT.londonAddress}</span></span>
         </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="flex flex-col gap-4 pt-6 text-xs text-slate-500 lg:flex-row lg:items-center lg:justify-between lg:pt-8">
+        <p className="text-center lg:text-left">© 2026 Trendmax. Tüm hakları saklıdır.</p>
+        <div className="grid grid-cols-2 gap-x-4 lg:flex lg:flex-wrap lg:gap-x-5 lg:gap-y-2 lg:pr-36">
+          <Link to="/yasal/kullanim-kosullari" className="inline-flex min-h-11 items-center hover:text-orange-400">Kullanım Koşulları</Link>
+          <Link to="/yasal/on-bilgilendirme-formu" className="inline-flex min-h-11 items-center hover:text-orange-400">Ön Bilgilendirme</Link>
+          <Link to="/yasal/mesafeli-satis-sozlesmesi" className="inline-flex min-h-11 items-center hover:text-orange-400">Mesafeli Satış</Link>
+          <Link to="/yasal/teslimat-politikasi" className="inline-flex min-h-11 items-center hover:text-orange-400">Teslimat</Link>
+          <Link to="/yasal/iade-politikasi" className="inline-flex min-h-11 items-center hover:text-orange-400">İptal ve İade</Link>
+          <Link to="/iletisim" className="inline-flex min-h-11 items-center gap-1 font-bold text-slate-300 hover:text-orange-400">Bize Ulaşın <ArrowRight className="h-3 w-3" /></Link>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

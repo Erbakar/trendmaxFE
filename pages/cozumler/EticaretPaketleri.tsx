@@ -134,12 +134,12 @@ const EticaretPaketleri: React.FC = () => {
                             <span className="font-semibold text-gray-500">TL</span>
                           </div>
                           <p className="mb-6 text-xs text-gray-400">Paket fiyatlarımıza KDV dahildir</p>
-                          <button
-                            type="button"
-                            className="w-full rounded-2xl bg-orange-600 py-4 text-lg font-black text-white transition-all hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-600/25"
+                          <Link
+                            to={`/odeme?tip=yazilim&paket=${pkg.id}`}
+                            className="block w-full rounded-2xl bg-orange-600 py-4 text-center text-lg font-black text-white transition-all hover:bg-orange-700 hover:shadow-lg hover:shadow-orange-600/25"
                           >
-                            Kayıt Ol
-                          </button>
+                            Satın Al
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -205,7 +205,7 @@ const EticaretPaketleri: React.FC = () => {
                   'Başlangıç, Uzman ve Üst Düzey yazılım paketleri',
                   'Trendyol, Hepsiburada ve N11 entegrasyonu (paket kapsamına göre)',
                   'Mobil uyumlu ve SEO dostu altyapı',
-                  '7/24 teknik destek ve güvenlik güncellemeleri',
+                  'Teknik destek ve güvenlik güncellemeleri',
                 ].map((item, i) => (
                   <div key={i}>
                     <Reveal delayMs={i * 60}>

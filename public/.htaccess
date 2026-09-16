@@ -1,0 +1,17 @@
+Options -MultiViews
+
+RewriteEngine On
+
+# Eski URL'nin tekil, güncel adresine yönlendirilmesi.
+RewriteRule ^e-ihracat/?$ /cozumler/e-ihracat [R=301,L]
+
+# Eski demo adresini doğrudan harici Pazar Yeri demosuna taşır.
+RewriteRule ^entegrator-demo/?$ https://pazaryeri.trendmaxtr.com/ [R=302,L]
+
+# API isteklerini SPA yönlendirmesine dahil etmeyin.
+RewriteRule ^api/ - [L]
+
+# Apache üzerinde temiz URL'lerin React uygulamasına ulaşmasını sağlar.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]

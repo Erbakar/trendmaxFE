@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Smartphone, Truck, Search, Palette, ArrowRight, Zap } from 'lucide-react';
 import { HERO_IMAGES } from '../../data/heroImages';
+import AnimatedHero from '../../components/AnimatedHero';
 
 const premiumItems = [
   { title: 'Native Mobil Uygulama', path: '/premium/mobil', desc: 'iOS & Android için yüksek performanslı uygulamalar.', icon: Smartphone },
@@ -13,32 +14,19 @@ const premiumItems = [
 const PremiumLanding: React.FC = () => {
   return (
     <div className="pt-20 min-h-screen bg-white">
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 text-white min-h-[400px] flex items-center">
-        <div className="absolute inset-0 z-0">
-          <img src={HERO_IMAGES.digital} alt="" className="w-full h-full object-cover opacity-40" />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/65 via-slate-900/58 to-slate-900/46 z-[1]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-600/15 via-transparent to-transparent z-[1]" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 w-full">
-          <nav className="flex space-x-2 text-orange-400 text-sm font-bold mb-8 uppercase tracking-widest">
-            <Link to="/" className="hover:text-white transition-colors">Ana Sayfa</Link>
-            <span>/</span>
-            <span className="text-white/60">Premium Çözümler</span>
-          </nav>
-          <div className="inline-flex items-center gap-2 bg-orange-600/20 text-orange-400 px-4 py-2 rounded-full text-sm font-bold mb-8">
-            <Zap className="w-5 h-5" />
-            <span>Kurumsal Çözümler</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
-            Premium Çözümler
-          </h1>
-          <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mb-10">
-            Büyüyen işletmeniz için mobil uygulama, entegrasyon, SEO ve özel tasarım çözümleriyle sınırları zorlayın.
-          </p>
-        </div>
-      </section>
+      <AnimatedHero
+        title="Premium Çözümler"
+        subtitle="Büyüyen işletmeler için mobil uygulama, özel entegrasyon, SEO ve markaya özel tasarım süreçlerini birlikte planlayın."
+        breadcrumb={[{ label: 'Premium Çözümler' }]}
+        icon={Zap}
+        badge="Kurumsal Çözümler"
+        image={HERO_IMAGES.digital}
+        imagePosition="center"
+        primaryAction={{ label: 'Çözüm Görüşmesi', to: '/iletisim' }}
+        secondaryActionLabel="Çözümleri Keşfedin"
+      />
 
-      <section className="py-24 bg-gray-50">
+      <section id="icerik" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 text-center mb-16">
             Çözümlerimizi Keşfedin

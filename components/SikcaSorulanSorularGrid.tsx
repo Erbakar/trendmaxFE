@@ -69,7 +69,7 @@ const SikcaSorulanSorularGrid: React.FC<SikcaSorulanSorularGridProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {(introTitle || introDescription) && (
           <div className={introClassName}>
-            {introTitle && <h2 className="text-4xl font-black text-gray-900 mb-4">{introTitle}</h2>}
+            {introTitle && <h2 className="mb-4 text-3xl font-black text-gray-900 sm:text-4xl">{introTitle}</h2>}
             {introDescription && <p className="text-gray-500">{introDescription}</p>}
           </div>
         )}

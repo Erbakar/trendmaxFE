@@ -67,8 +67,8 @@ export const PAKET_BILGI_SECTIONS: PaketBilgiSection[] = [
     id: 'neden-trendmax',
     title: "Neden Trendmax'ı tercih etmeliyim?",
     paragraphs: [
-      '21 yıllık tecrübemiz ile her bütçeye uygun ve her ölçekte hazır alt yapı sunabiliyoruz. Sektörde hazır ürün alt yapısı ile stoksuz e-ticarete en uygun maliyetle başlamanızı sağlayan tek firmayız.',
-      'Sağladığımız alt yapı ile ek entegrasyon paketine ihtiyaç duymadan tüm Pazar yeri mağazalarınız ile tek tuşla bağlanabilir, stok ve fiyatlarınızı her daim güncel tutabilirsiniz.',
+      'Trendmax; e-ticaret yazılımı, kurulum, eğitim ve entegrasyon süreçlerini tek hizmet çatısı altında planlar. Paket kapsamları ve KDV dahil fiyatlar satın alma öncesinde açıkça gösterilir.',
+      'Desteklenen pazaryeri bağlantıları sayesinde ürün, stok, fiyat ve sipariş süreçlerini merkezi panelden yönetebilirsiniz. Kullanılabilir kanallar seçilen paket ve pazaryerlerinin güncel teknik koşullarına göre belirlenir.',
     ],
     icon: Award,
     imageUrl:
@@ -80,7 +80,7 @@ export const PAKET_BILGI_SECTIONS: PaketBilgiSection[] = [
     id: 'gecis',
     title: "Farklı bir alt yapı ile çalışıyorum, Trendmax'a geçmek için ne yapmalıyım?",
     paragraphs: [
-      'Farklı bir altyapı ile kurulmuş veya özel yazılım kullanılan e-ticaret sitenizi Trendmax altyapısına hızlı ve sorunsuz şekilde taşıyabilirsiniz. Mevcut mağazanızı yeni sisteme aktarmak için bizimle iletişime geçerek site taşıma sürecini kolayca başlatabilirsiniz. Uzman ekibimiz, e-ticaret sitenizin veri kaybı yaşamadan Trendmax platformuna aktarılmasını sağlayarak satışlarınıza kesintisiz devam etmenize yardımcı olur.',
+      'Farklı bir altyapı ile kurulmuş veya özel yazılım kullanılan e-ticaret siteniz için veri, tema ve entegrasyon kapsamı ön incelemeyle belirlenir. Aktarım planı, olası kısıtlar ve tahmini süre proje başlamadan önce yazılı olarak paylaşılır.',
     ],
     icon: Truck,
     imageUrl:
@@ -118,7 +118,7 @@ export const PAKET_BILGI_SECTIONS: PaketBilgiSection[] = [
     id: 'demo',
     title: 'Paket satın almadan önce nasıl inceleyebilirim?',
     paragraphs: [
-      'E-ticaret paketlerini satın almadan önce ücretsiz olarak sunulan demo sürümlerini inceleyerek sistemi yakından tanıyabilirsiniz. Bunun için ilgilendiğiniz paketin altında bulunan “Demoyu İncele” butonuna tıklamanız ve açılan formu doldurmanız yeterlidir. Formu tamamladıktan sonra demo e-ticaret paneline erişebilir ve paketin sunduğu özellikleri detaylı şekilde test edebilirsiniz.',
+      'Paket satın almadan önce tema önizlemelerini ve entegratör örnek ekranını inceleyebilirsiniz. Canlı panel sunumu için iletişim sayfasından ekibimize ulaşarak randevu talep edebilirsiniz.',
     ],
     icon: MonitorPlay,
     imageUrl:
@@ -142,7 +142,7 @@ export const PAKET_BILGI_SECTIONS: PaketBilgiSection[] = [
     id: 'kurulum-destek',
     title: 'Trendmax site kurulumu aşamasında bize yardımcı oluyor mu?',
     paragraphs: [
-      'Trendmax, e-ticaret sitenizin kurulumu sürecinde ve sonrasında kullanıcılarına kapsamlı destek sunar. İhtiyaç duyduğunuz her an ulaşabileceğiniz 7/24 hizmet veren çağrı merkezi ve online destek talep sistemi sayesinde tüm sorularınıza hızlı çözümler bulabilirsiniz. Böylece e-ticaret süreciniz boyunca profesyonel destek alarak sitenizi sorunsuz bir şekilde yönetebilirsiniz.',
+      'Trendmax, e-ticaret sitenizin kurulumu sürecinde ve paket kapsamında teknik destek sunar. Güncel destek kanalları ve iletişim bilgileri sitedeki İletişim sayfasında yayımlanır.',
     ],
     icon: Headphones,
     imageUrl:
