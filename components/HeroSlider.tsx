@@ -51,6 +51,24 @@ const HeroSlider: React.FC = () => {
     return () => clearInterval(timer);
   }, [isPaused, reduceMotion]);
 
+  useEffect(() => {
+    const warmupNextSlide = () => {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      SLIDES.slice(1).forEach((slide) => {
+        const img = new Image();
+        img.src = isMobile ? slide.imageMobile : slide.imageWeb;
+      });
+    };
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(warmupNextSlide, { timeout: 1500 });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = window.setTimeout(warmupNextSlide, 400);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div
       className="relative w-full bg-white"
@@ -105,8 +123,11 @@ const HeroSlider: React.FC = () => {
                   src={slide.imageWeb}
                   alt={slide.imageAlt}
                   className="block h-auto w-full"
-                  loading={index === 0 ? 'eager' : 'lazy'}
-                  fetchPriority={index === 0 ? 'high' : 'low'}
+                  width={1920}
+                  height={760}
+                  loading="eager"
+                  fetchPriority={index === 0 ? 'high' : 'auto'}
+                  decoding="async"
                   draggable={false}
                 />
               </picture>
