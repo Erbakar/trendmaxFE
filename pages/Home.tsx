@@ -150,8 +150,10 @@ const Home: React.FC = () => {
               <div className="text-2xl font-black text-orange-600 mb-2">KDV Dahil</div>
               <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Şeffaf Fiyatlar</div>
             </div>
-            <div>
-              <div className="text-2xl font-black text-orange-600 mb-2">PayTR</div>
+            <div className="flex flex-col items-center">
+              <div className="mb-3 inline-flex rounded-xl bg-[#07101f] px-4 py-2">
+                <img src="/logos/paytr-white.png" alt="PayTR" className="h-4 w-auto" width={80} height={16} />
+              </div>
               <div className="text-sm font-semibold text-gray-500 uppercase tracking-wide">Güvenli Ödeme</div>
             </div>
             <div>

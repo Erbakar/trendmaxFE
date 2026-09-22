@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ArrowDown, CheckCircle2, LockKeyhole, ShieldCheck } from 'lucide-react';
 import { COMPANY_CONTACT } from '../data/company';
+import PaytrSecureBadge from '../components/PaytrSecureBadge';
 import { findPaytrProduct } from '../shared/paytrProducts';
 
 type PaytrTokenResponse = {
@@ -170,13 +171,18 @@ const Odeme: React.FC = () => {
         </section>
 
         <section className="h-fit rounded-3xl border border-gray-200 bg-white p-5 shadow-sm sm:p-8">
-          <div className="mb-6 flex items-center gap-3">
-            <span className="rounded-2xl bg-emerald-50 p-3 text-emerald-600">
-              <ShieldCheck className="h-7 w-7" />
-            </span>
-            <div>
-              <h1 className="text-2xl font-black text-gray-900 sm:text-3xl">Güvenli Ödeme</h1>
-              <p className="mt-1 text-sm text-gray-500">Kart bilgileriniz yalnızca PayTR ekranında işlenir.</p>
+          <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3">
+              <span className="rounded-2xl bg-emerald-50 p-3 text-emerald-600">
+                <ShieldCheck className="h-7 w-7" />
+              </span>
+              <div>
+                <h1 className="text-2xl font-black text-gray-900 sm:text-3xl">Güvenli Ödeme</h1>
+                <p className="mt-1 text-sm text-gray-500">Kart bilgileriniz yalnızca PayTR ekranında işlenir.</p>
+              </div>
+            </div>
+            <div className="inline-flex w-fit rounded-xl bg-[#07101f] px-4 py-2.5 text-white">
+              <PaytrSecureBadge />
             </div>
           </div>
 
@@ -401,9 +407,12 @@ const Odeme: React.FC = () => {
                 />
               </div>
 
-              <div className="flex items-center justify-center gap-2 rounded-xl bg-gray-50 px-4 py-3 text-center text-xs font-semibold text-gray-500">
-                <LockKeyhole className="h-4 w-4 shrink-0 text-emerald-600" />
-                Kart bilgileriniz Trendmax tarafından görülmez veya saklanmaz.
+              <div className="flex flex-col items-center justify-center gap-3 rounded-xl bg-[#07101f] px-4 py-4 text-center text-xs font-semibold text-slate-300 sm:flex-row sm:gap-4">
+                <PaytrSecureBadge className="text-white" />
+                <span className="inline-flex items-center gap-2">
+                  <LockKeyhole className="h-4 w-4 shrink-0 text-emerald-400" />
+                  Kart bilgileriniz Trendmax tarafından görülmez veya saklanmaz.
+                </span>
               </div>
             </div>
           )}

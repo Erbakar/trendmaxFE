@@ -136,7 +136,7 @@ const HeroSlider: React.FC = () => {
         ))}
       </div>
 
-      <div className="absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/25 p-1 backdrop-blur-md sm:bottom-4">
+      <div className="absolute bottom-[3px] left-1/2 z-20 flex h-5 -translate-x-1/2 items-center rounded-full border border-white/10 bg-black/25 px-1 backdrop-blur-md sm:bottom-4 sm:h-auto sm:p-1">
         {SLIDES.map((_, index) => (
           <button
             key={index}
@@ -147,7 +147,7 @@ const HeroSlider: React.FC = () => {
             }}
             aria-label={`Slayt ${index + 1}`}
             aria-current={index === safeCurrent ? 'true' : undefined}
-            className="group flex h-11 w-11 items-center justify-center rounded-full"
+            className="group flex h-full w-8 items-center justify-center rounded-full sm:h-11 sm:w-11"
           >
             <span className={`h-2 rounded-full transition-all duration-300 ${
               index === safeCurrent ? 'w-7 bg-white shadow-sm' : 'w-2 bg-white/40 group-hover:bg-white/60'

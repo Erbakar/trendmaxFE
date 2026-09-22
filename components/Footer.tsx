@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown, Headphones, Mail, MapPin, Phone, ReceiptText, 
 import { Link } from 'react-router-dom';
 import { COMPANY_CONTACT } from '../data/company';
 import { PAZARYERI_DEMO_URL } from '../data/homePage';
+import PaytrSecureBadge from './PaytrSecureBadge';
 
 type FooterNavLink =
   | { label: string; to: string; href?: never }
@@ -51,7 +52,7 @@ const Footer: React.FC = () => (
     <div className="border-b border-white/8 bg-white/[0.025]">
       <div className="mx-auto grid max-w-7xl grid-cols-3 gap-2 px-4 py-4 sm:px-6 md:gap-px md:py-0 lg:px-8">
         {[
-          { icon: ShieldCheck, title: 'Güvenli ödeme akışı', text: 'Korunan ve doğrulanan ödeme adımları' },
+          { icon: ShieldCheck, title: 'PayTR güvenli ödeme', text: 'Kart bilgileri PayTR altyapısında işlenir' },
           { icon: ReceiptText, title: 'Şeffaf paket kapsamı', text: 'KDV dahil fiyat ve görünür sözleşmeler' },
           { icon: Headphones, title: 'Kurulum ve destek', text: 'Paket kapsamına uygun uzman desteği' },
         ].map((item) => (
@@ -138,7 +139,8 @@ const Footer: React.FC = () => (
 
       <div className="flex flex-col gap-4 pt-6 text-xs text-slate-500 lg:flex-row lg:items-center lg:justify-between lg:pt-8">
         <p className="text-center lg:text-left">© 2026 Trendmax. Tüm hakları saklıdır.</p>
-        <div className="grid grid-cols-2 gap-x-4 lg:flex lg:flex-wrap lg:gap-x-5 lg:gap-y-2 lg:pr-36">
+        <PaytrSecureBadge className="justify-center text-white" />
+        <div className="grid grid-cols-2 gap-x-4 lg:flex lg:flex-wrap lg:gap-x-5 lg:gap-y-2">
           <Link to="/yasal/kullanim-kosullari" className="inline-flex min-h-11 items-center hover:text-orange-400">Kullanım Koşulları</Link>
           <Link to="/yasal/on-bilgilendirme-formu" className="inline-flex min-h-11 items-center hover:text-orange-400">Ön Bilgilendirme</Link>
           <Link to="/yasal/mesafeli-satis-sozlesmesi" className="inline-flex min-h-11 items-center hover:text-orange-400">Mesafeli Satış</Link>
