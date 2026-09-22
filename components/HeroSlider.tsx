@@ -65,8 +65,8 @@ const HeroSlider: React.FC = () => {
       return () => window.cancelIdleCallback(idleId);
     }
 
-    const timeoutId = window.setTimeout(warmupNextSlide, 400);
-    return () => window.clearTimeout(timeoutId);
+    const timeoutId = globalThis.setTimeout(warmupNextSlide, 400);
+    return () => globalThis.clearTimeout(timeoutId);
   }, []);
 
   return (
