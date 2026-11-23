@@ -4,7 +4,7 @@ Yasal işletmeci AYŞE KIRAĞI, marka Trendmax'tır. Resmî iletişim bilgileri 
 
 ## İletişim
 
-- Telefon: 0850 309 84 19
+- Telefon: 0532 390 86 18
 - E-posta: info@trendmaxtr.com
 - Bursa adresi: Konak Mah. Lefkoşe Cad. Barış Sok. Ofis + Plaza Nilüfer, Bursa
 

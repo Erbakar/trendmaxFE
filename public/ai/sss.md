@@ -26,4 +26,4 @@ Gereklilik iş modeline ve satış kanalına göre değişir. Pazaryerlerinde ti
 
 ## Destek kanalları nelerdir?
 
-Telefon 0850 309 84 19, e-posta info@trendmaxtr.com ve https://trendmaxtr.com/iletisim sayfasındaki kanallar kullanılabilir.
+Telefon 0532 390 86 18, e-posta info@trendmaxtr.com ve https://trendmaxtr.com/iletisim sayfasındaki kanallar kullanılabilir.

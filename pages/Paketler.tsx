@@ -33,7 +33,7 @@ const COMPARISON_FEATURES = [
   { name: 'Kar Marjı Düzenleme & Finans Eğitimi', pazaryeri: true, sifirSermaye: false, fullFull: true },
   { name: 'Kargo ve Sevkiyat', pazaryeri: true, sifirSermaye: true, fullFull: true },
   { name: 'Kurulum Planı Dahil Hazır E-Ticaret Sitesi', pazaryeri: false, sifirSermaye: true, fullFull: true },
-  { name: "8.000 + Farklı Hazır Ürün", pazaryeri: true, sifirSermaye: true, fullFull: true },
+  { name: "30.000 + Farklı Hazır Ürün", pazaryeri: true, sifirSermaye: true, fullFull: true },
   { name: 'Hazır Ödeme Alt Yapısı', pazaryeri: false, sifirSermaye: true, fullFull: true },
   { name: '1 Yıllık Hosting Hizmeti', pazaryeri: false, sifirSermaye: true, fullFull: true },
   { name: 'Vergi ve Faturalama Modeli Bilgilendirmesi', pazaryeri: false, sifirSermaye: true, fullFull: true },
@@ -376,11 +376,11 @@ const Paketler: React.FC = () => {
             Paket kapsamlarını birlikte değerlendirelim; iş modelinize uygun yazılım, kurulum ve eğitim seçeneklerini netleştirelim.
           </p>
           <a
-            href="tel:08503098419"
+            href="tel:+905323908618"
             className="inline-flex min-h-14 w-full items-center justify-center gap-3 rounded-2xl bg-white px-6 py-4 text-base font-black text-orange-600 shadow-xl transition-all hover:bg-orange-50 sm:w-auto sm:px-10 sm:text-lg"
           >
             <Phone className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
-            <span>Danışmanla Görüşün · 0850 309 84 19</span>
+            <span>Danışmanla Görüşün · 0532 390 86 18</span>
           </a>
           </Reveal>
         </div>

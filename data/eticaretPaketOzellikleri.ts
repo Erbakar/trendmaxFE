@@ -36,7 +36,7 @@ export const YAZILIM_PACKAGES: YazilimPaket[] = [
     highlight: true,
     features: [
       'Başlangıç paketindeki tüm özellikler dahil',
-      'Trendmax Dropshipping (Hazır 15.000 Ürün)',
+      'Trendmax Dropshipping (Hazır 30.000 Ürün)',
       '8 Pazar Yeri Entegrasyonu',
       'E-fatura & E-arşiv GİB Entegrasyonu',
       'XML Import / Export Sistemi',
@@ -46,7 +46,7 @@ export const YAZILIM_PACKAGES: YazilimPaket[] = [
       'Sınırsız Ürün Varyantları',
       'Favorilere Ekleme Özelliği',
       'Toplu Ürün Güncelleme Modülü',
-      '15.000 Ürün ve Kategori Girişi',
+      '30.000 Ürün ve Kategori Girişi',
       '9 Farklı Entegrasyon',
       'Tüm Trendmax Paketlerinde %15 İndirim Hakkı',
     ],
@@ -59,7 +59,7 @@ export const YAZILIM_PACKAGES: YazilimPaket[] = [
     features: [
       'Uzman paketindeki tüm özellikler dahil',
       'Çift Taraflı Pazar Yeri Entegrasyonu',
-      'Dropshipping 15.000 Ürün + 2 XML Ürün Kaynağı',
+      'Dropshipping 30.000 Ürün + 2 XML Ürün Kaynağı',
       'Trendmax AI (Yapay Zeka Araçları)',
       '20 Adet E-Posta Hesabı',
       '10 GB Depolama Alanı',

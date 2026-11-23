@@ -1,9 +1,9 @@
 export const HERO_IMAGES = {
   /** Ana sayfa hero — public/slider-images */
-  homesliderWeb1: '/slider-images/web1.jpg?v=4',
-  homesliderWeb2: '/slider-images/web2.jpg?v=4',
-  homesliderMobile1: '/slider-images/mobil1.jpg?v=4',
-  homesliderMobile2: '/slider-images/mobil2.jpg?v=4',
+  homesliderWeb1: '/slider-images/web1.jpg?v=5',
+  homesliderWeb2: '/slider-images/web2.jpg?v=5',
+  homesliderMobile1: '/slider-images/mobil1.jpg?v=5',
+  homesliderMobile2: '/slider-images/mobil2.jpg?v=5',
   export: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1600&q=80',
   mobile: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80',
   ecommerce: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80',

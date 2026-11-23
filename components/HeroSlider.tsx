@@ -7,7 +7,7 @@ const SLIDES = [
   {
     imageWeb: HERO_IMAGES.homesliderWeb1,
     imageMobile: HERO_IMAGES.homesliderMobile1,
-    imageAlt: 'Stok olmadan 10.000+ ürünle satışa başlayın',
+    imageAlt: 'Stok olmadan 30.000+ ürünle satışa başlayın',
   },
   {
     imageWeb: HERO_IMAGES.homesliderWeb2,

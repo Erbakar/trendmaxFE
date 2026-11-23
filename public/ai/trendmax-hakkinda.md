@@ -7,7 +7,7 @@ Trendmax, e-ticaret yazılımı, mağaza kurulumu, entegrasyon ve eğitim hizmet
 - Marka adı: Trendmax
 - Yasal işletmeci: AYŞE KIRAĞI
 - Resmî alan adı: https://trendmaxtr.com/
-- Telefon: 0850 309 84 19
+- Telefon: 0532 390 86 18
 - E-posta: info@trendmaxtr.com
 - Bursa adresi: Konak Mah. Lefkoşe Cad. Barış Sok. Ofis + Plaza Nilüfer, Bursa
 - Birleşik Krallık adresi: 71-75 Shelton Street, Covent Garden, London, United Kingdom WC2H 9JQ
